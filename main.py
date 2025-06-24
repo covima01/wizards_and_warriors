@@ -40,6 +40,7 @@ def main():
                     if Cloud.health <= 0:
                         return
                 elif attack == 2:
+                    print("======================================================================================================")
                     print("Gandalf missed")
         # Playing as Cloud
         elif selection == "2":
@@ -54,6 +55,7 @@ def main():
                 elif attack == 1:
                     Cloud.heavy_swing(Gandalf)
                 elif attack == 2:
+                    print("======================================================================================================")
                     print("Cloud missed")
                 
 
