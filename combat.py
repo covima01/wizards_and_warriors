@@ -4,6 +4,7 @@ from constants import BOLD, END
 from characters import Gandalf, Cloud
 
 
+
 def combat(player, enemy):
     if player == Gandalf:
         while enemy.health > 0:
@@ -16,6 +17,7 @@ def combat(player, enemy):
                 attack = random.randint(0,8)
                 if attack <= 7:
                     player.cast_fireball(enemy)
+                    enemy.warrior_counterattack(player)
                 else:
                     print("======================================================================================================")
                     print(f"\n{BOLD}{player.name}{END} missed")
@@ -23,13 +25,15 @@ def combat(player, enemy):
             elif selection == "2":
                 attack = random.randint(0,8)
                 if attack <= 7:
-                    player.cast_lightning(enemy)   
+                    player.cast_lightning(enemy)
+                    enemy.warrior_counterattack(player)   
                 else:
                     print("======================================================================================================")
                     print(f"\n{BOLD}{player.name}{END} missed")
                     print("======================================================================================================\n")
             elif selection == "3":
                 player.healing_wave()
+                enemy.warrior_counterattack(player)
         else:
             return
     elif player == Cloud:
@@ -43,6 +47,7 @@ def combat(player, enemy):
                 attack = random.randint(0,8)
                 if attack <= 7:
                     player.light_swing(enemy)
+                    enemy.wizard_counterattack(player)
                 else:
                     print("======================================================================================================")
                     print(f"\n{BOLD}{player.name}{END} missed")
@@ -51,11 +56,13 @@ def combat(player, enemy):
                 attack = random.randint(0,8)
                 if attack <= 7:
                     player.heavy_swing(enemy)
+                    enemy.wizard_counterattack(player)
                 else:
                     print("======================================================================================================")
                     print(f"\n{BOLD}{player.name}{END} missed")
                     print("======================================================================================================\n")
             elif selection == "3":
                 player.meditate()
+                enemy.wizard_counterattack(player)
             
 

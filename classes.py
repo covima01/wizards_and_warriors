@@ -46,6 +46,15 @@ class Wizard: # Gandalf = Wizard("Gandalf", 100, 20, 20)
         print(f"{BOLD}{self.name}{END} now has {self.health} health.")
         print("======================================================================================================\n")
 
+    def wizard_counterattack(self, target):
+        counterattacks = [self.cast_fireball, self.cast_lightning, self.healing_wave]
+        chosen_counter = random.choice(counterattacks)
+        if chosen_counter == self.healing_wave:
+            chosen_counter()
+        else:
+            chosen_counter(target)
+
+
 
 class Warrior: # Cloud = Fighter("Cloud", 125, 20, 20)
     def __init__(self, name, health, strength, rage):
@@ -91,3 +100,11 @@ class Warrior: # Cloud = Fighter("Cloud", 125, 20, 20)
         print("======================================================================================================\n\n")
         print(f"{BOLD}{self.name}{END} now has {self.health} health.")
         print("======================================================================================================\n")
+
+    def warrior_counterattack(self, target):
+        counterattacks = [self.light_swing, self.heavy_swing, self.meditate]
+        chosen_counter = random.choice(counterattacks)
+        if chosen_counter == self.meditate:
+            chosen_counter()
+        else:
+            chosen_counter(target)
