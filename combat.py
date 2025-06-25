@@ -23,6 +23,8 @@ def combat(player, enemy):
                     print("======================================================================================================")
                     print(f"\n{BOLD}{player.name}{END} missed")
                     print("======================================================================================================\n")
+                    if enemy.health > 0:
+                        enemy.warrior_counterattack(player)
             elif selection == "2":
                 attack = random.randint(0,8)
                 if attack <= 7:
@@ -33,6 +35,8 @@ def combat(player, enemy):
                     print("======================================================================================================")
                     print(f"\n{BOLD}{player.name}{END} missed")
                     print("======================================================================================================\n")
+                    if enemy.health > 0:
+                        enemy.warrior_counterattack(player)
             elif selection == "3":
                 player.healing_wave()
                 if enemy.health > 0:
@@ -56,6 +60,8 @@ def combat(player, enemy):
                     print("======================================================================================================")
                     print(f"\n{BOLD}{player.name}{END} missed")
                     print("======================================================================================================\n")
+                    if enemy.health > 0:
+                        enemy.wizard_counterattack(player)
             elif selection == "2":
                 attack = random.randint(0,8)
                 if attack <= 7:
@@ -66,6 +72,8 @@ def combat(player, enemy):
                     print("======================================================================================================")
                     print(f"\n{BOLD}{player.name}{END} missed")
                     print("======================================================================================================\n")
+                    if enemy.health > 0:
+                        enemy.wizard_counterattack(player)
             elif selection == "3":
                 player.meditate()
                 if enemy.health > 0:

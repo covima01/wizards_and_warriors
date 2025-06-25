@@ -13,12 +13,12 @@ class Wizard:
         target.health -= damage
         print("\n======================================================================================================")
         print(f"\n{BOLD}{self.name}{END} casts fireball dealing {damage} damage.")
-        print("======================================================================================================\n")
+        print("======================================================================================================")
         if target.health <= 0:
             print(f"{target.name} has perished in battle.\n\n{BOLD}{self.name}{END} is victorious!\n")
             return
         else:
-            print(f"{target.name}'s health is now {target.health}.")
+            print(f"                                                        {target.name}'s health is now {target.health}.")
             print("======================================================================================================")
             return
         
@@ -28,12 +28,12 @@ class Wizard:
         target.health -= damage
         print("\n======================================================================================================")
         print(f"\n{BOLD}{self.name}{END} casts lightning dealing {damage} damage.")
-        print("======================================================================================================\n")
+        print("======================================================================================================")
         if target.health <= 0:
             print(f"{target.name} has perished in battle.\n\n{BOLD}{self.name}{END} is victorious!\n")
             return
         else:
-            print(f"{target.name}'s health is now {target.health}.")
+            print(f"                                                        {target.name}'s health is now {target.health}.")
             print("======================================================================================================")
             return
 
@@ -42,8 +42,8 @@ class Wizard:
         self.health += healing_amount
         print("\n======================================================================================================")
         print(f"\n{BOLD}{self.name}{END} casts healing wave, healing himself for {healing_amount}")
-        print("======================================================================================================\n")
-        print(f"{BOLD}{self.name}{END} now has {self.health} health.")
+        print("======================================================================================================")
+        print(f"                                                    {BOLD}{self.name}{END} now has {self.health} health.")
         print("======================================================================================================")
 
     def wizard_counterattack(self, target):
@@ -68,12 +68,12 @@ class Warrior:
         target.health -= damage
         print("\n======================================================================================================")
         print(f"\n{BOLD}{self.name}{END}'s light swing deals {damage} damage.")
-        print("======================================================================================================\n")
+        print("======================================================================================================")
         if target.health <= 0:
             print(f"{target.name} has perished in battle.\n\n{BOLD}{self.name}{END} is victorious!\n")
             return
         else:
-            print(f"{target.name}'s health is now {target.health}.")
+            print(f"                                                        {target.name}'s health is now {target.health}.")
             print("======================================================================================================")
             return
         
@@ -83,12 +83,12 @@ class Warrior:
         target.health -= damage
         print("\n======================================================================================================")
         print(f"\n{BOLD}{self.name}{END}'s heavy swing deals {damage} damage.")
-        print("======================================================================================================\n")
+        print("======================================================================================================")
         if target.health <= 0:
             print(f"{target.name} has perished in battle.\n\n{BOLD}{self.name}{END} is victorious!\n")
             return
         else:
-            print(f"{target.name}'s health is now {target.health}.")
+            print(f"                                                        {target.name}'s health is now {target.health}.")
             print("======================================================================================================")
             return
 
@@ -97,8 +97,8 @@ class Warrior:
         self.health += healing_amount
         print("\n======================================================================================================")
         print(f"\n{BOLD}{self.name}{END} meditates, healing himself for {healing_amount}")
-        print("======================================================================================================\n")
-        print(f"{BOLD}{self.name}{END} now has {self.health} health.")
+        print("======================================================================================================")
+        print(f"                                                    {BOLD}{self.name}{END} now has {self.health} health.")
         print("======================================================================================================")
 
     def warrior_counterattack(self, target):
