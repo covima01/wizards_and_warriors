@@ -5,7 +5,7 @@ from characters import *
 
 
 def main():
-    print("Asking for input")
+    
     selection = input("Choose your character: 1 = Gandalf, 2 = Cloud\n")
     while selection != "1" and selection != "2":
         print("Unrecognized selection. Please choose 1 for Gandalf or 2 for Cloud\n")
