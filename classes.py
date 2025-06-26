@@ -1,5 +1,6 @@
 import random
 from constants import BOLD, END
+border = "=" * 70
 
 class Wizard: 
     def __init__(self, name, health, intelligence, wisdom):
@@ -9,52 +10,51 @@ class Wizard:
         self.wisdom = wisdom
 
     def cast_fireball(self, target):
-        damage = int(round(self.intelligence + (self.wisdom * (random.uniform(0.5, 0.75)))))
+        damage = int(round(self.intelligence + (self.wisdom * (random.uniform(1.0, 2.0)))))
         target.health -= damage
-        print("\n======================================================================================================")
-        print(f"\n{BOLD}{self.name}{END} casts fireball dealing {damage} damage.")
-        print("======================================================================================================")
         if target.health <= 0:
-            print(f"{target.name} has perished in battle.\n\n{BOLD}{self.name}{END} is victorious!\n")
+            print("\n======================================================================")
+            print(f"\n{self.name} casts fireball dealing {damage} damage.")
+            print("======================================================================")
+            print(f"{self.name} is victorious, {target.name} has perished in battle.\n".rjust(50))
             return
         else:
-            print(f"                                                        {target.name}'s health is now {target.health}.")
-            print("======================================================================================================")
+            print(border)
+            print(f"{self.name} casts fireball dealing {damage} damage. {target.name}'s health is now {target.health}.".center(70))
+            print(border)
             return
         
 
     def cast_lightning(self, target):
-        damage = int(round(self.intelligence + (self.wisdom * (random.uniform(0.75, 1.25)))))
+        damage = int(round(self.intelligence + (self.wisdom * (random.uniform(2.0, 3.0)))))
         target.health -= damage
-        print("\n======================================================================================================")
-        print(f"\n{BOLD}{self.name}{END} casts lightning dealing {damage} damage.")
-        print("======================================================================================================")
         if target.health <= 0:
-            print(f"{target.name} has perished in battle.\n\n{BOLD}{self.name}{END} is victorious!\n")
+            print("\n======================================================================")
+            print(f"\n{self.name} casts lightning dealing {damage} damage.")
+            print("\n======================================================================")
+            print(f"{self.name} is victorious, {target.name} has perished in battle.".center(70))
             return
         else:
-            print(f"                                                        {target.name}'s health is now {target.health}.")
-            print("======================================================================================================")
+            print(border)
+            print(f"{self.name} casts lightning dealing {damage} damage. {target.name}'s health is now {target.health}.".center(70))
+            print(border)
             return
 
     def healing_wave(self):
-        healing_amount = int(round(self.intelligence + (self.wisdom * (random.uniform(0.4, 0.7)))))
+        healing_amount = int(round(self.intelligence + (self.wisdom * (random.uniform(1.0, 1.3)))))
         self.health += healing_amount
-        print("\n======================================================================================================")
-        print(f"\n{BOLD}{self.name}{END} casts healing wave, healing himself for {healing_amount}")
-        print("======================================================================================================")
-        print(f"                                                    {BOLD}{self.name}{END} now has {self.health} health.")
-        print("======================================================================================================")
+        print(border)
+        print(f"{self.name} casts healing wave on himself for {healing_amount}. He now has {self.health} health.".center(70))
+        print(border)
 
     def wizard_counterattack(self, target):
             counterattacks = [self.cast_fireball, self.cast_lightning, self.healing_wave]
             chosen_counter = random.choice(counterattacks)
             if chosen_counter == self.healing_wave:
                 chosen_counter()
+                return
             else:
                 chosen_counter(target)
-
-
 
 class Warrior:
     def __init__(self, name, health, strength, rage):
@@ -64,42 +64,41 @@ class Warrior:
         self.rage = rage
 
     def light_swing(self, target):
-        damage = int(round(self.strength + (self.rage * (random.uniform(0.5, .75)))))
+        damage = int(round(self.strength + (self.rage * (random.uniform(0.5, 1.0)))))
         target.health -= damage
-        print("\n======================================================================================================")
-        print(f"\n{BOLD}{self.name}{END}'s light swing deals {damage} damage.")
-        print("======================================================================================================")
         if target.health <= 0:
-            print(f"{target.name} has perished in battle.\n\n{BOLD}{self.name}{END} is victorious!\n")
+            print("\n======================================================================")
+            print(f"\n{self.name}'s light swing deals {damage} damage.")
+            print("======================================================================")
+            print(f"{self.name} is victorious, {target.name} has perished in battle.\n".center(70))
             return
         else:
-            print(f"                                                        {target.name}'s health is now {target.health}.")
-            print("======================================================================================================")
+            print(border)
+            print(f"{self.name}'s light swing deals {damage} damage. {target.name}'s health is now {target.health}.".center(70))
+            print(border)
             return
         
 
     def heavy_swing(self, target):
-        damage = int(round(self.strength + (self.rage * random.uniform(.75, 1.25))))
-        target.health -= damage
-        print("\n======================================================================================================")
-        print(f"\n{BOLD}{self.name}{END}'s heavy swing deals {damage} damage.")
-        print("======================================================================================================")
+        damage = int(round(self.strength + (self.rage * random.uniform(1.0, 2.0))))
         if target.health <= 0:
-            print(f"{target.name} has perished in battle.\n\n{BOLD}{self.name}{END} is victorious!\n")
+            print("\n======================================================================")
+            print(f"\n{self.name}'s heavy swing deals {damage} damage.")
+            print("======================================================================")
+            print(f"{self.name} is victorious, {target.name} has perished in battle.\n".center(70))
             return
         else:
-            print(f"                                                        {target.name}'s health is now {target.health}.")
-            print("======================================================================================================")
+            print(border)
+            print(f"{self.name}'s heavy swing deals {damage} damage. {target.name}'s health is now {target.health}.".center(70))
+            print(border)
             return
 
     def meditate(self):
         healing_amount = int(round(self.strength + (self.rage * (random.uniform(0.4, 0.7)))))
         self.health += healing_amount
-        print("\n======================================================================================================")
-        print(f"\n{BOLD}{self.name}{END} meditates, healing himself for {healing_amount}")
-        print("======================================================================================================")
-        print(f"                                                    {BOLD}{self.name}{END} now has {self.health} health.")
-        print("======================================================================================================")
+        print(border)
+        print(f"{self.name} meditates, healing himself for {healing_amount}. He now has {self.health} health.".center(70))
+        print(border)
 
     def warrior_counterattack(self, target):
             counterattacks = [self.light_swing, self.heavy_swing, self.meditate]
