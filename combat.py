@@ -10,7 +10,7 @@ def combat(player, enemy):
     if player == Gandalf:
         while enemy.health > 0 and player.health > 0:
             time.sleep(0.5)
-            print(f"{player.name} has {player.health} health -- {enemy.name} has {enemy.health} health".center(70))
+            print(f"{player.name}-- Health: {player.health} , Mana: {player.mana} // {enemy.name}-- Health: {enemy.health} , Endurance: {enemy.endurance}".center(70))
             print(f"What will {player.name} do?".center(70))
             selection = input(f"\n1) Cast Fireball - deals moderate fire damage.\n2) Cast Lightning - deals heavy lightning damage.\n3) Healing Wave = moderately replenishes your health.\n")
             while selection != "1" and selection != "2" and selection != "3":
@@ -49,7 +49,9 @@ def combat(player, enemy):
     elif player == Cloud:
         while enemy.health > 0 and player.health > 0:
             time.sleep(0.5)
-            selection = input(f"Which action will {player.name} take?  {player.name} has {player.health} health. {enemy.name} has {enemy.health} health.\n\n 1) Light Swing - deals moderate physical damage.\n 2) Heavy Swing - deals heavy physical damage.\n 3) Meditate - moderately restores your health.")
+            print(f"{player.name}-- Health: {player.health} , Endurance: {player.endurance} // {enemy.name}-- Health: {enemy.health} , Mana: {enemy.mana}".center(70))
+            print(f"What will {player.name} do?".center(70))
+            selection = input(f"\n1) Light Swing - deals moderate physical damage.\n2) Heavy Swing - deals heavy physical damage.\n3) Meditate - moderately restores your health.")
             while selection != "1" and selection != "2" and selection != "3":
                 print("Unrecognized selection. Please choose 1) Light Swing or 2) Heavy Swing\n 3) Meditate")
                 selection = input(f"Which action will {player.name} take?  {player.name} has {player.health} health. {enemy.name} has {enemy.health} health.\n\n 1) Light Swing\n 2) Heavy Swing\n 3) Meditate")

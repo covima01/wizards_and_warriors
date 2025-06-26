@@ -1,5 +1,5 @@
 from classes import Wizard, Warrior
 
-Gandalf = Wizard("Gandalf", 100, 20, 20)
-Cloud = Warrior("Cloud", 125, 20, 20)
+Gandalf = Wizard("Gandalf", 2000, 100, 20, 18)
+Cloud = Warrior("Cloud", 2000, 100, 20, 18)
 
