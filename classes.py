@@ -13,10 +13,10 @@ class Wizard:
         damage = int(round(self.intelligence + (self.wisdom * (random.uniform(1.0, 2.0)))))
         target.health -= damage
         if target.health <= 0:
-            print("\n======================================================================")
-            print(f"\n{self.name} casts fireball dealing {damage} damage.")
-            print("======================================================================")
-            print(f"{self.name} is victorious, {target.name} has perished in battle.\n".rjust(50))
+            print(border)
+            print(f"{self.name} casts fireball dealing {damage} damage.".center(70))
+            print(border)
+            print(f"{self.name} is victorious, {target.name} has perished in battle.\n".center(70))
             return
         else:
             print(border)
@@ -29,9 +29,9 @@ class Wizard:
         damage = int(round(self.intelligence + (self.wisdom * (random.uniform(2.0, 3.0)))))
         target.health -= damage
         if target.health <= 0:
-            print("\n======================================================================")
-            print(f"\n{self.name} casts lightning dealing {damage} damage.")
-            print("\n======================================================================")
+            print(border)
+            print(f"{self.name} casts lightning dealing {damage} damage.".center(70))
+            print(border)
             print(f"{self.name} is victorious, {target.name} has perished in battle.".center(70))
             return
         else:
@@ -67,9 +67,9 @@ class Warrior:
         damage = int(round(self.strength + (self.rage * (random.uniform(0.5, 1.0)))))
         target.health -= damage
         if target.health <= 0:
-            print("\n======================================================================")
-            print(f"\n{self.name}'s light swing deals {damage} damage.")
-            print("======================================================================")
+            print(border)
+            print(f"\n{self.name}'s light swing deals {damage} damage.".center(70))
+            print(border)
             print(f"{self.name} is victorious, {target.name} has perished in battle.\n".center(70))
             return
         else:
@@ -82,9 +82,9 @@ class Warrior:
     def heavy_swing(self, target):
         damage = int(round(self.strength + (self.rage * random.uniform(1.0, 2.0))))
         if target.health <= 0:
-            print("\n======================================================================")
-            print(f"\n{self.name}'s heavy swing deals {damage} damage.")
-            print("======================================================================")
+            print(border)
+            print(f"\n{self.name}'s heavy swing deals {damage} damage.".center(70))
+            print(border)
             print(f"{self.name} is victorious, {target.name} has perished in battle.\n".center(70))
             return
         else:
