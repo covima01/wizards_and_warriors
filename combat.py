@@ -36,7 +36,7 @@ def combat(player, enemy):
                         enemy.warrior_counterattack(player)   
                 else:
                     print(border)
-                    print(f"{player.name} missed".center)
+                    print(f"{player.name} missed".center(70))
                     print(border)
                     if enemy.health > 0:
                         enemy.warrior_counterattack(player)
@@ -63,7 +63,7 @@ def combat(player, enemy):
                         enemy.wizard_counterattack(player)
                 else:
                     print(border)
-                    print(f"{player.name} missed".center)
+                    print(f"{player.name} missed".center(70))
                     print(border)
                     if enemy.health > 0:
                         enemy.wizard_counterattack(player)
@@ -75,7 +75,7 @@ def combat(player, enemy):
                         enemy.wizard_counterattack(player)
                 else:
                     print(border)
-                    print(f"{player.name} missed".center)
+                    print(f"{player.name} missed".center(70))
                     print(border)
                     if enemy.health > 0:
                         enemy.wizard_counterattack(player)

@@ -3,12 +3,13 @@ from constants import BOLD, END
 border = "=" * 70
 
 class Wizard: 
-    def __init__(self, name, health, mana, intelligence, wisdom):
+    def __init__(self, name, health, mana, intelligence, wisdom, potions):
         self.name = name
         self.health = health
         self.mana = mana
         self.intelligence = intelligence
         self.wisdom = wisdom
+        self.potions = potions
 
     def cast_fireball(self, target):
         if self.mana >= 15:
@@ -34,9 +35,14 @@ class Wizard:
                 print("Unrecognized selection. Please enter y (yes) or n (no)")
                 selection = input()
             if selection == "y":
-                self.mana += 50
-                print(f"{self.name} consumed a mana potion. Mana: {self.mana}".center(70))
-                print(border)
+                if self.potions > 0:
+                    self.mana += 50
+                    self.potions -= 1
+                    print(f"{self.name} consumed a mana potion. Mana: {self.mana}. {self.potions} potions remaining".center(70))
+                    print(border)
+                else:
+                    print(border)
+                    print("No potions left. Good luck!")
             else:
                 print(border)
                 print("Not enough mana. Skipping turn".center(70))
@@ -66,9 +72,14 @@ class Wizard:
                 print("Unrecognized selection. Please enter y (yes) or n (no)")
                 selection = input()
             if selection == "y":
-                self.mana += 50
-                print(f"{self.name} consumed a mana potion. Mana: {self.mana}".center(70))
-                print(border)
+                if self.potions > 0:
+                    self.potions -= 1
+                    self.mana += 50
+                    print(f"{self.name} consumed a mana potion. Mana: {self.mana}. {self.potions} potions remaining.".center(70))
+                    print(border)
+                else:
+                    print(border)
+                    print("No potions left. Good luck!".center(70))
             else:
                 print(border)
                 print("Not enough mana. Skipping turn".center(70))
@@ -90,9 +101,14 @@ class Wizard:
                 print("Unrecognized selection. Please enter y (yes) or n (no)")
                 selection = input()
             if selection == "y":
-                self.mana += 50
-                print(f"{self.name} consumed a mana potion. Mana: {self.mana}".center(70))
-                print(border)
+                if self.potions > 0:
+                    self.potions -= 1
+                    self.mana += 50
+                    print(f"{self.name} consumed a mana potion. Mana: {self.mana}. {self.potions} potions remaining.".center(70))
+                    print(border)
+                else:
+                    print(border)
+                    print("No potions left. Good luck!")
             else:
                 print(border)
                 print("Not enough mana. Skipping turn".center(70))
@@ -102,34 +118,48 @@ class Wizard:
             chosen_counter = random.choice(counterattacks)
             if chosen_counter == self.healing_wave:
                 if self.mana < 20:
-                    self.mana += 50
-                    print(f"{self.name} consumed a mana potion. Mana: {self.mana}".center(70))
-                    print(border)  
-                    return
+                    if self.potions > 0:
+                        self.mana += 50
+                        print(f"{self.name} consumed a mana potion. Mana: {self.mana}".center(70))
+                        print(border)  
+                        return
+                    else:
+                        print(border)
+                        print(f"{self.name} has no potions left. Push the attack!".center(70))
                 else:
                     chosen_counter()
             elif chosen_counter == self.cast_fireball:
                 if self.mana < 15:
-                    self.mana += 50
-                    print(f"{self.name} consumed a mana potion. Mana: {self.mana}".center(70))
-                    print(border)  
+                    if self.potions > 0:
+                        self.mana += 50
+                        print(f"{self.name} consumed a mana potion. Mana: {self.mana}".center(70))
+                        print(border)
+                        return
+                    else:
+                        print(border)
+                        print(f"{self.name} has no potions left. Push the attack!".center(70))  
                 else:
                     chosen_counter(target)
             elif chosen_counter == self.cast_lightning:
                 if self.mana < 25:
-                    self.mana += 50
-                    print(f"{self.name} consumed a mana potion. Mana: {self.mana}".center(70))
-                    print(border)  
+                    if self.potions > 0:
+                        self.mana += 50
+                        print(f"{self.name} consumed a mana potion. Mana: {self.mana}".center(70))
+                        print(border)
+                    else:
+                        print(border)
+                        print(f"{self.name} has no potions left. Push the attack!".center(70))  
                 else:
                     chosen_counter(target)
 
 class Warrior:
-    def __init__(self, name, health, endurance, strength, rage):
+    def __init__(self, name, health, endurance, strength, rage, sacred_feathers):
         self.name = name
         self.health = health
         self.endurance = endurance
         self.strength = strength
         self.rage = rage
+        self.sacred_feathers = sacred_feathers
 
     def light_swing(self, target):
         if self.endurance >= 15:
