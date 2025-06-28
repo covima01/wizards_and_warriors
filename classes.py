@@ -3,17 +3,16 @@ from constants import BOLD, END
 border = "=" * 70
 
 class Wizard: 
-    def __init__(self, name, health, mana, intelligence, wisdom, potions):
+    def __init__(self, name, health, mana, intelligence, potions):
         self.name = name
         self.health = health
         self.mana = mana
         self.intelligence = intelligence
-        self.wisdom = wisdom
         self.potions = potions
 
     def cast_fireball(self, target):
         if self.mana >= 15:
-            damage = int(round(self.intelligence + (self.wisdom * (random.uniform(1.0, 2.0)))))
+            damage = int(round(self.intelligence * (random.uniform(1.0, 2.0))))
             target.health -= damage
             self.mana -= 15
             if target.health <= 0:
@@ -50,7 +49,7 @@ class Wizard:
 
     def cast_lightning(self, target):
         if self.mana >= 25:
-            damage = int(round(self.intelligence + (self.wisdom * (random.uniform(2.0, 3.0)))))
+            damage = int(round(self.intelligence * (random.uniform(2.0, 3.0))))
             target.health -= damage
             self.mana -= 25
             if target.health <= 0:
@@ -87,7 +86,7 @@ class Wizard:
 
     def healing_wave(self):
         if self.mana >= 20:
-            healing_amount = int(round(self.intelligence + (self.wisdom * (random.uniform(1.0, 1.3)))))
+            healing_amount = int(round(self.intelligence * (random.uniform(1.0, 1.3))))
             self.health += healing_amount
             self.mana -= 20
             print(border)
@@ -153,22 +152,21 @@ class Wizard:
                     chosen_counter(target)
 
 class Warrior:
-    def __init__(self, name, health, endurance, strength, rage, sacred_feathers):
+    def __init__(self, name, health, endurance, strength, sacred_feathers):
         self.name = name
         self.health = health
         self.endurance = endurance
         self.strength = strength
-        self.rage = rage
         self.sacred_feathers = sacred_feathers
 
     def light_swing(self, target):
         if self.endurance >= 15:
-            damage = int(round(self.strength + (self.rage * (random.uniform(0.5, 1.0)))))
+            damage = int(round(self.strength * (random.uniform(0.75, 1.25))))
             target.health -= damage
             self.endurance -= 15
             if target.health <= 0:
                 print(border)
-                print(f"\n{self.name}'s light swing deals {damage} damage.".center(70))
+                print(f"{self.name}'s light swing deals {damage} damage.".center(70))
                 print(border)
                 print(f"{self.name} is victorious, {target.name} has perished in battle.\n".center(70))
                 return
@@ -196,7 +194,7 @@ class Warrior:
 
     def heavy_swing(self, target):
         if self.endurance >= 30:
-            damage = int(round(self.strength + (self.rage * random.uniform(1.0, 2.0))))
+            damage = int(round(self.strength * random.uniform(1.5, 2.0)))
             target.health -= damage
             self.endurance -= 30
             if target.health <= 0:
@@ -228,7 +226,7 @@ class Warrior:
 
     def meditate(self):
         if self.endurance >= 20:
-            healing_amount = int(round(self.strength + (self.rage * (random.uniform(0.4, 0.7)))))
+            healing_amount = int(round(self.strength * (random.uniform(0.4, 0.7))))
             self.health += healing_amount
             self.endurance -= 20
             print(border)
