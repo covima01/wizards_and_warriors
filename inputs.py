@@ -3,7 +3,6 @@ from characters import Characters, Gandalf
 
 
 def character_selection(prompt):
-    from combat import combat
     print(prompt)
     for character in Characters:
         print(character.name)
@@ -17,12 +16,8 @@ def character_selection(prompt):
             print(border)
             return character
 
-character = character_selection("Choose your character-\n")
-opponent = character_selection("Choose your opponent-\n")
-print(f"{character.name} vs {opponent.name}")
-from combat import combat
-combat(character, opponent)
-
+def game_mode(prompt): # Prompt - Which game mode would you like to play?
+    print(prompt)
 
 
 
