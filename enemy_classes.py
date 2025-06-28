@@ -1,8 +1,7 @@
 import random
 from classes import border
-from characters import Gandalf
 
-class Orc:
+class Ogre:
     def __init__(self, name, health, strength):
         self.name = name
         self.health = health

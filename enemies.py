@@ -1,4 +1,7 @@
+from enemy_classes import Ogre
 
-Orcs = []
-Orc_Grunt = Orc("Orc Grunt", 75, 12)
-Orc_General = Orc("Orc General", 125, 18)
+
+Ogres = []
+Ogre_Grunt = Ogre("Orc Grunt", 75, 12)
+Ogre_General = Ogre("Orc General", 125, 18)
+Ogre_Warlord = Ogre("Ogre Warlord", 150, 20)
