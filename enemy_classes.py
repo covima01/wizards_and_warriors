@@ -28,4 +28,6 @@ class Ogre:
             print(border)
             print(f"{self.name}'s grip of death deals {damage} damage. {target.name}'s health is now {target.health}".center(70))
             print(border)
+    def __str__(self):
+        return f"{self.name} (Health: {self.health}, Strength: {self.strength})"
 
