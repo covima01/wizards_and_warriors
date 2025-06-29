@@ -82,6 +82,8 @@ class Wizard:
             else:
                 print(border)
                 print("Not enough mana. Skipping turn".center(70))
+    def __str__(self):
+        return f"{self.name} (Health: {self.health}, Mana: {self.mana})"
         
 
     def healing_wave(self):
