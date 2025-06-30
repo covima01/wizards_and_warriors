@@ -2,8 +2,6 @@ import random
 import time
 from classes import BORDER, Wizard, Warrior
 
-
-
 def combat(player, enemy):
     #if isinstance(player, Wizard) and isinstance(enemy, Warrior):
     while enemy.health > 0 and player.health > 0:
@@ -45,6 +43,9 @@ def combat(player, enemy):
     else:
         return
 
+#################################################################################################################################################################
+#######################################################   OLD   #################################################################################################
+#################################################################################################################################################################
 
     # elif isinstance(player, Warrior) and isinstance(enemy, Wizard):  
     #    while enemy.health > 0 and player.health > 0:
