@@ -6,6 +6,8 @@ class Ogre:
         self.name = name
         self.health = health
         self.strength = strength
+        if self.health <= 0:
+            self.health = 0
     def overhead_smash(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage
@@ -28,6 +30,8 @@ class Ogre:
             print(BORDER)
             print(f"{self.name}'s grip of death deals {damage} damage. {target.name}'s health is now {target.health}".center(70))
             print(BORDER)
-    def __str__(self):
-        return f"{self.name} (Health: {self.health}, Strength: {self.strength})"
+    def ogre_counterattack(self, target):
+            counterattacks = [self.overhead_smash, self.grip_of_death]
+            chosen_counter = random.choice(counterattacks)
+            chosen_counter(target)
 
