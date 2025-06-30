@@ -9,6 +9,9 @@ class Wizard:
         self.mana = mana
         self.intelligence = intelligence
         self.potions = potions
+        self.attack1 = self.cast_fireball
+        self.attack2 = self.cast_lightning
+        self.heal1 = self.healing_wave
 
     def cast_fireball(self, target):
         if self.mana >= 15:
@@ -160,6 +163,9 @@ class Warrior:
         self.endurance = endurance
         self.strength = strength
         self.sacred_feathers = sacred_feathers
+        self.attack1 = self.light_swing
+        self.attack2 = self.heavy_swing
+        self.heal1 = self.meditate
 
     def light_swing(self, target):
         if self.endurance >= 15:
