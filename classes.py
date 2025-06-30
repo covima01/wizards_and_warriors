@@ -201,7 +201,7 @@ class Warrior:
             self.endurance -= 30
             if target.health <= 0:
                 print(BORDER)
-                print(f"\n{self.name}'s heavy swing deals {damage} damage.".center(70))
+                print(f"{self.name}'s heavy swing deals {damage} damage.".center(70))
                 print(BORDER)
                 print(f"{self.name} is victorious, {target.name} has perished in battle.\n".center(70))
                 return
