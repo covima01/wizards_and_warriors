@@ -75,28 +75,33 @@ def two_enemies(player, enemy1, enemy2):
                             player.light_swing(enemy1)
                             if enemy1.health > 0:
                                 enemy1.ogre_counterattack(player)
+                                enemy2.ogre_counterattack(player)
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
                             print(BORDER)
                             if enemy1.health > 0:
                                 enemy1.ogre_counterattack(player)
+                                enemy2.ogre_counterattack(player)
                     elif selection == "2":
                         attack = random.randint(0,8)
                         if attack <= 7:
                             player.heavy_swing(enemy1)
                             if enemy1.health > 0:
                                 enemy1.ogre_counterattack(player)
+                                enemy2.ogre_counterattack(player)
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
                             print(BORDER)
                             if enemy1.health > 0:
                                 enemy1.ogre_counterattack(player)
+                                enemy2.ogre_counterattack(player)
                     elif selection == "3":
                         player.meditate()
                         if enemy1.health > 0:
                             enemy1.ogre_counterattack(player)
+                            enemy2.ogre_counterattack(player)
                 else:
                     print(f"{enemy1.name} has perished. Try attacking another enemy.")
             if target == "2":
@@ -111,28 +116,33 @@ def two_enemies(player, enemy1, enemy2):
                             player.light_swing(enemy2)
                             if enemy2.health > 0:
                                 enemy2.ogre_counterattack(player)
+                                enemy1.ogre_counterattack(player)
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
                             print(BORDER)
                             if enemy2.health > 0:
                                 enemy2.ogre_counterattack(player)
+                                enemy1.ogre_counterattack(player)
                     elif selection == "2":
                         attack = random.randint(0,8)
                         if attack <= 7:
                             player.heavy_swing(enemy2)
                             if enemy2.health > 0:
                                 enemy2.ogre_counterattack(player)
+                                enemy1.ogre_counterattack(player)
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
                             print(BORDER)
                             if enemy2.health > 0:
                                 enemy2.ogre_counterattack(player)
+                                enemy1.ogre_counterattack(player)
                     elif selection == "3":
                         player.meditate()
                         if enemy2.health > 0:
                             enemy2.ogre_counterattack(player)
+                            enemy1.ogre_counterattack(player)
                 else:
                     print(f"{enemy2.name} has perished. Try attacking another enemy.")
 
@@ -162,28 +172,38 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                             player.light_swing(enemy1)
                             if enemy1.health > 0:
                                 enemy1.ogre_counterattack(player)
+                                enemy2.ogre_counterattack(player)
+                                enemy3.ogre_counterattack(player)
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
                             print(BORDER)
                             if enemy1.health > 0:
                                 enemy1.ogre_counterattack(player)
+                                enemy2.ogre_counterattack(player)
+                                enemy3.ogre_counterattack(player)
                     elif selection == "2":
                         attack = random.randint(0,8)
                         if attack <= 7:
                             player.heavy_swing(enemy1)
                             if enemy1.health > 0:
                                 enemy1.ogre_counterattack(player)
+                                enemy2.ogre_counterattack(player)
+                                enemy3.ogre_counterattack(player)
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
                             print(BORDER)
                             if enemy1.health > 0:
                                 enemy1.ogre_counterattack(player)
+                                enemy2.ogre_counterattack(player)
+                                enemy3.ogre_counterattack(player)
                     elif selection == "3":
                         player.meditate()
                         if enemy1.health > 0:
                             enemy1.ogre_counterattack(player)
+                            enemy2.ogre_counterattack(player)
+                            enemy3.ogre_counterattack(player)
                 else:
                     print(f"{enemy1.name} has perished. Try attacking another enemy.")
             if target == "2":
@@ -198,28 +218,38 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                             player.light_swing(enemy2)
                             if enemy2.health > 0:
                                 enemy2.ogre_counterattack(player)
+                                enemy3.ogre_counterattack(player)
+                                enemy1.ogre_counterattack(player)
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
                             print(BORDER)
                             if enemy2.health > 0:
                                 enemy2.ogre_counterattack(player)
+                                enemy3.ogre_counterattack(player)
+                                enemy1.ogre_counterattack(player)
                     elif selection == "2":
                         attack = random.randint(0,8)
                         if attack <= 7:
                             player.heavy_swing(enemy2)
                             if enemy2.health > 0:
                                 enemy2.ogre_counterattack(player)
+                                enemy3.ogre_counterattack(player)
+                                enemy1.ogre_counterattack(player)
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
                             print(BORDER)
                             if enemy2.health > 0:
                                 enemy2.ogre_counterattack(player)
+                                enemy3.ogre_counterattack(player)
+                                enemy1.ogre_counterattack(player)
                     elif selection == "3":
                         player.meditate()
                         if enemy2.health > 0:
                             enemy2.ogre_counterattack(player)
+                            enemy3.ogre_counterattack(player)
+                            enemy1.ogre_counterattack(player)
                 else:
                     print(f"{enemy2.name} has perished. Try attacking another enemy.")
             if target == "3":
@@ -234,28 +264,38 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                             player.light_swing(enemy3)
                             if enemy3.health > 0:
                                 enemy3.ogre_counterattack(player)
+                                enemy1.ogre_counterattack(player)
+                                enemy2.ogre_counterattack(player)
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
                             print(BORDER)
                             if enemy3.health > 0:
                                 enemy3.ogre_counterattack(player)
+                                enemy1.ogre_counterattack(player)
+                                enemy2.ogre_counterattack(player)
                     elif selection == "2":
                         attack = random.randint(0,8)
                         if attack <= 7:
                             player.heavy_swing(enemy3)
                             if enemy3.health > 0:
                                 enemy3.ogre_counterattack(player)
+                                enemy1.ogre_counterattack(player)
+                                enemy2.ogre_counterattack(player)
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
                             print(BORDER)
                             if enemy3.health > 0:
                                 enemy3.ogre_counterattack(player)
+                                enemy1.ogre_counterattack(player)
+                                enemy2.ogre_counterattack(player)
                     elif selection == "3":
                         player.meditate()
                         if enemy3.health > 0:
                             enemy3.ogre_counterattack(player)
+                            enemy1.ogre_counterattack(player)
+                            enemy2.ogre_counterattack(player)
                 else:
                     print(f"{enemy3.name} has perished. Try attacking another enemy.")
 

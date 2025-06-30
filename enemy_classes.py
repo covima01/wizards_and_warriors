@@ -6,8 +6,6 @@ class Ogre:
         self.name = name
         self.health = health
         self.strength = strength
-        if self.health <= 0:
-            self.health = 0
     def overhead_smash(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage
@@ -33,5 +31,11 @@ class Ogre:
     def ogre_counterattack(self, target):
             counterattacks = [self.overhead_smash, self.grip_of_death]
             chosen_counter = random.choice(counterattacks)
-            chosen_counter(target)
+            attack = random.randint(0,8)
+            if attack <= 7:
+                chosen_counter(target)
+            else:
+                print(BORDER)
+                print(f"{self.name} missed.")
+                print(BORDER)
 
