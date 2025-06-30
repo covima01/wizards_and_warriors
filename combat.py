@@ -1,6 +1,6 @@
 import random
 import time
-from classes import border, Wizard, Warrior
+from classes import BORDER, Wizard, Warrior
 
 
 
@@ -21,9 +21,9 @@ def combat(player, enemy):
                     if enemy.health > 0:
                         enemy.warrior_counterattack(player)
                 else:
-                    print(border)
+                    print(BORDER)
                     print(f"{player.name} missed".center(70))
-                    print(border)
+                    print(BORDER)
                     if enemy.health > 0:
                         enemy.warrior_counterattack(player)
             elif selection == "2":
@@ -33,9 +33,9 @@ def combat(player, enemy):
                     if enemy.health > 0:
                         enemy.warrior_counterattack(player)   
                 else:
-                    print(border)
+                    print(BORDER)
                     print(f"{player.name} missed".center(70))
-                    print(border)
+                    print(BORDER)
                     if enemy.health > 0:
                         enemy.warrior_counterattack(player)
             elif selection == "3":
@@ -60,9 +60,9 @@ def combat(player, enemy):
                     if enemy.health > 0:
                         enemy.wizard_counterattack(player)
                 else:
-                    print(border)
+                    print(BORDER)
                     print(f"{player.name} missed".center(70))
-                    print(border)
+                    print(BORDER)
                     if enemy.health > 0:
                         enemy.wizard_counterattack(player)
             elif selection == "2":
@@ -72,9 +72,9 @@ def combat(player, enemy):
                     if enemy.health > 0:
                         enemy.wizard_counterattack(player)
                 else:
-                    print(border)
+                    print(BORDER)
                     print(f"{player.name} missed".center(70))
-                    print(border)
+                    print(BORDER)
                     if enemy.health > 0:
                         enemy.wizard_counterattack(player)
             elif selection == "3":
@@ -97,9 +97,9 @@ def combat(player, enemy):
                     if enemy.health > 0:
                         enemy.warrior_counterattack(player)
                 else:
-                    print(border)
+                    print(BORDER)
                     print(f"{player.name} missed".center(70))
-                    print(border)
+                    print(BORDER)
                     if enemy.health > 0:
                         enemy.warrior_counterattack(player)
             elif selection == "2":
@@ -109,9 +109,9 @@ def combat(player, enemy):
                     if enemy.health > 0:
                         enemy.warrior_counterattack(player)
                 else:
-                    print(border)
+                    print(BORDER)
                     print(f"{player.name} missed".center(70))
-                    print(border)
+                    print(BORDER)
                     if enemy.health > 0:
                         enemy.warrior_counterattack(player)
             elif selection == "3":
@@ -134,9 +134,9 @@ def combat(player, enemy):
                     if enemy.health > 0:
                         enemy.wizard_counterattack(player)
                 else:
-                    print(border)
+                    print(BORDER)
                     print(f"{player.name} missed".center(70))
-                    print(border)
+                    print(BORDER)
                     if enemy.health > 0:
                         enemy.wizard_counterattack(player)
             elif selection == "2":
@@ -146,9 +146,9 @@ def combat(player, enemy):
                     if enemy.health > 0:
                         enemy.wizard_counterattack(player)
                 else:
-                    print(border)
+                    print(BORDER)
                     print(f"{player.name} missed".center(70))
-                    print(border)
+                    print(BORDER)
                     if enemy.health > 0:
                         enemy.wizard_counterattack(player)
             elif selection == "3":

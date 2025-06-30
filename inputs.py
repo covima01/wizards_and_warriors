@@ -1,4 +1,5 @@
-from classes import border, Wizard, Warrior
+from constants import BORDER
+from classes import Wizard, Warrior
 from characters import Characters, Gandalf
 
 
@@ -13,7 +14,7 @@ def character_selection(prompt):
         selection = input()
     for character in Characters:
         if character.name == selection:
-            print(border)
+            print(BORDER)
             return character
 
 def game_mode(prompt): # Prompt - Which game mode would you like to play?

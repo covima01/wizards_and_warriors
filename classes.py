@@ -1,6 +1,6 @@
 import random
-from constants import BOLD, END
-border = "=" * 70
+from constants import BOLD, END, BORDER
+
 
 class Wizard: 
     def __init__(self, name, health, mana, intelligence, potions):
@@ -16,18 +16,18 @@ class Wizard:
             target.health -= damage
             self.mana -= 15
             if target.health <= 0:
-                print(border)
+                print(BORDER)
                 print(f"{self.name} casts fireball dealing {damage} damage.".center(70))
-                print(border)
+                print(BORDER)
                 print(f"{self.name} is victorious, {target.name} has perished in battle.".center(70))
                 return
             else:
-                print(border)
+                print(BORDER)
                 print(f"{self.name} casts fireball dealing {damage} damage. {target.name}'s health is now {target.health}.".center(70))
-                print(border)
+                print(BORDER)
                 return
         else:
-            print(border)
+            print(BORDER)
             print(f"{self.name} doesn't have enough mana. Use a mana potion? (y/n)".center(70))
             selection = input()
             while selection != "y" and selection != "n":
@@ -38,12 +38,12 @@ class Wizard:
                     self.mana += 50
                     self.potions -= 1
                     print(f"{self.name} consumed a mana potion. Mana: {self.mana}. {self.potions} potions remaining".center(70))
-                    print(border)
+                    print(BORDER)
                 else:
-                    print(border)
+                    print(BORDER)
                     print("No potions left. Good luck!")
             else:
-                print(border)
+                print(BORDER)
                 print("Not enough mana. Skipping turn".center(70))
         
 
@@ -53,18 +53,18 @@ class Wizard:
             target.health -= damage
             self.mana -= 25
             if target.health <= 0:
-                print(border)
+                print(BORDER)
                 print(f"{self.name} casts lightning dealing {damage} damage.".center(70))
-                print(border)
+                print(BORDER)
                 print(f"{self.name} is victorious, {target.name} has perished in battle.".center(70))
                 return
             else:
-                print(border)
+                print(BORDER)
                 print(f"{self.name} casts lightning dealing {damage} damage. {target.name}'s health is now {target.health}.".center(70))
-                print(border)
+                print(BORDER)
                 return
         else:
-            print(border)
+            print(BORDER)
             print(f"{self.name} doesn't have enough mana. Use a mana potion? (y/n)".center(70))
             selection = input()
             while selection != "y" and selection != "n":
@@ -75,12 +75,12 @@ class Wizard:
                     self.potions -= 1
                     self.mana += 50
                     print(f"{self.name} consumed a mana potion. Mana: {self.mana}. {self.potions} potions remaining.".center(70))
-                    print(border)
+                    print(BORDER)
                 else:
-                    print(border)
+                    print(BORDER)
                     print("No potions left. Good luck!".center(70))
             else:
-                print(border)
+                print(BORDER)
                 print("Not enough mana. Skipping turn".center(70))
     def __str__(self):
         return f"{self.name} (Health: {self.health}, Mana: {self.mana})"
@@ -91,11 +91,11 @@ class Wizard:
             healing_amount = int(round(self.intelligence * (random.uniform(1.0, 1.3))))
             self.health += healing_amount
             self.mana -= 20
-            print(border)
-            print(f"{self.name} casts healing wave on himself for {healing_amount}. He now has {self.health} health.".center(70))
-            print(border)
+            print(BORDER)
+            print(f"{self.name} casts healing wave for {healing_amount}. Health: {self.health}".center(70))
+            print(BORDER)
         else:
-            print(border)
+            print(BORDER)
             print(f"{self.name} doesn't have enough mana. Use a mana potion? (y/n)".center(70))
             selection = input()
             while selection != "y" and selection != "n":
@@ -106,12 +106,12 @@ class Wizard:
                     self.potions -= 1
                     self.mana += 50
                     print(f"{self.name} consumed a mana potion. Mana: {self.mana}. {self.potions} potions remaining.".center(70))
-                    print(border)
+                    print(BORDER)
                 else:
-                    print(border)
+                    print(BORDER)
                     print("No potions left. Good luck!")
             else:
-                print(border)
+                print(BORDER)
                 print("Not enough mana. Skipping turn".center(70))
 
     def wizard_counterattack(self, target):
@@ -122,10 +122,10 @@ class Wizard:
                     if self.potions > 0:
                         self.mana += 50
                         print(f"{self.name} consumed a mana potion. Mana: {self.mana}".center(70))
-                        print(border)  
+                        print(BORDER)  
                         return
                     else:
-                        print(border)
+                        print(BORDER)
                         print(f"{self.name} has no potions left. Push the attack!".center(70))
                 else:
                     chosen_counter()
@@ -134,10 +134,10 @@ class Wizard:
                     if self.potions > 0:
                         self.mana += 50
                         print(f"{self.name} consumed a mana potion. Mana: {self.mana}".center(70))
-                        print(border)
+                        print(BORDER)
                         return
                     else:
-                        print(border)
+                        print(BORDER)
                         print(f"{self.name} has no potions left. Push the attack!".center(70))  
                 else:
                     chosen_counter(target)
@@ -146,9 +146,9 @@ class Wizard:
                     if self.potions > 0:
                         self.mana += 50
                         print(f"{self.name} consumed a mana potion. Mana: {self.mana}".center(70))
-                        print(border)
+                        print(BORDER)
                     else:
-                        print(border)
+                        print(BORDER)
                         print(f"{self.name} has no potions left. Push the attack!".center(70))  
                 else:
                     chosen_counter(target)
@@ -167,18 +167,18 @@ class Warrior:
             target.health -= damage
             self.endurance -= 15
             if target.health <= 0:
-                print(border)
+                print(BORDER)
                 print(f"{self.name}'s light swing deals {damage} damage.".center(70))
-                print(border)
+                print(BORDER)
                 print(f"{self.name} is victorious, {target.name} has perished in battle.\n".center(70))
                 return
             else:
-                print(border)
+                print(BORDER)
                 print(f"{self.name}'s light swing deals {damage} damage. {target.name}'s health is now {target.health}.".center(70))
-                print(border)
+                print(BORDER)
                 return
         else:
-            print(border)
+            print(BORDER)
             print(f"{self.name} doesn't have enough endurance. Use a sacred feather? (y/n)".center(70))
             selection = input()
             while selection != "y" and selection != "n":
@@ -187,9 +187,9 @@ class Warrior:
             if selection == "y":
                 self.endurance += 50
                 print(f"{self.name} consumed a sacred feather. Endurance: {self.endurance}".center(70))
-                print(border)
+                print(BORDER)
             else:
-                print(border)
+                print(BORDER)
                 print("Not enough endurance. Skipping turn".center(70))
             
         
@@ -200,18 +200,18 @@ class Warrior:
             target.health -= damage
             self.endurance -= 30
             if target.health <= 0:
-                print(border)
+                print(BORDER)
                 print(f"\n{self.name}'s heavy swing deals {damage} damage.".center(70))
-                print(border)
+                print(BORDER)
                 print(f"{self.name} is victorious, {target.name} has perished in battle.\n".center(70))
                 return
             else:
-                print(border)
+                print(BORDER)
                 print(f"{self.name}'s heavy swing deals {damage} damage. {target.name}'s health is now {target.health}.".center(70))
-                print(border)
+                print(BORDER)
                 return
         else:
-            print(border)
+            print(BORDER)
             print(f"{self.name} doesn't have enough endurance. Use a sacred feather? (y/n)".center(70))
             selection = input()
             while selection != "y" and selection != "n":
@@ -220,9 +220,9 @@ class Warrior:
             if selection == "y":
                 self.endurance += 50
                 print(f"{self.name} consumed a sacred feather. Endurance: {self.endurance}".center(70))
-                print(border)
+                print(BORDER)
             else:
-                print(border)
+                print(BORDER)
                 print("Not enough endurance. Skipping turn".center(70))
 
 
@@ -231,11 +231,11 @@ class Warrior:
             healing_amount = int(round(self.strength * (random.uniform(0.4, 0.7))))
             self.health += healing_amount
             self.endurance -= 20
-            print(border)
-            print(f"{self.name} meditates, healing himself for {healing_amount}. He now has {self.health} health.".center(70))
-            print(border)
+            print(BORDER)
+            print(f"{self.name} meditates, healing for {healing_amount}. Health: {self.health}".center(70))
+            print(BORDER)
         else:
-            print(border)
+            print(BORDER)
             print(f"{self.name} doesn't have enough endurance. Use a sacred feather? (y/n)".center(70))
             selection = input()
             while selection != "y" and selection != "n":
@@ -244,9 +244,9 @@ class Warrior:
             if selection == "y":
                 self.endurance += 50
                 print(f"{self.name} consumed a sacred feather. Endurance: {self.endurance}".center(70))
-                print(border)
+                print(BORDER)
             else:
-                print(border)
+                print(BORDER)
                 print("Not enough endurance. Skipping turn".center(70))
 
     def warrior_counterattack(self, target):
@@ -256,7 +256,7 @@ class Warrior:
                 if self.endurance < 15:
                     self.endurance += 50
                     print(f"{self.name} consumed a sacred feather. Endurance: {self.endurance}".center(70))
-                    print(border)  
+                    print(BORDER)  
                     return
                 else:
                     chosen_counter(target)
@@ -264,13 +264,13 @@ class Warrior:
                 if self.endurance < 30:
                     self.endurance += 50
                     print(f"{self.name} consumed a sacred feather. Endurance: {self.endurance}".center(70))
-                    print(border)  
+                    print(BORDER)  
                 else:
                     chosen_counter(target)
             elif chosen_counter == self.meditate:
                 if self.endurance < 20:
                     self.endurance += 50
                     print(f"{self.name} consumed a sacred feather. Endurance: {self.endurance}".center(70))
-                    print(border)  
+                    print(BORDER)  
                 else:
                     chosen_counter()

@@ -1,6 +1,7 @@
 import random
 import time
-from classes import border, Wizard, Warrior
+from constants import BORDER
+from classes import Wizard, Warrior
 from characters import Gandalf
 from enemy_classes import Ogre
 
