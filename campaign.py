@@ -4,12 +4,11 @@ from constants import BORDER
 from classes import Wizard, Warrior
 from characters import Gandalf, Cloud
 from enemy_classes import Ogre
-from enemies import Ogre_Grunt, Ogre_General, Ogre_Warlord
+from enemies import Ogres
 
 
 def one_enemy(player, enemy1):
-    enemies = [Ogre_Grunt, Ogre_General, Ogre_Warlord]
-    enemy1 = random.choice(enemies)
+    enemy1 = random.choice(Ogres)
     if isinstance (player, Warrior) and isinstance (enemy1, Ogre):
         while player.health > 0 and enemy1.health > 0:
             time.sleep(0.5)
@@ -49,11 +48,49 @@ def one_enemy(player, enemy1):
                 player.meditate()
                 if enemy1.health > 0:
                     enemy1.ogre_counterattack(player)
+    if isinstance (player, Wizard) and isinstance (enemy1, Ogre):
+        while player.health > 0 and enemy1.health > 0:
+            time.sleep(0.5)
+            print(f"{player.name}-- Health: {player.health} , Mana: {player.mana} // {enemy1.name}-- Health: {max(enemy1.health, 0)}".center(70))
+            print(f"What will {player.name} do?".center(70))
+            selection = input(f"\n1) Light Swing - deals moderate physical damage.\n2) Heavy Swing - deals heavy physical damage.\n3) Meditate - moderately restores your health.")
+            while selection != "1" and selection != "2" and selection != "3":
+                print("Unrecognized selection. Please choose 1) Light Swing or 2) Heavy Swing 3) Meditate")
+                selection = input(f"Which action will {player.name} take?  {player.name} has {player.health} health. {enemy1.name} has {max(enemy1.health, 0)} health.\n\n 1) Light Swing\n 2) Heavy Swing\n 3) Meditate")
+            if selection == "1":
+                attack = random.randint(0,8)
+                if attack <= 7:
+                    player.light_swing(enemy1)
+                    if enemy1.health > 0:
+                        enemy1.ogre_counterattack(player)
+                else:
+                    print(BORDER)
+                    print(f"{player.name} missed".center(70))
+                    player.endurance -= 15
+                    print(BORDER)
+                    if enemy1.health > 0:
+                        enemy1.ogre_counterattack(player)
+            elif selection == "2":
+                attack = random.randint(0,8)
+                if attack <= 7:
+                    player.heavy_swing(enemy1)
+                    if enemy1.health > 0:
+                        enemy1.ogre_counterattack(player)
+                else:
+                    print(BORDER)
+                    print(f"{player.name} missed".center(70))
+                    player.endurance -= 30
+                    print(BORDER)
+                    if enemy1.health > 0:
+                        enemy1.ogre_counterattack(player)
+            elif selection == "3":
+                player.meditate()
+                if enemy1.health > 0:
+                    enemy1.ogre_counterattack(player)
 
 def two_enemies(player, enemy1, enemy2):
-    enemies = [Ogre_Grunt, Ogre_General, Ogre_Warlord]
-    enemy1 = random.choice(enemies)
-    enemy2 = random.choice(enemies)
+    enemy1 = random.choice(Ogres)
+    enemy2 = random.choice(Ogres)
     if isinstance (player, Warrior) and isinstance (enemy1, Ogre) and isinstance (enemy2, Ogre):
         player.endurance = int(player.endurance * 1.5)
         while player.health > 0 and enemy1.health > 0 or enemy2.health > 0:
@@ -155,10 +192,9 @@ def two_enemies(player, enemy1, enemy2):
                     print(f"{enemy2.name} has perished. Try attacking another enemy.")
 
 def three_enemies(player, enemy1, enemy2, enemy3):
-    enemies = [Ogre_Grunt, Ogre_General, Ogre_Warlord]
-    enemy1 = random.choice(enemies)
-    enemy2 = random.choice(enemies)
-    enemy3 = random.choice(enemies)
+    enemy1 = random.choice(Ogres)
+    enemy2 = random.choice(Ogres)
+    enemy3 = random.choice(Ogres)
     if isinstance (player, Warrior) and isinstance (enemy1, Ogre) and isinstance (enemy2, Ogre) and isinstance(enemy3, Ogre):
         player.endurance = int(player.endurance * 2)
         while player.health > 0 and enemy1.health > 0 or enemy2.health > 0 or enemy3.health > 0:
@@ -317,7 +353,10 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                 else:
                     print(f"{enemy3.name} has perished. Try attacking another enemy.")
 
+
+
+
 if __name__ == "__main__":
-    three_enemies(Cloud, None, None, None)
+    two_enemies(Cloud, None, None)
 
 
