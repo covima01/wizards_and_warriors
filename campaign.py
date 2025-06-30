@@ -28,6 +28,7 @@ def one_enemy(player, enemy1):
                 else:
                     print(BORDER)
                     print(f"{player.name} missed".center(70))
+                    player.endurance -= 15
                     print(BORDER)
                     if enemy1.health > 0:
                         enemy1.ogre_counterattack(player)
@@ -40,6 +41,7 @@ def one_enemy(player, enemy1):
                 else:
                     print(BORDER)
                     print(f"{player.name} missed".center(70))
+                    player.endurance -= 30
                     print(BORDER)
                     if enemy1.health > 0:
                         enemy1.ogre_counterattack(player)
@@ -53,6 +55,7 @@ def two_enemies(player, enemy1, enemy2):
     enemy1 = random.choice(enemies)
     enemy2 = random.choice(enemies)
     if isinstance (player, Warrior) and isinstance (enemy1, Ogre) and isinstance (enemy2, Ogre):
+        player.endurance = int(player.endurance * 1.5)
         while player.health > 0 and enemy1.health > 0 or enemy2.health > 0:
             time.sleep(0.5)
             print(BORDER)
@@ -79,6 +82,7 @@ def two_enemies(player, enemy1, enemy2):
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
+                            player.endurance -= 15
                             print(BORDER)
                             if enemy1.health > 0:
                                 enemy1.ogre_counterattack(player)
@@ -93,6 +97,7 @@ def two_enemies(player, enemy1, enemy2):
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
+                            player.endurance -= 30
                             print(BORDER)
                             if enemy1.health > 0:
                                 enemy1.ogre_counterattack(player)
@@ -106,6 +111,7 @@ def two_enemies(player, enemy1, enemy2):
                     print(f"{enemy1.name} has perished. Try attacking another enemy.")
             if target == "2":
                 if enemy2.health > 0:
+                    print(BORDER)
                     selection = input(f"How will you attack?\n1) Light Swing - deals moderate physical damage.\n2) Heavy Swing - deals heavy physical damage.\n3) Meditate - moderately restores your health.")
                     while selection != "1" and selection != "2" and selection != "3":
                         print("Unrecognized selection. Please choose 1) Light Swing or 2) Heavy Swing 3) Meditate")
@@ -120,6 +126,7 @@ def two_enemies(player, enemy1, enemy2):
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
+                            player.endurance -= 15
                             print(BORDER)
                             if enemy2.health > 0:
                                 enemy2.ogre_counterattack(player)
@@ -134,6 +141,7 @@ def two_enemies(player, enemy1, enemy2):
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
+                            player.endurance -= 30
                             print(BORDER)
                             if enemy2.health > 0:
                                 enemy2.ogre_counterattack(player)
@@ -152,6 +160,7 @@ def three_enemies(player, enemy1, enemy2, enemy3):
     enemy2 = random.choice(enemies)
     enemy3 = random.choice(enemies)
     if isinstance (player, Warrior) and isinstance (enemy1, Ogre) and isinstance (enemy2, Ogre) and isinstance(enemy3, Ogre):
+        player.endurance = int(player.endurance * 2)
         while player.health > 0 and enemy1.health > 0 or enemy2.health > 0 or enemy3.health > 0:
             time.sleep(0.5)
             print(BORDER)
@@ -161,6 +170,7 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                 print(f"Unrecognized selection. Please choose 1) To attack the first enemy ({enemy1.name}), 2) To attack the second enemy: ({enemy2.name}), or 3) To attack the third enemy: ({enemy3.name})")
                 target = input(f"Who will {player.name} attack first?\n 1) {enemy1.name} \n 2) {enemy2.name} \n 3) {enemy3.name}")
             if target == "1":
+                print(BORDER)
                 if enemy1.health > 0:
                     selection = input(f"How will you attack?\n1) Light Swing - deals moderate physical damage.\n2) Heavy Swing - deals heavy physical damage.\n3) Meditate - moderately restores your health.")
                     while selection != "1" and selection != "2" and selection != "3":
@@ -177,6 +187,7 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
+                            player.endurance -= 15
                             print(BORDER)
                             if enemy1.health > 0:
                                 enemy1.ogre_counterattack(player)
@@ -193,6 +204,7 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
+                            player.endurance -= 30
                             print(BORDER)
                             if enemy1.health > 0:
                                 enemy1.ogre_counterattack(player)
@@ -208,6 +220,7 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                     print(f"{enemy1.name} has perished. Try attacking another enemy.")
             if target == "2":
                 if enemy2.health > 0:
+                    print(BORDER)
                     selection = input(f"How will you attack?\n1) Light Swing - deals moderate physical damage.\n2) Heavy Swing - deals heavy physical damage.\n3) Meditate - moderately restores your health.")
                     while selection != "1" and selection != "2" and selection != "3":
                         print("Unrecognized selection. Please choose 1) Light Swing or 2) Heavy Swing 3) Meditate")
@@ -223,6 +236,7 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
+                            player.endurance -= 15
                             print(BORDER)
                             if enemy2.health > 0:
                                 enemy2.ogre_counterattack(player)
@@ -239,6 +253,7 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
+                            player.endurance -= 30
                             print(BORDER)
                             if enemy2.health > 0:
                                 enemy2.ogre_counterattack(player)
@@ -254,6 +269,7 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                     print(f"{enemy2.name} has perished. Try attacking another enemy.")
             if target == "3":
                 if enemy3.health > 0:
+                    print(BORDER)
                     selection = input(f"How will you attack?\n1) Light Swing - deals moderate physical damage.\n2) Heavy Swing - deals heavy physical damage.\n3) Meditate - moderately restores your health.")
                     while selection != "1" and selection != "2" and selection != "3":
                         print("Unrecognized selection. Please choose 1) Light Swing or 2) Heavy Swing 3) Meditate")
@@ -269,6 +285,7 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
+                            player.endurance -= 15
                             print(BORDER)
                             if enemy3.health > 0:
                                 enemy3.ogre_counterattack(player)
@@ -285,6 +302,7 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                         else:
                             print(BORDER)
                             print(f"{player.name} missed".center(70))
+                            player.endurance -= 30
                             print(BORDER)
                             if enemy3.health > 0:
                                 enemy3.ogre_counterattack(player)
@@ -300,6 +318,6 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                     print(f"{enemy3.name} has perished. Try attacking another enemy.")
 
 if __name__ == "__main__":
-    two_enemies(Cloud, None, None)
+    three_enemies(Cloud, None, None, None)
 
 
