@@ -7,46 +7,51 @@ from enemy_classes import Ogre
 from enemies import Ogre_Grunt, Ogre_General, Ogre_Warlord
 
 
-def one_enemy(player, enemy):
-    if isinstance (player, Warrior) and isinstance (enemy, Ogre):
-        while player.health > 0 and enemy.health > 0:
+def one_enemy(player, enemy1):
+    enemies = [Ogre_Grunt, Ogre_General, Ogre_Warlord]
+    enemy1 = random.choice(enemies)
+    if isinstance (player, Warrior) and isinstance (enemy1, Ogre):
+        while player.health > 0 and enemy1.health > 0:
             time.sleep(0.5)
-            print(f"{player.name}-- Health: {player.health} , Endurance: {player.endurance} // {enemy.name}-- Health: {enemy.health}".center(70))
+            print(f"{player.name}-- Health: {player.health} , Endurance: {player.endurance} // {enemy1.name}-- Health: {enemy1.health}".center(70))
             print(f"What will {player.name} do?".center(70))
             selection = input(f"\n1) Light Swing - deals moderate physical damage.\n2) Heavy Swing - deals heavy physical damage.\n3) Meditate - moderately restores your health.")
             while selection != "1" and selection != "2" and selection != "3":
                 print("Unrecognized selection. Please choose 1) Light Swing or 2) Heavy Swing 3) Meditate")
-                selection = input(f"Which action will {player.name} take?  {player.name} has {player.health} health. {enemy.name} has {enemy.health} health.\n\n 1) Light Swing\n 2) Heavy Swing\n 3) Meditate")
+                selection = input(f"Which action will {player.name} take?  {player.name} has {player.health} health. {enemy1.name} has {enemy1.health} health.\n\n 1) Light Swing\n 2) Heavy Swing\n 3) Meditate")
             if selection == "1":
                 attack = random.randint(0,8)
                 if attack <= 7:
-                    player.light_swing(enemy)
-                    if enemy.health > 0:
-                        enemy.ogre_counterattack(player)
+                    player.light_swing(enemy1)
+                    if enemy1.health > 0:
+                        enemy1.ogre_counterattack(player)
                 else:
                     print(BORDER)
                     print(f"{player.name} missed".center(70))
                     print(BORDER)
-                    if enemy.health > 0:
-                        enemy.ogre_counterattack(player)
+                    if enemy1.health > 0:
+                        enemy1.ogre_counterattack(player)
             elif selection == "2":
                 attack = random.randint(0,8)
                 if attack <= 7:
-                    player.heavy_swing(enemy)
-                    if enemy.health > 0:
-                        enemy.ogre_counterattack(player)
+                    player.heavy_swing(enemy1)
+                    if enemy1.health > 0:
+                        enemy1.ogre_counterattack(player)
                 else:
                     print(BORDER)
                     print(f"{player.name} missed".center(70))
                     print(BORDER)
-                    if enemy.health > 0:
-                        enemy.ogre_counterattack(player)
+                    if enemy1.health > 0:
+                        enemy1.ogre_counterattack(player)
             elif selection == "3":
                 player.meditate()
-                if enemy.health > 0:
-                    enemy.ogre_counterattack(player)
+                if enemy1.health > 0:
+                    enemy1.ogre_counterattack(player)
 
 def two_enemies(player, enemy1, enemy2):
+    enemies = [Ogre_Grunt, Ogre_General, Ogre_Warlord]
+    enemy1 = random.choice(enemies)
+    enemy2 = random.choice(enemies)
     if isinstance (player, Warrior) and isinstance (enemy1, Ogre) and isinstance (enemy2, Ogre):
         while player.health > 0 and enemy1.health > 0 or enemy2.health > 0:
             time.sleep(0.5)
@@ -125,6 +130,10 @@ def two_enemies(player, enemy1, enemy2):
                         enemy2.ogre_counterattack(player)
 
 def three_enemies(player, enemy1, enemy2, enemy3):
+    enemies = [Ogre_Grunt, Ogre_General, Ogre_Warlord]
+    enemy1 = random.choice(enemies)
+    enemy2 = random.choice(enemies)
+    enemy3 = random.choice(enemies)
     if isinstance (player, Warrior) and isinstance (enemy1, Ogre) and isinstance (enemy2, Ogre) and isinstance(enemy3, Ogre):
         while player.health > 0 and enemy1.health > 0 or enemy2.health > 0 or enemy3.health > 0:
             time.sleep(0.5)
@@ -236,6 +245,6 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                         enemy3.ogre_counterattack(player)
 
 if __name__ == "__main__":
-    three_enemies(Cloud, Ogre_Grunt, Ogre_General, Ogre_Warlord)
+    one_enemy(Cloud, None)
 
 
