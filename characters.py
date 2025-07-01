@@ -1,4 +1,3 @@
-from constants import BORDER
 from classes import Wizard, Warrior
 
 
