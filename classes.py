@@ -6,21 +6,22 @@ class Wizard:
     def __init__(self, name, health, mana, intelligence, potions):
         self.name = name
         self.health = health
-        self.resource_type = "Mana"
         self.resource = mana
         self.intelligence = intelligence
         self.resource_gain = potions
+        self.resource_type = "Mana"
         self.resource_gain_description = "Mana Potion"
-        self.attack1_method = self.cast_fireball
         self.attack1 = "Fireball"
         self.attack1_description = "deals moderate fire damage..."
-        self.attack2_method = self.cast_lightning
         self.attack2 = "Lightning"
         self.attack2_description = "deals heavy lightning damage..."
-        self.heal1_method = self.healing_wave
         self.heal1 = "Healing Wave"
         self.heal1_description = "restores a moderate amount of health..."
+        self.attack1_method = self.cast_fireball
+        self.attack2_method = self.cast_lightning
+        self.heal1_method = self.healing_wave
         self.counterattack_method = self.counterattack
+
     def cast_fireball(self, target):
         if self.resource >= 15:
             damage = int(round(self.intelligence * (random.uniform(1.0, 2.0))))
@@ -163,20 +164,20 @@ class Warrior:
     def __init__(self, name, health, endurance, strength, sacred_feathers):
         self.name = name
         self.health = health
-        self.resource_type = "Endurance"
         self.resource = endurance
         self.strength = strength
         self.resource_gain = sacred_feathers
+        self.resource_type = "Endurance"
         self.resource_gain_description = "Sacred Feather"
-        self.attack1_method = self.light_swing
         self.attack1 = "Light Swing"
         self.attack1_description = "deals moderate physical damage..."
-        self.attack2_method = self.heavy_swing
         self.attack2 = "Heavy Swing"
         self.attack2_description = "deals heavy physical damage..."
-        self.heal1_method = self.meditate
         self.heal1 = "Meditate"
         self.heal1_description = "restores a moderate amount of health..."
+        self.attack1_method = self.light_swing        
+        self.attack2_method = self.heavy_swing
+        self.heal1_method = self.meditate
 
     def light_swing(self, target):
         if self.resource >= 15:
