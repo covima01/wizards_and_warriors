@@ -6,6 +6,7 @@ class Wizard:
     def __init__(self, name, health, mana, intelligence, xp, level, potions):
         self.name = name
         self.health = health
+        self.max_health = self.health
         self.resource = mana
         self.intelligence = intelligence
         self.xp = xp
@@ -15,25 +16,30 @@ class Wizard:
         self.resource_gain_description = "Mana Potion"
         self.attack1 = "Fireball"
         self.attack1_description = "deals moderate fire damage..."
+        self.attack1_cost = 5
         self.attack2 = "Lightning"
         self.attack2_description = "deals heavy lightning damage..."
+        self.attack2_cost = 10
         self.heal1 = "Healing Wave"
         self.heal1_description = "restores a moderate amount of health..."
+        self.heal1_cost = 10
         self.attack1_method = self.cast_fireball
         self.attack2_method = self.cast_lightning
         self.heal1_method = self.healing_wave
         self.counterattack_method = self.counterattack
+        self.stats = ["Health", "Mana", "Intelligence", "Potions"]
 
     def cast_fireball(self, target):
-        if self.resource >= 15:
+        if self.resource >= self.attack1_cost:
             damage = int(round(self.intelligence * (random.uniform(1.0, 2.0))))
             target.health -= damage
-            self.resource -= 15
+            self.resource -= self.attack1_cost
             if target.health <= 0:
                 print(BORDER)
                 print(f"{self.name} uses {self.attack1} dealing {damage} damage.".center(70))
                 print(BORDER)
                 print(f"{self.name} is victorious, {target.name} has perished in battle.".center(70))
+                print(BORDER)
                 return
             else:
                 print(BORDER)
@@ -44,6 +50,7 @@ class Wizard:
             print(BORDER)
             print(f"{self.name} doesn't have enough {self.resource_type}. Use a {self.resource_gain}? (y/n)".center(70))
             selection = input()
+            print(BORDER)
             while selection != "y" and selection != "n":
                 print("Unrecognized selection. Please enter y (yes) or n (no)")
                 selection = input()
@@ -60,15 +67,16 @@ class Wizard:
                 print(BORDER)
                 print("Not enough mana. Skipping turn".center(70))
     def cast_lightning(self, target):
-        if self.resource >= 25:
+        if self.resource >= self.attack2_cost:
             damage = int(round(self.intelligence * (random.uniform(2.0, 3.0))))
             target.health -= damage
-            self.resource -= 25
+            self.resource -= self.attack2_cost
             if target.health <= 0:
                 print(BORDER)
                 print(f"{self.name} uses {self.attack2} dealing {damage} damage.".center(70))
                 print(BORDER)
                 print(f"{self.name} is victorious, {target.name} has perished in battle.".center(70))
+                print(BORDER)
                 return
             else:
                 print(BORDER)
@@ -100,7 +108,7 @@ class Wizard:
         if self.resource >= 20:
             healing_amount = int(round(self.intelligence * (random.uniform(1.0, 1.3))))
             self.health += healing_amount
-            self.resource -= 20
+            self.resource -= self.heal1_cost
             print(BORDER)
             print(f"{self.name} uses {self.heal1} for {healing_amount}. Health: {self.health}".center(70))
             print(BORDER)
@@ -161,36 +169,110 @@ class Wizard:
                         print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))  
                 else:
                     chosen_counter(target)
+    def level_up(self):
+        # Level 2
+        if self.xp > 20:
+            if self.level == 1:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 50")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                for stat in self.stats:
+                    if stat == selection:
+                        self.skill_up(selection)
+
+        # Level 3
+        if self.xp > 50:
+            if self.level == 2:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 90")
+        # Level 4
+        if self.xp > 90:
+            if self.level == 3:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 140")
+        # Level 5
+        if self.xp > 140:
+            if self.level == 4:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 200")
+        # Level 6
+        if self.xp > 200:
+            if self.level == 5:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 270")
+        # Level 7
+        if self.xp > 270:
+            if self.level == 6:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 350")
+        # Level 8
+        if self.xp > 350:
+            if self.level == 7:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 440")
+        # Level 9
+        if self.xp > 440:
+            if self.level == 8:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 540")
+        # Level 10
+        if self.xp > 540:
+            if self.level == 9:
+                self.level += 1
+                print(f"{self.name} has reached MAX level {self.level}!")
+    def skill_up(self, selection):
+        if selection == self.health:
+            self.health = self.health * 1.25
+        if selection == self.resource:
+            self.mana = self.resource * 1.25
+        if selection == self.intelligence:
+            self.intelligence = self.intelligence * 1.25
+        if selection == self.resource_gain:
+            self.resource_gain = self.resource_gain + 1
 
 class Warrior:
-    def __init__(self, name, health, endurance, strength, sacred_feathers):
+    def __init__(self, name, health, endurance, strength, xp, level, sacred_feathers):
         self.name = name
         self.health = health
+        self.max_health = health
         self.resource = endurance
         self.strength = strength
+        self.xp = xp
+        self.level = level
         self.resource_gain = sacred_feathers
         self.resource_type = "Endurance"
         self.resource_gain_description = "Sacred Feather"
         self.attack1 = "Light Swing"
         self.attack1_description = "deals moderate physical damage..."
+        self.attack1_cost = 5
         self.attack2 = "Heavy Swing"
         self.attack2_description = "deals heavy physical damage..."
+        self.attack2_cost = 10
         self.heal1 = "Meditate"
         self.heal1_description = "restores a moderate amount of health..."
+        self.heal1_cost = 10
         self.attack1_method = self.light_swing        
         self.attack2_method = self.heavy_swing
         self.heal1_method = self.meditate
 
     def light_swing(self, target):
-        if self.resource >= 15:
+        if self.resource >= self.attack1_cost:
             damage = int(round(self.strength * (random.uniform(0.75, 1.25))))
             target.health -= damage
-            self.resource -= 15
+            self.resource -= self.attack1_cost
             if target.health <= 0:
                 print(BORDER)
                 print(f"{self.name} uses {self.attack1} dealing {damage} damage.".center(70))
                 print(BORDER)
                 print(f"{self.name} is victorious, {target.name} has perished in battle.\n".center(70))
+                print(BORDER)
                 return
             else:
                 print(BORDER)
@@ -215,15 +297,16 @@ class Warrior:
         
 
     def heavy_swing(self, target):
-        if self.resource >= 30:
+        if self.resource >= self.attack2_cost:
             damage = int(round(self.strength * random.uniform(1.5, 2.0)))
             target.health -= damage
-            self.resource -= 30
+            self.resource -= self.attack2_cost
             if target.health <= 0:
                 print(BORDER)
                 print(f"{self.name} uses {self.attack2} dealing {damage} damage.".center(70))
                 print(BORDER)
                 print(f"{self.name} is victorious, {target.name} has perished in battle.\n".center(70))
+                print(BORDER)
                 return
             else:
                 print(BORDER)
@@ -247,10 +330,10 @@ class Warrior:
 
 
     def meditate(self):
-        if self.resource >= 20:
+        if self.resource >= self.heal1_cost:
             healing_amount = int(round(self.strength * (random.uniform(0.4, 0.7))))
             self.health += healing_amount
-            self.resource -= 20
+            self.resource -= self.heal1_cost
             print(BORDER)
             print(f"{self.name} uses {self.heal1} for {healing_amount}. Health: {self.health}".center(70))
             print(BORDER)
@@ -273,7 +356,7 @@ class Warrior:
             counterattacks = [self.attack1_method, self.attack2_method, self.heal1_method]
             chosen_counter = random.choice(counterattacks)
             if chosen_counter == self.attack1_method:
-                if self.resource < 15:
+                if self.resource < self.attack1_cost:
                     self.resource += 50
                     print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}".center(70))
                     print(BORDER)  
@@ -281,14 +364,14 @@ class Warrior:
                 else:
                     chosen_counter(target)
             elif chosen_counter == self.attack2_method:
-                if self.resource < 30:
+                if self.resource < self.attack2_cost:
                     self.resource += 50
                     print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}".center(70))
                     print(BORDER)  
                 else:
                     chosen_counter(target)
             elif chosen_counter == self.heal1_method:
-                if self.resource < 20:
+                if self.resource < self.heal1_cost:
                     self.resource += 50
                     print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}".center(70))
                     print(BORDER)  

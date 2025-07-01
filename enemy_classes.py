@@ -1,6 +1,8 @@
 import random
 from constants import BORDER
 
+
+
 class Ogre:
     def __init__(self, name, health, strength, xp):
         self.name = name
@@ -40,4 +42,15 @@ class Ogre:
                 print(BORDER)
                 print(f"{self.name} missed.")
                 print(BORDER)
+    @staticmethod
+    def create_ogre_grunt():
+        return Ogre("Ogre Grunt", 25, 12, 5)
+    @staticmethod
+    def create_ogre_general():
+        return Ogre("Ogre General", 50, 18, 10)
+    @staticmethod
+    def create_ogre_warlord():
+        return Ogre("Ogre Warlord", 75, 20, 15)
+
+
 

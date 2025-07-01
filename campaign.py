@@ -1,5 +1,6 @@
 import random
 import time
+import copy
 from constants import BORDER
 from classes import Wizard, Warrior
 from characters import Gandalf, Cloud
@@ -7,7 +8,7 @@ from enemy_classes import Ogre
 from enemies import Ogres
 
 def one_enemy(player, enemy1):
-    enemy1 = random.choice(Ogres)
+    #enemy1 = random.choice(Ogres)
     while player.health > 0 and enemy1.health > 0:
         time.sleep(0.5)
         print(f"{player.name}-- Health: {player.health} , {player.resource_type}: {player.resource} // {enemy1.name}-- Health: {max(enemy1.health, 0)}".center(70))
@@ -46,9 +47,9 @@ def one_enemy(player, enemy1):
             player.heal1_method()
             if enemy1.health > 0:
                 enemy1.counterattack(player)
+    player.xp += enemy1.xp
+    player.health = player.max_health
 def two_enemies(player, enemy1, enemy2):
-    enemy1 = random.choice(Ogres)
-    enemy2 = random.choice(Ogres)
     while player.health > 0 and enemy1.health > 0 or enemy2.health > 0:
         time.sleep(0.5)
         print(BORDER)
@@ -75,7 +76,7 @@ def two_enemies(player, enemy1, enemy2):
                     else:
                         print(BORDER)
                         print(f"{player.name} missed".center(70))
-                        player.endurance -= 15
+                        player.resource -= 15
                         print(BORDER)
                         if enemy1.health > 0:
                             enemy1.counterattack(player)
@@ -146,10 +147,9 @@ def two_enemies(player, enemy1, enemy2):
                         enemy1.counterattack(player)
             else:
                 print(f"{enemy2.name} has perished. Try attacking another enemy.")
+    player.xp += (enemy1.xp + enemy2.xp)
+    player.health = player.max_health
 def three_enemies(player, enemy1, enemy2, enemy3):
-    enemy1 = random.choice(Ogres)
-    enemy2 = random.choice(Ogres)
-    enemy3 = random.choice(Ogres)
     while player.health > 0 and enemy1.health > 0 or enemy2.health > 0 or enemy3.health > 0:
         time.sleep(0.5)
         print(BORDER)
@@ -305,22 +305,30 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                         enemy2.counterattack(player)
             else:
                 print(f"{enemy3.name} has perished. Try attacking another enemy.")
+    player.xp += (enemy1.xp + enemy2.xp + enemy3.xp)
+    player.health = player.max_health
 
 def campaign():
     from inputs import character_selection
     character = character_selection("Choose your character-\n")
-    while True:
-        enemy1 = random.choice(Ogres)
-        enemy2 = random.choice(Ogres)
-        enemy3 = random.choice(Ogres)
+    while character.health > 0:
+        character.level_up()
+        Ogre_Generator = [Ogre.create_ogre_grunt, Ogre.create_ogre_general, Ogre.create_ogre_warlord]
         enemy_wave = [one_enemy, two_enemies, three_enemies]
         enemy_wave_selection = random.choice(enemy_wave)
         if enemy_wave_selection == one_enemy:
+            enemy1 = random.choice(Ogre_Generator)()
             one_enemy(character, enemy1)
         elif enemy_wave_selection == two_enemies:
+            enemy1 = random.choice(Ogre_Generator)()
+            enemy2 = random.choice(Ogre_Generator)()
             two_enemies(character, enemy1, enemy2)
         elif enemy_wave_selection == three_enemies:
+            enemy1 = random.choice(Ogre_Generator)()
+            enemy2 = random.choice(Ogre_Generator)()
+            enemy3 = random.choice(Ogre_Generator)()
             three_enemies(character, enemy1, enemy2, enemy3)
+    print(f"\n{character.name} has fallen")
 
 
 if __name__ == "__main__":
