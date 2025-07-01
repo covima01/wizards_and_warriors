@@ -8,6 +8,7 @@ class Wizard:
         self.health = health
         self.max_health = self.health
         self.resource = mana
+        self.max_resource = self.resource
         self.intelligence = intelligence
         self.xp = xp
         self.level = level
@@ -179,6 +180,7 @@ class Wizard:
                 for stat in self.stats:
                     print(stat)
                 selection = input("Which stat would you like to upgrade?")
+                self.skill_up(selection)
                 while selection not in [stat for stat in self.stats]:
                     print("Unrecognized answer. Please choose from the list above.")
                     print("\n")
@@ -228,14 +230,14 @@ class Wizard:
                 self.level += 1
                 print(f"{self.name} has reached MAX level {self.level}!")
     def skill_up(self, selection):
-        if selection == self.health:
-            self.health = self.health * 1.25
-        if selection == self.resource:
-            self.mana = self.resource * 1.25
-        if selection == self.intelligence:
-            self.intelligence = self.intelligence * 1.25
-        if selection == self.resource_gain:
-            self.resource_gain = self.resource_gain + 1
+        if selection == "Health":
+            self.max_health += 25
+        if selection == "Mana":
+            self.max_resource += 25
+        if selection == "Intelligence":
+            self.intelligence += 5
+        if selection == "Potions":
+            self.resource_gain += 1
 
 class Warrior:
     def __init__(self, name, health, endurance, strength, xp, level, sacred_feathers):
