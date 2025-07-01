@@ -8,7 +8,6 @@ from enemy_classes import Ogre
 from enemies import Ogres
 
 def one_enemy(player, enemy1):
-    #enemy1 = random.choice(Ogres)
     while player.health > 0 and enemy1.health > 0:
         time.sleep(0.5)
         print(f"{player.name}-- Health: {player.health} , {player.resource_type}: {player.resource} // {enemy1.name}-- Health: {max(enemy1.health, 0)}".center(70))
@@ -48,7 +47,9 @@ def one_enemy(player, enemy1):
             if enemy1.health > 0:
                 enemy1.counterattack(player)
     player.xp += enemy1.xp
+    player.level_up()
     player.health = player.max_health
+    player.resource = player.max_resource
 def two_enemies(player, enemy1, enemy2):
     while player.health > 0 and enemy1.health > 0 or enemy2.health > 0:
         time.sleep(0.5)
@@ -147,8 +148,10 @@ def two_enemies(player, enemy1, enemy2):
                         enemy1.counterattack(player)
             else:
                 print(f"{enemy2.name} has perished. Try attacking another enemy.")
-    player.xp += (enemy1.xp + enemy2.xp)
+    player.xp += enemy1.xp
+    player.level_up()
     player.health = player.max_health
+    player.resource = player.max_resource
 def three_enemies(player, enemy1, enemy2, enemy3):
     while player.health > 0 and enemy1.health > 0 or enemy2.health > 0 or enemy3.health > 0:
         time.sleep(0.5)
@@ -179,7 +182,7 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                         player.resource -= 15
                         print(BORDER)
                         if enemy1.health > 0:
-                            enemy1.ounterattack(player)
+                            enemy1.counterattack(player)
                             enemy2.counterattack(player)
                             enemy3.counterattack(player)
                 elif selection == "2":
@@ -305,14 +308,15 @@ def three_enemies(player, enemy1, enemy2, enemy3):
                         enemy2.counterattack(player)
             else:
                 print(f"{enemy3.name} has perished. Try attacking another enemy.")
-    player.xp += (enemy1.xp + enemy2.xp + enemy3.xp)
+    player.xp += enemy1.xp
+    player.level_up()
     player.health = player.max_health
+    player.resource = player.max_resource
 
 def campaign():
     from inputs import character_selection
     character = character_selection("Choose your character-\n")
     while character.health > 0:
-        character.level_up()
         Ogre_Generator = [Ogre.create_ogre_grunt, Ogre.create_ogre_general, Ogre.create_ogre_warlord]
         enemy_wave = [one_enemy, two_enemies, three_enemies]
         enemy_wave_selection = random.choice(enemy_wave)
