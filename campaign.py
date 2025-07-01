@@ -6,7 +6,6 @@ from characters import Gandalf, Cloud
 from enemy_classes import Ogre
 from enemies import Ogres
 
-
 def one_enemy(player, enemy1):
     enemy1 = random.choice(Ogres)
     while player.health > 0 and enemy1.health > 0:
@@ -47,8 +46,6 @@ def one_enemy(player, enemy1):
             player.heal1_method()
             if enemy1.health > 0:
                 enemy1.counterattack(player)
-
-
 def two_enemies(player, enemy1, enemy2):
     enemy1 = random.choice(Ogres)
     enemy2 = random.choice(Ogres)
@@ -150,7 +147,6 @@ def two_enemies(player, enemy1, enemy2):
                         enemy1.counterattack(player)
             else:
                 print(f"{enemy2.name} has perished. Try attacking another enemy.")
-
 def three_enemies(player, enemy1, enemy2, enemy3):
     enemy1 = random.choice(Ogres)
     enemy2 = random.choice(Ogres)
@@ -312,10 +308,23 @@ def three_enemies(player, enemy1, enemy2, enemy3):
             else:
                 print(f"{enemy3.name} has perished. Try attacking another enemy.")
 
-
+def campaign():
+    from inputs import character_selection
+    character = character_selection("Choose your character-\n")
+    enemy1 = random.choice(Ogres)
+    enemy2 = random.choice(Ogres)
+    enemy3 = random.choice(Ogres)
+    enemy_wave = [one_enemy, two_enemies, three_enemies]
+    enemy_wave_selection = random.choice(enemy_wave)
+    if enemy_wave_selection == one_enemy:
+        one_enemy(character, enemy1)
+    elif enemy_wave_selection == two_enemies:
+        two_enemies(character, enemy1, enemy2)
+    elif enemy_wave_selection == three_enemies:
+        three_enemies(character, enemy1, enemy2, enemy3)
 
 
 if __name__ == "__main__":
-    three_enemies(Cloud, None, None, None)
+    campaign()
 
 
