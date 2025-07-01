@@ -28,7 +28,7 @@ class Ogre:
             print(BORDER)
             print(f"{self.name}'s grip of death deals {damage} damage. {target.name}'s health is now {target.health}".center(70))
             print(BORDER)
-    def ogre_counterattack(self, target):
+    def counterattack(self, target):
             counterattacks = [self.overhead_smash, self.grip_of_death]
             chosen_counter = random.choice(counterattacks)
             attack = random.randint(0,8)
