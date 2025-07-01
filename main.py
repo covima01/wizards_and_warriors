@@ -8,7 +8,7 @@ from inputs import character_selection, game_mode
 def main():
     from campaign import campaign
     game_type = game_mode("Which mode do you want to play?")
-    if game_type == "Combat":
+    if game_type == "Hero Battle":
         print("You've selected Hero Battle.")
         character = character_selection("Choose your character-\n")
         opponent = character_selection("Choose your opponent-\n")

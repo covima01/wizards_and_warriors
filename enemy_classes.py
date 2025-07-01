@@ -2,10 +2,11 @@ import random
 from constants import BORDER
 
 class Ogre:
-    def __init__(self, name, health, strength):
+    def __init__(self, name, health, strength, xp):
         self.name = name
         self.health = health
         self.strength = strength
+        self.xp = xp
     def overhead_smash(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage
@@ -33,7 +34,8 @@ class Ogre:
             chosen_counter = random.choice(counterattacks)
             attack = random.randint(0,8)
             if attack <= 7:
-                chosen_counter(target)
+                if self.health > 0:
+                    chosen_counter(target)
             else:
                 print(BORDER)
                 print(f"{self.name} missed.")

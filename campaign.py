@@ -49,7 +49,6 @@ def one_enemy(player, enemy1):
 def two_enemies(player, enemy1, enemy2):
     enemy1 = random.choice(Ogres)
     enemy2 = random.choice(Ogres)
-    player.resource = int(player.resource * 1.5)
     while player.health > 0 and enemy1.health > 0 or enemy2.health > 0:
         time.sleep(0.5)
         print(BORDER)
@@ -151,7 +150,6 @@ def three_enemies(player, enemy1, enemy2, enemy3):
     enemy1 = random.choice(Ogres)
     enemy2 = random.choice(Ogres)
     enemy3 = random.choice(Ogres)
-    player.resource = int(player.resource * 2)
     while player.health > 0 and enemy1.health > 0 or enemy2.health > 0 or enemy3.health > 0:
         time.sleep(0.5)
         print(BORDER)
@@ -311,17 +309,18 @@ def three_enemies(player, enemy1, enemy2, enemy3):
 def campaign():
     from inputs import character_selection
     character = character_selection("Choose your character-\n")
-    enemy1 = random.choice(Ogres)
-    enemy2 = random.choice(Ogres)
-    enemy3 = random.choice(Ogres)
-    enemy_wave = [one_enemy, two_enemies, three_enemies]
-    enemy_wave_selection = random.choice(enemy_wave)
-    if enemy_wave_selection == one_enemy:
-        one_enemy(character, enemy1)
-    elif enemy_wave_selection == two_enemies:
-        two_enemies(character, enemy1, enemy2)
-    elif enemy_wave_selection == three_enemies:
-        three_enemies(character, enemy1, enemy2, enemy3)
+    while True:
+        enemy1 = random.choice(Ogres)
+        enemy2 = random.choice(Ogres)
+        enemy3 = random.choice(Ogres)
+        enemy_wave = [one_enemy, two_enemies, three_enemies]
+        enemy_wave_selection = random.choice(enemy_wave)
+        if enemy_wave_selection == one_enemy:
+            one_enemy(character, enemy1)
+        elif enemy_wave_selection == two_enemies:
+            two_enemies(character, enemy1, enemy2)
+        elif enemy_wave_selection == three_enemies:
+            three_enemies(character, enemy1, enemy2, enemy3)
 
 
 if __name__ == "__main__":

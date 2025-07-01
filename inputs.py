@@ -18,7 +18,7 @@ def character_selection(prompt):
             return character
 
 def game_mode(prompt):
-    modes = ["\n", "Combat", "Campaign"] # Prompt - Which game mode would you like to play?
+    modes = ["\n", "Hero Battle", "Campaign"] # Prompt - Which game mode would you like to play?
     print(prompt)
     for mode in modes:
         print(mode)

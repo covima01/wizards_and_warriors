@@ -3,11 +3,13 @@ from constants import BOLD, END, BORDER
 
 
 class Wizard: 
-    def __init__(self, name, health, mana, intelligence, potions):
+    def __init__(self, name, health, mana, intelligence, xp, level, potions):
         self.name = name
         self.health = health
         self.resource = mana
         self.intelligence = intelligence
+        self.xp = xp
+        self.level = level
         self.resource_gain = potions
         self.resource_type = "Mana"
         self.resource_gain_description = "Mana Potion"
