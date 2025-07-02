@@ -1,7 +1,6 @@
 import random
 from constants import BOLD, END, BORDER
 
-
 class Wizard: 
     def __init__(self, name, health, mana, intelligence, xp, level, potions):
         self.name = name
@@ -29,6 +28,7 @@ class Wizard:
         self.heal1_method = self.healing_wave
         self.counterattack_method = self.counterattack
         self.stats = ["Health", "Mana", "Intelligence", "Potions"]
+        self.attacks = [self.attack1, self.attack2, self.heal1]
 
     def cast_fireball(self, target):
         if self.resource >= self.attack1_cost:
@@ -180,64 +180,145 @@ class Wizard:
                 for stat in self.stats:
                     print(stat)
                 selection = input("Which stat would you like to upgrade?")
-                self.skill_up(selection)
                 while selection not in [stat for stat in self.stats]:
                     print("Unrecognized answer. Please choose from the list above.")
                     print("\n")
                     selection = input()
-                for stat in self.stats:
-                    if stat == selection:
-                        self.skill_up(selection)
+                self.skill_up(selection)
 
         # Level 3
         if self.xp > 50:
             if self.level == 2:
                 self.level += 1
                 print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 90")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
         # Level 4
         if self.xp > 90:
             if self.level == 3:
                 self.level += 1
                 print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 140")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
         # Level 5
         if self.xp > 140:
             if self.level == 4:
                 self.level += 1
                 print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 200")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
         # Level 6
         if self.xp > 200:
             if self.level == 5:
                 self.level += 1
                 print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 270")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
         # Level 7
         if self.xp > 270:
             if self.level == 6:
                 self.level += 1
                 print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 350")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
         # Level 8
         if self.xp > 350:
             if self.level == 7:
                 self.level += 1
                 print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 440")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
         # Level 9
         if self.xp > 440:
             if self.level == 8:
                 self.level += 1
                 print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 540")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
         # Level 10
         if self.xp > 540:
             if self.level == 9:
                 self.level += 1
                 print(f"{self.name} has reached MAX level {self.level}!")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
     def skill_up(self, selection):
         if selection == "Health":
             self.max_health += 25
+            print(BORDER)
+            print(f"Health increased by 25!")
+            print(BORDER)
         if selection == "Mana":
             self.max_resource += 25
+            print(BORDER)
+            print(f"Mana increased by 25!")
+            print(BORDER)
         if selection == "Intelligence":
             self.intelligence += 5
+            print(BORDER)
+            print(f"Intelligence increased by 5!")
+            print(BORDER)
         if selection == "Potions":
             self.resource_gain += 1
+            print(BORDER)
+            print(f"Max potions increased by 1!")
+            print(BORDER)
 
 class Warrior:
     def __init__(self, name, health, endurance, strength, xp, level, sacred_feathers):
@@ -245,6 +326,7 @@ class Warrior:
         self.health = health
         self.max_health = health
         self.resource = endurance
+        self.max_resource = self.resource
         self.strength = strength
         self.xp = xp
         self.level = level
@@ -263,7 +345,8 @@ class Warrior:
         self.attack1_method = self.light_swing        
         self.attack2_method = self.heavy_swing
         self.heal1_method = self.meditate
-
+        self.stats = ["Health", "Endurance", "Strength", "Sacred Feathers"]
+        self.attacks = [self.attack1, self.attack2, self.heal1]
     def light_swing(self, target):
         if self.resource >= self.attack1_cost:
             damage = int(round(self.strength * (random.uniform(0.75, 1.25))))
@@ -295,9 +378,6 @@ class Warrior:
             else:
                 print(BORDER)
                 print(f"Not enough {self.resource_type}. Skipping turn".center(70))
-            
-        
-
     def heavy_swing(self, target):
         if self.resource >= self.attack2_cost:
             damage = int(round(self.strength * random.uniform(1.5, 2.0)))
@@ -329,8 +409,6 @@ class Warrior:
             else:
                 print(BORDER)
                 print(f"Not enough {self.resource_type}. Skipping turn".center(70))
-
-
     def meditate(self):
         if self.resource >= self.heal1_cost:
             healing_amount = int(round(self.strength * (random.uniform(0.4, 0.7))))
@@ -353,7 +431,6 @@ class Warrior:
             else:
                 print(BORDER)
                 print(f"Not enough {self.resource_type}. Skipping turn".center(70))
-
     def counterattack(self, target):
             counterattacks = [self.attack1_method, self.attack2_method, self.heal1_method]
             chosen_counter = random.choice(counterattacks)
@@ -379,3 +456,152 @@ class Warrior:
                     print(BORDER)  
                 else:
                     chosen_counter()
+    def level_up(self):
+        # Level 2
+        if self.xp > 20:
+            if self.level == 1:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 50")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
+
+        # Level 3
+        if self.xp > 50:
+            if self.level == 2:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 90")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
+        # Level 4
+        if self.xp > 90:
+            if self.level == 3:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 140")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
+        # Level 5
+        if self.xp > 140:
+            if self.level == 4:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 200")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
+        # Level 6
+        if self.xp > 200:
+            if self.level == 5:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 270")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
+        # Level 7
+        if self.xp > 270:
+            if self.level == 6:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 350")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
+        # Level 8
+        if self.xp > 350:
+            if self.level == 7:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 440")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
+        # Level 9
+        if self.xp > 440:
+            if self.level == 8:
+                self.level += 1
+                print(f"{self.name} reached level {self.level}. Total XP - {self.xp} / 540")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
+        # Level 10
+        if self.xp > 540:
+            if self.level == 9:
+                self.level += 1
+                print(f"{self.name} has reached MAX level {self.level}!")
+                print(BORDER)
+                for stat in self.stats:
+                    print(stat)
+                selection = input("Which stat would you like to upgrade?")
+                while selection not in [stat for stat in self.stats]:
+                    print("Unrecognized answer. Please choose from the list above.")
+                    print("\n")
+                    selection = input()
+                self.skill_up(selection)
+    def skill_up(self, selection):
+        if selection == "Health":
+            self.max_health += 25
+            print(BORDER)
+            print(f"Health is now {self.max_health}")
+            print(BORDER)
+        if selection == "Endurance":
+            self.max_resource += 25
+            print(BORDER)
+            print(f"Endurance is now {self.max_resource}")
+            print(BORDER)
+        if selection == "Strength":
+            self.strength += 5
+            print(BORDER)
+            print(f"Strength is now {self.strength}")
+            print(BORDER)
+        if selection == "Sacred Feathers":
+            self.resource_gain += 1
+            print(BORDER)
+            print(f"You now have {self.resource_gain} {self.resource_gain_description}")
+            print(BORDER)
