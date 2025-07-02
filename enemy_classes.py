@@ -48,6 +48,17 @@ class Goblin(Monster):
             print(BORDER)
             print(f"{self.name} uses {self.heal1} for {healing_amount}. Health: {self.health}".center(70))
             print(BORDER)
+    def counterattack(self, target):
+            counterattacks = [self.attack1, self.attack2, self.heal1]
+            chosen_counter = random.choice(counterattacks)
+            attack = random.randint(0,8)
+            if attack <= 7:
+                if self.health > 0:
+                    chosen_counter(target)
+            else:
+                print(BORDER)
+                print(f"{self.name} missed.")
+                print(BORDER)
 class Harpy(Monster):
     def __init__(self, name, health, strength, intelligence, xp)
         super().__init__(name, health, intelligence, level, xp)
@@ -81,12 +92,23 @@ class Harpy(Monster):
             print(BORDER)
             print(f"{self.name} uses {self.heal1} for {healing_amount}. Health: {self.health}".center(70))
             print(BORDER)
+    def counterattack(self, target):
+            counterattacks = [self.attack1, self.attack2, self.heal1]
+            chosen_counter = random.choice(counterattacks)
+            attack = random.randint(0,8)
+            if attack <= 7:
+                if self.health > 0:
+                    chosen_counter(target)
+            else:
+                print(BORDER)
+                print(f"{self.name} missed.")
+                print(BORDER)
 class Orc(Monster):
         def __init__(self, name, health, strength, intelligence, xp)
         super().__init__(name, health, intelligence, level, xp)
-            self.attack1 = self.swooping_claw
-            self.attack1 = self.siren_song
-            self.heal1 = self.rejuvinating_cry
+            self.attack1 = self.cleave
+            self.attack1 = self.devastating_strike
+            self.heal1 = self.bloodlust
     def cleave(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage
@@ -111,6 +133,17 @@ class Orc(Monster):
     def bloodlust(self)
             self.strength = self.strength * 1.5
             print(f"{self.name}'s strength has increased to {self.strength}.")
+    def counterattack(self, target):
+            counterattacks = [self.attack1, self.attack2, self.heal1]
+            chosen_counter = random.choice(counterattacks)
+            attack = random.randint(0,8)
+            if attack <= 7:
+                if self.health > 0:
+                    chosen_counter(target)
+            else:
+                print(BORDER)
+                print(f"{self.name} missed.")
+                print(BORDER)
 
 class Ogre:
     def __init__(self, name, health, strength, xp):
