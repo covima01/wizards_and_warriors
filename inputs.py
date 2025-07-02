@@ -5,7 +5,6 @@ from combat import combat
 
 def character_selection(prompt):
     print(prompt)
-    Wizard_Generator = [Wizard.create_wizard_gandalf, Wizard.create_wizard_gandalf, Wizard.create_wizard_jaina]
     for character in Characters:
         print(character.name)
     selection = input("\nEnter character name: ")
