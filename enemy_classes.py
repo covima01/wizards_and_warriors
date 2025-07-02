@@ -14,6 +14,8 @@ class Goblin(Monster):
     def __init__(self, name, health, strength, intelligence, xp)
         super().__init__(name, health, intelligence, level, xp)
         self.attack1 = self.backstab
+        self.attack2 = self.double_shot
+        self.heal1 = self.healing_dust
     def backstab(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage
@@ -41,6 +43,39 @@ class Goblin(Monster):
                 print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.")
                 print(BORDER)
     def healing_dust(self)
+            healing_amount = self.health * 0.15
+            self.health += healing_amount
+            print(BORDER)
+            print(f"{self.name} uses {self.heal1} for {healing_amount}. Health: {self.health}".center(70))
+            print(BORDER)
+class Harpy(Monster):
+    def __init__(self, name, health, strength, intelligence, xp)
+        super().__init__(name, health, intelligence, level, xp)
+        self.attack1 = self.swooping_claw
+        self.attack1 = self.siren_song
+        self.heal1 = self.rejuvinating_cry
+    def swooping_claw(self, target):
+        damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
+        target.health -= damage
+        if target.health <=0:
+            print(BORDER)
+            print(f"{self.name}'s {self.attack1} deals {damage}. {target.name} has perished.".center(70))
+            print(BORDER)
+        else:
+            print(BORDER)
+            print(f"{self.name}'s {self.attack1} deals {damage} damage. {target.name}'s health is now {target.health}".center(70))
+            print(BORDER)
+    def siren_song(self, target):
+        damage = int(round(self.intelligence * (random.uniform(0.15, 0.25))))
+        target.health -= damage
+        if target.health <= 0:
+            print(BORDER)
+            print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.")
+        else:
+            print(BORDER)
+            print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.")
+            print(BORDER)
+    def rejuvinating_cry(self)
             healing_amount = self.health * 0.15
             self.health += healing_amount
             print(BORDER)
