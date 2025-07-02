@@ -7,15 +7,21 @@ from characters import Gandalf, Cloud
 from enemy_classes import Ogre
 from enemies import Ogres
 
+
+
 def one_enemy(player, enemy1):
     while player.health > 0 and enemy1.health > 0:
         time.sleep(0.5)
         print(f"{player.name}-- Health: {player.health} , {player.resource_type}: {player.resource} // {enemy1.name}-- Health: {max(enemy1.health, 0)}".center(70))
         print(f"What will {player.name} do?".center(70))
-        selection = input(f"\n1) {player.attack1} - {player.attack1_description}\n2) {player.attack2} - {player.attack2_description}\n3) {player.heal1} - {player.heal1_description}")
+        for attack in player.attacks:
+            print(attack)
+        selection = input()
         while selection != "1" and selection != "2" and selection != "3":
-            print(f"Unrecognized selection. Please choose 1) {player.attack1} 2) {player.attack2} or 3) {player.heal1}")
-            selection = input(f"Which action will {player.name} take?  {player.name} has {player.health} health. {enemy1.name} has {max(enemy1.health, 0)} health.\n\n 1) {player.attack1}\n 2) {player.attack2}\n 3) {player.heal1}")
+            print("Unrecognized selection.")
+            for attack in player.attacks:
+                print(attack)
+            selection = input()
         if selection == "1":
             attack = random.randint(0,8)
             if attack <= 7:
@@ -63,10 +69,16 @@ def two_enemies(player, enemy1, enemy2):
         if target == "1":
             print(BORDER)
             if enemy1.health > 0:
-                selection = input(f"How will you attack?\n1) {player.attack1} - {player.attack1_description}\n2) {player.attack2} - {player.attack2_description}\n3) {player.heal1} - {player.heal1_description}")
+                print(f"What will {player.name} do?")
+                for attack in player.attacks:
+                    print(attack)
+                selection = input()
                 while selection != "1" and selection != "2" and selection != "3":
-                    print(f"Unrecognized selection. Please choose 1) {player.attack1} or 2) {player.attack2} 3) {player.heal1}")
-                    selection = input(f"Which action will {player.name} take?  {player.name} has {player.health} health. {enemy1.name} has {max(enemy1.health, 0)} health.\n\n 1) {player.attack1}\n 2) {player.attack2}\n 3) {player.heal1}")
+                    print("Unrecognized selection.")
+                    print(f"What will {player.name} do?")
+                    for attack in player.attacks:
+                        print(attack)
+                    selection = input()
                 if selection == "1":
                     attack = random.randint(0,8)
                     if attack <= 7:
@@ -106,11 +118,16 @@ def two_enemies(player, enemy1, enemy2):
                 print(f"{enemy1.name} has perished. Try attacking another enemy.")
         if target == "2":
             if enemy2.health > 0:
-                print(BORDER)
-                selection = input(f"How will you attack?\n1) {player.attack1} - {player.attack1_description}\n2) {player.attack2} - {player.attack2_description}\n3) {player.heal1} - {player.heal1_description}")
+                print(f"What will {player.name} do?")
+                for attack in player.attacks:
+                    print(attack)
+                selection = input()
                 while selection != "1" and selection != "2" and selection != "3":
-                    print(f"Unrecognized selection. Please choose 1) {player.attack1} or 2) {player.attack2} 3) {player.heal1}")
-                    selection = input(f"Which action will {player.name} take?  {player.name} has {player.health} health. {enemy2.name} has {max(enemy2.health, 0)} health.\n\n 1) {player.attack1}\n 2) {player.attack2}\n 3) {player.heal1}")
+                    print("Unrecognized selection.")
+                    print(f"What will {player.name} do?")
+                    for attack in player.attacks:
+                        print(attack)
+                    selection = input()
                 if selection == "1":
                     attack = random.randint(0,8)
                     if attack <= 7:
@@ -164,10 +181,16 @@ def three_enemies(player, enemy1, enemy2, enemy3):
         if target == "1":
             print(BORDER)
             if enemy1.health > 0:
-                selection = input(f"How will you attack?\n1) {player.attack1} - {player.attack1_description}\n2) {player.attack2} - {player.attack2_description}\n3) {player.heal1} - {player.heal1_description}")
+                print(f"What will {player.name} do?")
+                for attack in player.attacks:
+                    print(attack)
+                selection = input()
                 while selection != "1" and selection != "2" and selection != "3":
-                    print(f"Unrecognized selection. Please choose 1) {player.attack1} or 2) {player.attack2} 3) {player.heal1}")
-                    selection = input(f"Which action will {player.name} take?  {player.name} has {player.health} health. {enemy1.name} has {max(enemy1.health, 0)} health.\n\n 1) {player.attack1}\n 2) {player.attack2}\n 3) {player.heal1}")
+                    print("Unrecognized selection.")
+                    print(f"What will {player.name} do?")
+                    for attack in player.attacks:
+                        print(attack)
+                    selection = input()
                 if selection == "1":
                     attack = random.randint(0,8)
                     if attack <= 7:
@@ -213,10 +236,16 @@ def three_enemies(player, enemy1, enemy2, enemy3):
         if target == "2":
             if enemy2.health > 0:
                 print(BORDER)
-                selection = input(f"How will you attack?\n1) {player.attack1} - {player.attack1_description}\n2) {player.attack2} - {player.attack2_description}\n3) {player.heal1} - {player.heal1_description}")
+                print(f"What will {player.name} do?")
+                for attack in player.attacks:
+                    print(attack)
+                selection = input()
                 while selection != "1" and selection != "2" and selection != "3":
-                    print(f"Unrecognized selection. Please choose 1) {player.attack1} or 2) {player.attack2} 3) {player.heal1}")
-                    selection = input(f"Which action will {player.name} take?  {player.name} has {player.health} health. {enemy2.name} has {max(enemy2.health,0)} health.\n\n 1) {player.attack1}\n 2) {player.attack2}\n 3) {player.heal1}")
+                    print("Unrecognized selection.")
+                    print(f"What will {player.name} do?")
+                    for attack in player.attacks:
+                        print(attack)
+                    selection = input()
                 if selection == "1":
                     attack = random.randint(0,8)
                     if attack <= 7:
@@ -262,10 +291,16 @@ def three_enemies(player, enemy1, enemy2, enemy3):
         if target == "3":
             if enemy3.health > 0:
                 print(BORDER)
-                selection = input(f"How will you attack?\n1) {player.attack1} - {player.attack1_description}\n2) {player.attack2} - {player.attack2_description}\n3) {player.heal1} - {player.heal1_description}")
+                print(f"What will {player.name} do?")
+                for attack in player.attacks:
+                    print(attack)
+                selection = input()
                 while selection != "1" and selection != "2" and selection != "3":
-                    print(f"Unrecognized selection. Please choose 1) {player.attack1} or 2) {player.attack2} 3) {player.heal1}")
-                    selection = input(f"Which action will {player.name} take?  {player.name} has {player.health} health. {enemy3.name} has {max(enemy3.health, 0)} health.\n\n 1) {player.attack1}\n 2) {player.attack2}\n 3) {player.heal1}")
+                    print("Unrecognized selection.")
+                    print(f"What will {player.name} do?")
+                    for attack in player.attacks:
+                        print(attack)
+                    selection = input()
                 if selection == "1":
                     attack = random.randint(0,8)
                     if attack <= 7:
