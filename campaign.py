@@ -347,7 +347,6 @@ def three_enemies(player, enemy1, enemy2, enemy3):
     player.level_up()
     player.health = player.max_health
     player.resource = player.max_resource
-
 def campaign():
     from inputs import character_selection
     character = character_selection("Choose your character-\n")
