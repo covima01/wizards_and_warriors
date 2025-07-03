@@ -59,6 +59,15 @@ class Goblin(Monster):
                 print(BORDER)
                 print(f"{self.name} missed.")
                 print(BORDER)
+    @staticmethod
+    def create_goblin_trickster():
+        return Goblin("Goblin Trickster", 20, 10, 10, 1, 5 )
+    @staticmethod
+    def create_goblin_bully():
+        return Goblin("Goblin Bully", 30, 12, 10, 1, 10)
+    @staticmethod
+    def create_goblin_fat_cat():
+        return Goblin("Goblin Fat-Cat", 100, 7, 5, 1, 15)
 class Harpy(Monster):
     def __init__(self, name, health, strength, intelligence, level, xp)
         super().__init__(name, health, intelligence, level, xp)
@@ -103,12 +112,21 @@ class Harpy(Monster):
                 print(BORDER)
                 print(f"{self.name} missed.")
                 print(BORDER)
+    @staticmethod
+    def create_harpy_huntress():
+        return Harpy("Harpy Huntress", 30, 9, 11, 1, 5)
+    @staticmethod
+    def create_harpy_terror():
+        return Harpy("Harpy Terror", 45, 11, 13, 1, 10)
+    @staticmethod
+    def create_harpy_matriarch():
+        return Harpy("Harpy Matriarch", 80, 13, 15, 1, 15)
 class Orc(Monster):
-        def __init__(self, name, health, strength, intelligence, level, xp)
+    def __init__(self, name, health, strength, intelligence, level, xp)
         super().__init__(name, health, intelligence, level, xp)
-            self.attack1 = self.cleave
-            self.attack1 = self.devastating_strike
-            self.heal1 = self.bloodlust
+        self.attack1 = self.cleave
+        self.attack1 = self.devastating_strike
+        self.heal1 = self.bloodlust
     def cleave(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage
@@ -144,7 +162,15 @@ class Orc(Monster):
                 print(BORDER)
                 print(f"{self.name} missed.")
                 print(BORDER)
-
+    @staticmethod
+    def create_orc_warrior():
+        return Orc("Orc Warrior", 50, 12, 6, 1, 10)
+    @staticmethod
+    def create_orc_captain():
+        return Orc("Orc Captain", 75, 15, 7, 1, 20)
+    @staticmethod
+    def create_orc_warmonger():
+        return Orc("Orc Warmonger", 120, 17, 8, 1, 35)
 class Ogre:
     def __init__(self, name, health, strength, xp):
         self.name = name
