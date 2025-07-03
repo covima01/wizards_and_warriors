@@ -1,4 +1,4 @@
-from classes import Wizard, Warrior, Flame_Walker, Frozen_Sorcerer, Storm_Mage
+from classes import Wizard, Warrior, Flame_Walker, Frozen_Sorcerer, Storm_Mage, Berserker, Paladin, Sellsword
 
 
 # Wizards
@@ -11,12 +11,21 @@ Debius = Flame_Walker("Debius", 230, 160, 21, 0, 1, 3)
 Kalnir = Frozen_Sorcerer("Kal'nir", 250, 150, 22, 0, 1, 3)
 # Storm Mage
 Shoon = Storm_Mage("Shoon", 200, 200, 26, 0, 1, 3)
+
 # Warriors
 Cloud = Warrior("Cloud", 350, 100, 22, 0, 1, 3)
 Geralt = Warrior("Geralt", 300, 100, 24, 0, 1, 3)
 Tidus = Warrior("Tidus", 400, 100, 20, 0, 1, 3)
 
+# Berserker
+Chokthun = Berserker("Chok'thun", 275, 80, 27, 0, 1, 3)
 
-Characters = [Cloud, Geralt, Tidus, Debius, Kalnir, Shoon ]
-Wizards = [Gandalf, Yennefer, Jaina]
-Warriors = [Cloud, Geralt, Tidus]
+# Paladin
+Reingard = Paladin("Reingard", 400, 150, 17, 0, 1, 3)
+
+# Sellsword
+Kalsonin = Sellsword("Kal'sonin", 320, 100, 22, 0, 1, 3)
+
+Characters = [Debius, Kalnir, Shoon, Chokthun, Reingard, Kalsonin ]
+Wizards = [Debius, Kalnir, Shoon]
+Warriors = [Chokthun, Reingard, Kalsonin]
