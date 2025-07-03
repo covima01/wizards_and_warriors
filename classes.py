@@ -307,7 +307,7 @@ class Wizard:
 class Flame_Walker(Wizard):
     def __init__(self, name, health, mana, intelligence, xp, level, potions):
         super().__init__(name, health, mana, intelligence, xp, level, potions)
-        self.description = (f"{self.name}: a mysterious wizard from the southern desert of Astanir. Nobody knows how old he is.")
+        self.description = (f"{self.name}: a mysterious flame walker from the southern desert of Astanir. Nobody knows how old he is.")
         self.attack1 = "Fireball"
         self.attack1_description = "deals moderate fire damage..."
         self.attack1_combined = "1) Fireball - deals moderate fire damage."
@@ -467,7 +467,7 @@ class Flame_Walker(Wizard):
 class Frozen_Sorcerer(Wizard):
     def __init__(self, name, health, mana, intelligence, xp, level, potions):
         super().__init__(name, health, mana, intelligence, xp, level, potions)
-        self.description = (f"{self.name}: a quick witted advisor to the king of Parth. Wise and dangerous.")
+        self.description = (f"{self.name}: frost mage, and quick witted advisor to the king of Parth. Wise and dangerous.")
         self.attack1 = "Ice Needle"
         self.attack1_description = "deals moderate ice damage..."
         self.attack1_combined = "1) Ice Needle - deals moderate ice damage."
@@ -627,7 +627,7 @@ class Frozen_Sorcerer(Wizard):
 class Storm_Mage(Wizard):
     def __init__(self, name, health, mana, intelligence, xp, level, potions):
         super().__init__(name, health, mana, intelligence, xp, level, potions)
-        self.description = (f"{self.name}: a wreckless outcast from the Enigma Isles. Once a hero, now a nobody.")
+        self.description = (f"{self.name}: a wreckless storm mage from the Enigma Isles. Once a hero, now an outcast.")
         self.attack1 = "Lightning"
         self.attack1_description = "deals moderate lightning damage..."
         self.attack1_combined = "1) Lightning - deals moderate lightning damage."
@@ -1073,7 +1073,7 @@ class Warrior:
 class Berserker(Warrior):
     def __init__(self, name, health, endurance, strength, xp, level, sacred_feathers):
         super().__init__(name, health, endurance, strength, xp, level, sacred_feathers)
-        self.description = (f"{self.name}: warchief of the Chok'ele tribe. Unbeaten in battle.")
+        self.description = (f"{self.name}: berserker warchief of the Chok'ele tribe. Unbeaten in battle.")
         self.attack1 = "Impale"
         self.attack1_description = "deals moderate physical damage..."
         self.attack1_combined = "1) Impale - deals moderate physical damage."
@@ -1233,7 +1233,7 @@ class Berserker(Warrior):
 class Paladin(Warrior):
     def __init__(self, name, health, endurance, strength, xp, level, sacred_feathers):
         super().__init__(name, health, endurance, strength, xp, level, sacred_feathers)
-        self.description = (f"{self.name}: leader of the royal guard. Honorable and reliable.")
+        self.description = (f"{self.name}: first paladin of the royal guard. Honorable and reliable.")
         self.attack1 = "Righteous Swing"
         self.attack1_description = "deals moderate holy and physical damage..."
         self.attack1_combined = "1) Righteous Swing - deals moderate holy and physical damage."
@@ -1393,7 +1393,7 @@ class Paladin(Warrior):
 class Sellsword(Warrior):
     def __init__(self, name, health, endurance, strength, xp, level, sacred_feathers):
         super().__init__(name, health, endurance, strength, xp, level, sacred_feathers)
-        self.description = (f"{self.name}: a former knight turned mercenary. Abandoned his unit in the Battle of the Bends.")
+        self.description = (f"{self.name}: a former knight turned sellsword. Abandoned his unit in the Battle of the Bends.")
         self.attack1 = "Quick Slash"
         self.attack1_description = "deals moderate physical damage..."
         self.attack1_combined = "1) Quick Slash - deals moderate holy and physical damage."
