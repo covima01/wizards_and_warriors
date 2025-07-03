@@ -14,21 +14,6 @@ class Wizard:
         self.resource_gain = potions
         self.resource_type = "Mana"
         self.resource_gain_description = "Mana Potion"
-        self.attack1 = "Fireball"
-        self.attack1_description = "deals moderate fire damage..."
-        self.attack1_cost = 5
-        self.attack2 = "Lightning"
-        self.attack2_description = "deals heavy lightning damage..."
-        self.attack2_cost = 10
-        self.heal1 = "Healing Wave"
-        self.heal1_description = "restores a moderate amount of health..."
-        self.heal1_cost = 10
-        self.attack1_method = self.cast_fireball
-        self.attack2_method = self.cast_lightning
-        self.heal1_method = self.healing_wave
-        self.counterattack_method = self.counterattack
-        self.stats = ["Health", "Mana", "Intelligence", "Potions"]
-        self.attacks = [self.attack1, self.attack2, self.heal1]
 
     def cast_fireball(self, target):
         if self.resource >= self.attack1_cost:
@@ -324,19 +309,22 @@ class Flame_Walker(Wizard):
         super().__init__(name, health, mana, intelligence, xp, level, potions)
         self.attack1 = "Fireball"
         self.attack1_description = "deals moderate fire damage..."
+        self.attack1_combined = "1) Fireball - deals moderate fire damage."
         self.attack1_cost = 5
         self.attack2 = "Meteor Rain"
         self.attack2_description = "deals heavy fire damage..."
+        self.attack2_combined = "2) Meteor Rain - deals heavy fire damage..."
         self.attack2_cost = 10
         self.heal1 = "Consume Flame"
         self.heal1_description = "restores a moderate amount of health..."
+        self.heal1_combined = "3) Consume Flame - restores a moderate amount of health..."
         self.heal1_cost = 10
         self.attack1_method = self.fireball
         self.attack2_method = self.meteor_rain
         self.heal1_method = self.consume_flame
         self.counterattack_method = self.counterattack
         self.stats = ["Health", "Mana", "Intelligence", "Potions"]
-        self.attacks = [self.attack1, self.attack2, self.heal1]
+        self.attacks = [self.attack1_combined, self.attack2_combined, self.heal1_combined]
     def fireball(self, target):
         if self.resource >= self.attack1_cost:
             damage = int(round(self.intelligence * (random.uniform(1.0, 2.0))))
@@ -480,19 +468,22 @@ class Frozen_Sorcerer(Wizard):
         super().__init__(name, health, mana, intelligence, xp, level, potions)
         self.attack1 = "Ice Needle"
         self.attack1_description = "deals moderate ice damage..."
+        self.attack1_combined = "1) Ice Needle - deals moderate ice damage."
         self.attack1_cost = 5
         self.attack2 = "Iceberg Down"
         self.attack2_description = "deals heavy ice damage..."
+        self.attack2_combined = "2) Iceberg Down - deals heavy ice damage."
         self.attack2_cost = 10
         self.heal1 = "Frozen Hibernation"
         self.heal1_description = "restores a moderate amount of health..."
+        self.heal1_combined = "3) Frozen Hibernation - restores a moderate amount of health."
         self.heal1_cost = 10
         self.attack1_method = self.ice_needle
         self.attack2_method = self.iceberg_down
         self.heal1_method = self.frozen_hibernation
         self.counterattack_method = self.counterattack
         self.stats = ["Health", "Mana", "Intelligence", "Potions"]
-        self.attacks = [self.attack1, self.attack2, self.heal1]
+        self.attacks = [self.attack1_combined, self.attack2_combined, self.heal1_combined]
     def ice_needle(self, target):
         if self.resource >= self.attack1_cost:
             damage = int(round(self.intelligence * (random.uniform(1.0, 2.0))))
@@ -631,25 +622,27 @@ class Frozen_Sorcerer(Wizard):
                         print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))  
                 else:
                     chosen_counter(target)
-
 class Storm_Mage(Wizard):
     def __init__(self, name, health, mana, intelligence, xp, level, potions):
         super().__init__(name, health, mana, intelligence, xp, level, potions)
         self.attack1 = "Lightning"
         self.attack1_description = "deals moderate lightning damage..."
+        self.attack1_combined = "1) Lightning - deals moderate lightning damage."
         self.attack1_cost = 5
         self.attack2 = "Grand Tempest"
         self.attack2_description = "deals heavy lightning damage..."
+        self.attack2_combined = "2) Grand Tempest - deals heavy lightning damage."
         self.attack2_cost = 10
         self.heal1 = "Life Shock"
         self.heal1_description = "restores a moderate amount of health..."
+        self.heal1_combined = "3) Life Shock - restores a moderate amoutn of health."
         self.heal1_cost = 10
         self.attack1_method = self.lightning
         self.attack2_method = self.grand_tempest
         self.heal1_method = self.life_shock
         self.counterattack_method = self.counterattack
         self.stats = ["Health", "Mana", "Intelligence", "Potions"]
-        self.attacks = [self.attack1, self.attack2, self.heal1]
+        self.attacks = [self.attack1_combined, self.attack2_combined, self.heal1_combined]
     def lightning(self, target):
         if self.resource >= self.attack1_cost:
             damage = int(round(self.intelligence * (random.uniform(1.0, 2.0))))
@@ -788,6 +781,7 @@ class Storm_Mage(Wizard):
                         print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))  
                 else:
                     chosen_counter(target)
+
 class Warrior:
     def __init__(self, name, health, endurance, strength, xp, level, sacred_feathers):
         self.name = name
