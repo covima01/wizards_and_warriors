@@ -2,8 +2,9 @@ import random
 from constants import BORDER
 
 
+
 class Monster:
-    def __init__(self, name, health, strength, intelligence, level, xp)
+    def __init__(self, name, health, strength, intelligence, level, xp):
         self.name = name
         self.level = level
         self.health = health + (self.level * 10)
@@ -11,11 +12,14 @@ class Monster:
         self.intelligence = intelligence + (self.level * 10)
         self.xp = xp
 class Goblin(Monster):
-    def __init__(self, name, health, strength, intelligence, level, xp)
-        super().__init__(name, health, intelligence, level, xp)
-        self.attack1 = self.backstab
-        self.attack2 = self.double_shot
-        self.heal1 = self.healing_dust
+    def __init__(self, name, health, strength, intelligence, level, xp):
+        super().__init__(name, health, strength,intelligence, level, xp)
+        self.attack1 = "Backstab"
+        self.attack1_method = self.backstab
+        self.attack2 = "Double Shot"
+        self.attack2_method = self.double_shot
+        self.heal1 = "Healing Dust"
+        self.heal1_method = self.healing_dust
     def backstab(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage
@@ -42,19 +46,22 @@ class Goblin(Monster):
                 print(BORDER)
                 print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.")
                 print(BORDER)
-    def healing_dust(self)
-            healing_amount = self.health * 0.15
+    def healing_dust(self):
+            healing_amount = int(self.health * 0.15)
             self.health += healing_amount
             print(BORDER)
             print(f"{self.name} uses {self.heal1} for {healing_amount}. Health: {self.health}".center(70))
             print(BORDER)
     def counterattack(self, target):
-            counterattacks = [self.attack1, self.attack2, self.heal1]
+            counterattacks = [self.attack1_method, self.attack2_method, self.heal1_method]
             chosen_counter = random.choice(counterattacks)
             attack = random.randint(0,8)
             if attack <= 7:
                 if self.health > 0:
-                    chosen_counter(target)
+                    if chosen_counter == self.heal1_method:
+                        chosen_counter()
+                    else:
+                        chosen_counter(target)
             else:
                 print(BORDER)
                 print(f"{self.name} missed.")
@@ -69,11 +76,14 @@ class Goblin(Monster):
     def create_goblin_fat_cat():
         return Goblin("Goblin Fat-Cat", 100, 7, 5, 1, 15)
 class Harpy(Monster):
-    def __init__(self, name, health, strength, intelligence, level, xp)
-        super().__init__(name, health, intelligence, level, xp)
-        self.attack1 = self.swooping_claw
-        self.attack1 = self.siren_song
-        self.heal1 = self.rejuvinating_cry
+    def __init__(self, name, health, strength, intelligence, level, xp):
+        super().__init__(name, health, strength, intelligence, level, xp)
+        self.attack1 = "Swooping Claw"
+        self.attack1_method = self.swooping_claw
+        self.attack2 = "Siren Song"
+        self.attack2_method = self.siren_song
+        self.heal1 = "Rejuvinating Cry"
+        self.heal1_method = self.rejuvinating_cry
     def swooping_claw(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage
@@ -95,19 +105,22 @@ class Harpy(Monster):
             print(BORDER)
             print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.")
             print(BORDER)
-    def rejuvinating_cry(self)
-            healing_amount = self.health * 0.15
+    def rejuvinating_cry(self):
+            healing_amount = int(self.health * 0.15)
             self.health += healing_amount
             print(BORDER)
             print(f"{self.name} uses {self.heal1} for {healing_amount}. Health: {self.health}".center(70))
             print(BORDER)
     def counterattack(self, target):
-            counterattacks = [self.attack1, self.attack2, self.heal1]
+            counterattacks = [self.attack1_method, self.attack2_method, self.heal1_method]
             chosen_counter = random.choice(counterattacks)
             attack = random.randint(0,8)
             if attack <= 7:
                 if self.health > 0:
-                    chosen_counter(target)
+                    if chosen_counter == self.heal1_method:
+                        chosen_counter()
+                    else:
+                        chosen_counter(target)
             else:
                 print(BORDER)
                 print(f"{self.name} missed.")
@@ -122,11 +135,14 @@ class Harpy(Monster):
     def create_harpy_matriarch():
         return Harpy("Harpy Matriarch", 80, 13, 15, 1, 15)
 class Orc(Monster):
-    def __init__(self, name, health, strength, intelligence, level, xp)
-        super().__init__(name, health, intelligence, level, xp)
-        self.attack1 = self.cleave
-        self.attack1 = self.devastating_strike
-        self.heal1 = self.bloodlust
+    def __init__(self, name, health, strength, intelligence, level, xp):
+        super().__init__(name, health, strength, intelligence, level, xp)
+        self.attack1 = "Cleave"
+        self.attack1_method = self.cleave
+        self.attack2 = "Devastating Strike"
+        self.attack2_method = self.devastating_strike
+        self.heal1 = "Bloodlust"
+        self.heal1_method = self.bloodlust
     def cleave(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage
@@ -148,16 +164,19 @@ class Orc(Monster):
             print(BORDER)
             print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.")
             print(BORDER)
-    def bloodlust(self)
-            self.strength = self.strength * 1.5
+    def bloodlust(self):
+            self.strength = int(self.strength * 1.5)
             print(f"{self.name}'s strength has increased to {self.strength}.")
     def counterattack(self, target):
-            counterattacks = [self.attack1, self.attack2, self.heal1]
+            counterattacks = [self.attack1_method, self.attack2_method, self.heal1_method]
             chosen_counter = random.choice(counterattacks)
             attack = random.randint(0,8)
             if attack <= 7:
                 if self.health > 0:
-                    chosen_counter(target)
+                    if chosen_counter == self.heal1_method:
+                        chosen_counter()
+                    else:
+                        chosen_counter(target)
             else:
                 print(BORDER)
                 print(f"{self.name} missed.")

@@ -1,4 +1,4 @@
-from enemy_classes import *
+from enemy_classes import Goblin, Harpy, Orc, Ogre
 
 # Goblins (self, name, health, strength, intelligence, level, xp)
 Goblin_Trickster = Goblin("Goblin Trickster", 20, 10, 10, 1, 5 )
@@ -21,3 +21,5 @@ Ogre_General = Ogre("Ogre General", 50, 18, 10)
 Ogre_Warlord = Ogre("Ogre Warlord", 75, 20, 15)
 
 Ogres = [Ogre_Grunt, Ogre_General, Ogre_Warlord]
+Enemy_Creation = [Goblin.create_goblin_trickster, Goblin.create_goblin_bully, Goblin.create_goblin_fat_cat, Harpy.create_harpy_huntress, 
+                Harpy.create_harpy_terror, Harpy.create_harpy_matriarch, Orc.create_orc_warrior, Orc.create_orc_captain, Orc.create_orc_warmonger]
