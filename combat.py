@@ -1,6 +1,6 @@
 import random
 import time
-from classes import BORDER, Wizard, Warrior
+from classes import BORDER
 
 def combat(player, enemy):
     #if isinstance(player, Wizard) and isinstance(enemy, Warrior):

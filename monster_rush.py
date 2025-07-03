@@ -1,11 +1,7 @@
 import random
 import time
-import copy
 from constants import BORDER
-from classes import Wizard, Warrior
-from characters import Gandalf, Cloud
-from enemy_classes import Ogre
-from enemies import Enemy_Creation, Ogres
+from enemies import Enemy_Creation
 
 
 
@@ -347,9 +343,10 @@ def three_enemies(player, enemy1, enemy2, enemy3):
     player.level_up()
     player.health = player.max_health
     player.resource = player.max_resource
-def campaign():
+def monster_rush():
     from inputs import character_selection
     character = character_selection("Choose your character-\n")
+    print(BORDER)
     while character.health > 0:
         Monster_Generator = Enemy_Creation
         enemy_wave = [one_enemy, two_enemies, three_enemies]
