@@ -174,7 +174,7 @@ def three_enemies(player, enemy1, enemy2, enemy3):
         time.sleep(0.5)
         print(BORDER)
         print(f"{player.name}-- Health: {player.health} , {player.resource_type}: {player.resource} // {enemy1.name}-- Health: {max(enemy1.health, 0)} : {enemy2.name}-- Health: {max(enemy2.health, 0)} : {enemy3.name}-- Health: {max(enemy3.health, 0)}".center(70))
-        target = input(f"Who will {player.name} attack?\n 1) {enemy1.name} \n 2) {enemy2.name} \n 3) {enemy3.name}")
+        target = input(f"Who will {player.name} attack?\n 1) {enemy1.name} \n 2) {enemy2.name} \n 3) {enemy3.name}\n")
         while target != "1" and target != "2" and target != "3":
             print(f"Unrecognized selection. Please choose 1) To attack the first enemy ({enemy1.name}), 2) To attack the second enemy: ({enemy2.name}), or 3) To attack the third enemy: ({enemy3.name})")
             target = input(f"Who will {player.name} attack first?\n 1) {enemy1.name} \n 2) {enemy2.name} \n 3) {enemy3.name}")
