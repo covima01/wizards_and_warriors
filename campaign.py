@@ -5,7 +5,7 @@ from constants import BORDER
 from classes import Wizard, Warrior
 from characters import Gandalf, Cloud
 from enemy_classes import Ogre
-from enemies import Ogres
+from enemies import Enemy_Creation, Ogres
 
 
 
@@ -159,7 +159,7 @@ def two_enemies(player, enemy1, enemy2):
                             enemy2.counterattack(player)
                             enemy1.counterattack(player)
                 elif selection == "3":
-                    player.heal1()
+                    player.heal1_method()
                     if enemy2.health > 0:
                         enemy2.counterattack(player)
                         enemy1.counterattack(player)
@@ -351,20 +351,20 @@ def campaign():
     from inputs import character_selection
     character = character_selection("Choose your character-\n")
     while character.health > 0:
-        Ogre_Generator = [Ogre.create_ogre_grunt, Ogre.create_ogre_general, Ogre.create_ogre_warlord]
+        Monster_Generator = Enemy_Creation
         enemy_wave = [one_enemy, two_enemies, three_enemies]
         enemy_wave_selection = random.choice(enemy_wave)
         if enemy_wave_selection == one_enemy:
-            enemy1 = random.choice(Ogre_Generator)()
+            enemy1 = random.choice(Monster_Generator)()
             one_enemy(character, enemy1)
         elif enemy_wave_selection == two_enemies:
-            enemy1 = random.choice(Ogre_Generator)()
-            enemy2 = random.choice(Ogre_Generator)()
+            enemy1 = random.choice(Monster_Generator)()
+            enemy2 = random.choice(Monster_Generator)()
             two_enemies(character, enemy1, enemy2)
         elif enemy_wave_selection == three_enemies:
-            enemy1 = random.choice(Ogre_Generator)()
-            enemy2 = random.choice(Ogre_Generator)()
-            enemy3 = random.choice(Ogre_Generator)()
+            enemy1 = random.choice(Monster_Generator)()
+            enemy2 = random.choice(Monster_Generator)()
+            enemy3 = random.choice(Monster_Generator)()
             three_enemies(character, enemy1, enemy2, enemy3)
     print(f"\n{character.name} has fallen")
 
