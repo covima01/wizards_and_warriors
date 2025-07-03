@@ -19,6 +19,7 @@ class Giant_Ogre(Boss):
         self.attack2_method = self.ground_pound
         self.heal1 = "Calloused Skin"
         self.heal1_method = self.calloused_skin
+        self.intro = (f"The ground starts to shake. As you approach the Fairgold Mines, you see a {self.name} running toward you.\nGet ready to do battle.")
     def club_smash(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage
@@ -46,6 +47,62 @@ class Giant_Ogre(Boss):
                 print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.")
                 print(BORDER)
     def calloused_skin(self):
+            healing_amount = int(self.health * 0.15)
+            self.health += healing_amount
+            print(BORDER)
+            print(f"{self.name} uses {self.heal1} for {healing_amount}. Health: {self.health}".center(70))
+            print(BORDER)
+    def counterattack(self, target):
+            counterattacks = [self.attack1_method, self.attack2_method, self.heal1_method]
+            chosen_counter = random.choice(counterattacks)
+            attack = random.randint(0,8)
+            if attack <= 7:
+                if self.health > 0:
+                    if chosen_counter == self.heal1_method:
+                        chosen_counter()
+                    else:
+                        chosen_counter(target)
+            else:
+                print(BORDER)
+                print(f"{self.name} missed.")
+                print(BORDER)
+class Dragon(Boss):
+    def __init__(self, name, health, armor, strength, intelligence, level, xp):
+        super().__init__(name, health, armor, strength, intelligence, level, xp)
+        self.attack1 = "Crystalline Breath"
+        self.attack1_method = self.crystalline_breath
+        self.attack2 = "Nosedive"
+        self.attack2_method = self.nosedive
+        self.heal1 = "Regrowth"
+        self.heal1_method = self.regrowth
+        self.intro = (f"You've awakened the {self.name}. A creature most thought had perished. It must have been sleeping for the last 1,000 years.\nHe looks angry...")
+    def crystalline_breath(self, target):
+        damage = int(round(self.intelligence * (random.uniform(0.25, 0.5))))
+        target.health -= damage
+        if target.health <=0:
+            print(BORDER)
+            print(f"{self.name}'s {self.attack1} deals {damage}. {target.name} has perished.".center(70))
+            print(BORDER)
+        else:
+            print(BORDER)
+            print(f"{self.name}'s {self.attack1} deals {damage} damage. {target.name}'s health is now {target.health}".center(70))
+            print(BORDER)
+    def nosedive(self, target):
+        damage = int(round(self.strength * (random.uniform(0.15, 0.25))))
+        target.health -= damage
+        if target.health <= 0:
+            print(BORDER)
+            print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.")
+        elif target.health >= 0:
+            target.health -= damage
+            if target.health <= 0:
+                print(BORDER)
+                print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.")
+            else:
+                print(BORDER)
+                print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.")
+                print(BORDER)
+    def regrowth(self):
             healing_amount = int(self.health * 0.15)
             self.health += healing_amount
             print(BORDER)
