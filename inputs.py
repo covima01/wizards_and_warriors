@@ -6,7 +6,7 @@ from combat import combat
 def character_selection(prompt):
     print(prompt)
     for character in Characters:
-        print(character.name)
+        print(character.description)
     selection = input("\nEnter character name: ")
     while selection not in [character.name for character in Characters]:
         print("That's not a character. Please choose from the list above.")
