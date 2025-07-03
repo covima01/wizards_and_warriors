@@ -307,6 +307,7 @@ class Wizard:
 class Flame_Walker(Wizard):
     def __init__(self, name, health, mana, intelligence, xp, level, potions):
         super().__init__(name, health, mana, intelligence, xp, level, potions)
+        self.description = (f"{self.name}: a mysterious wizard from the southern desert of Astanir. Nobody knows how old he is.")
         self.attack1 = "Fireball"
         self.attack1_description = "deals moderate fire damage..."
         self.attack1_combined = "1) Fireball - deals moderate fire damage."
@@ -466,6 +467,7 @@ class Flame_Walker(Wizard):
 class Frozen_Sorcerer(Wizard):
     def __init__(self, name, health, mana, intelligence, xp, level, potions):
         super().__init__(name, health, mana, intelligence, xp, level, potions)
+        self.description = (f"{self.name}: a quick witted advisor to the king of Parth. Wise and dangerous.")
         self.attack1 = "Ice Needle"
         self.attack1_description = "deals moderate ice damage..."
         self.attack1_combined = "1) Ice Needle - deals moderate ice damage."
@@ -625,6 +627,7 @@ class Frozen_Sorcerer(Wizard):
 class Storm_Mage(Wizard):
     def __init__(self, name, health, mana, intelligence, xp, level, potions):
         super().__init__(name, health, mana, intelligence, xp, level, potions)
+        self.description = (f"{self.name}: a wreckless outcast from the Enigma Isles. Once a hero, now a nobody.")
         self.attack1 = "Lightning"
         self.attack1_description = "deals moderate lightning damage..."
         self.attack1_combined = "1) Lightning - deals moderate lightning damage."
@@ -1067,3 +1070,483 @@ class Warrior:
             print(BORDER)
             print(f"You now have {self.resource_gain} {self.resource_gain_description}")
             print(BORDER)
+class Berserker(Warrior):
+    def __init__(self, name, health, endurance, strength, xp, level, sacred_feathers):
+        super().__init__(name, health, endurance, strength, xp, level, sacred_feathers)
+        self.description = (f"{self.name}: warchief of the Chok'ele tribe. Unbeaten in battle.")
+        self.attack1 = "Impale"
+        self.attack1_description = "deals moderate physical damage..."
+        self.attack1_combined = "1) Impale - deals moderate physical damage."
+        self.attack1_cost = 5
+        self.attack2 = "Whirlwind"
+        self.attack2_description = "deals heavy physical damage..."
+        self.attack2_combined = "2) Whirlwind - deals heavy physical damage."
+        self.attack2_cost = 10
+        self.heal1 = "Tireless Rage"
+        self.heal1_description = "restores a moderate amount of health..."
+        self.heal1_combined = "3) Tireless Rage - restores a moderate amount of health..."
+        self.heal1_cost = 10
+        self.attack1_method = self.impale
+        self.attack2_method = self.whirlwind
+        self.heal1_method = self.tireless_rage
+        self.counterattack_method = self.counterattack
+        self.stats = ["Health", "Endurance", "Strength", "Sacred Feathers"]
+        self.attacks = [self.attack1_combined, self.attack2_combined, self.heal1_combined]
+    def impale(self, target):
+        if self.resource >= self.attack1_cost:
+            damage = int(round(self.strength * (random.uniform(1.0, 2.0))))
+            target.health -= damage
+            self.resource -= self.attack1_cost
+            if target.health <= 0:
+                print(BORDER)
+                print(f"{self.name} uses {self.attack1} dealing {damage} damage.".center(70))
+                print(BORDER)
+                print(f"{self.name} is victorious, {target.name} has perished in battle.".center(70))
+                print(BORDER)
+                return
+            else:
+                print(BORDER)
+                print(f"{self.name} uses {self.attack1} dealing {damage} damage. {target.name}'s health is now {target.health}.".center(70))
+                print(BORDER)
+                return
+        else:
+            print(BORDER)
+            print(f"{self.name} doesn't have enough {self.resource_type}. Use a {self.resource_gain}? (y/n)".center(70))
+            selection = input()
+            print(BORDER)
+            while selection != "y" and selection != "n":
+                print("Unrecognized selection. Please enter y (yes) or n (no)")
+                selection = input()
+            if selection == "y":
+                if self.resource_gain > 0:
+                    self.resource += 50
+                    self.resource_gain -= 1
+                    print(f"{self.name} consumed a {self.resource_gain}. {self.resource_type}: {self.resource}. {self.resource_gain} {self.resource_type} remaining".center(70))
+                    print(BORDER)
+                else:
+                    print(BORDER)
+                    print(f"No {self.resource_type}'s left. Good luck!")
+            else:
+                print(BORDER)
+                print("Not enough mana. Skipping turn".center(70))
+    def whirlwind(self, target):
+        if self.resource >= self.attack2_cost:
+            damage = int(round(self.strength * (random.uniform(2.0, 3.0))))
+            target.health -= damage
+            self.resource -= self.attack2_cost
+            if target.health <= 0:
+                print(BORDER)
+                print(f"{self.name} uses {self.attack2} dealing {damage} damage.".center(70))
+                print(BORDER)
+                print(f"{self.name} is victorious, {target.name} has perished in battle.".center(70))
+                print(BORDER)
+                return
+            else:
+                print(BORDER)
+                print(f"{self.name} uses {self.attack2} dealing {damage} damage. {target.name}'s health is now {target.health}.".center(70))
+                print(BORDER)
+                return
+        else:
+            print(BORDER)
+            print(f"{self.name} doesn't have enough {self.resource_type}. Use a {self.resource_gain_description}? (y/n)".center(70))
+            selection = input()
+            while selection != "y" and selection != "n":
+                print("Unrecognized selection. Please enter y (yes) or n (no)")
+                selection = input()
+            if selection == "y":
+                if self.resource_gain > 0:
+                    self.resource_gain -= 1
+                    self.resource += 50
+                    print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}. {self.resource_gain} {self.resource_gain_description}'s remaining.".center(70))
+                    print(BORDER)
+                else:
+                    print(BORDER)
+                    print(f"No {self.resource_gain_description}'s left. Good luck!".center(70))
+            else:
+                print(BORDER)
+                print(f"Not enough {self.resource_type}. Skipping turn".center(70))
+    def tireless_rage(self):
+        if self.resource >= 20:
+            healing_amount = int(round(self.strength * (random.uniform(1.0, 1.3))))
+            self.health += healing_amount
+            self.resource -= self.heal1_cost
+            print(BORDER)
+            print(f"{self.name} uses {self.heal1} for {healing_amount}. Health: {self.health}".center(70))
+            print(BORDER)
+        else:
+            print(BORDER)
+            print(f"{self.name} doesn't have enough {self.resource_type}. Use a {self.resource_gain}? (y/n)".center(70))
+            selection = input()
+            while selection != "y" and selection != "n":
+                print("Unrecognized selection. Please enter y (yes) or n (no)")
+                selection = input()
+            if selection == "y":
+                if self.resource_gain > 0:
+                    self.resource_gain -= 1
+                    self.resource += 50
+                    print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}. {self.resource_gain} {self.resource_gain_description}'s remaining.".center(70))
+                    print(BORDER)
+                else:
+                    print(BORDER)
+                    print(f"No {self.resource_type} left. Good luck!")
+            else:
+                print(BORDER)
+                print(f"Not enough {self.resource_type}. Skipping turn".center(70))
+    def counterattack(self, target):
+            counterattacks = [self.attack1_method, self.attack2_method, self.heal1_method]
+            chosen_counter = random.choice(counterattacks)
+            if chosen_counter == self.heal1_method:
+                if self.resource < 20:
+                    if self.resource_gain > 0:
+                        self.resource += 50
+                        print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}".center(70))
+                        print(BORDER)  
+                        return
+                    else:
+                        print(BORDER)
+                        print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))
+                else:
+                    chosen_counter()
+            elif chosen_counter == self.attack1_method:
+                if self.resource < 15:
+                    if self.resource_gain > 0:
+                        self.resource += 50
+                        print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}".center(70))
+                        print(BORDER)
+                        return
+                    else:
+                        print(BORDER)
+                        print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))  
+                else:
+                    chosen_counter(target)
+            elif chosen_counter == self.attack2_method:
+                if self.resource < 25:
+                    if self.resource_gain > 0:
+                        self.resource += 50
+                        print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}".center(70))
+                        print(BORDER)
+                    else:
+                        print(BORDER)
+                        print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))  
+                else:
+                    chosen_counter(target)
+class Paladin(Warrior):
+    def __init__(self, name, health, endurance, strength, xp, level, sacred_feathers):
+        super().__init__(name, health, endurance, strength, xp, level, sacred_feathers)
+        self.description = (f"{self.name}: leader of the royal guard. Honorable and reliable.")
+        self.attack1 = "Righteous Swing"
+        self.attack1_description = "deals moderate holy and physical damage..."
+        self.attack1_combined = "1) Righteous Swing - deals moderate holy and physical damage."
+        self.attack1_cost = 5
+        self.attack2 = "Exercise Demons"
+        self.attack2_description = "deals heavy holy damage..."
+        self.attack2_combined = "2) Exercise Demons - deals heavy holy damage."
+        self.attack2_cost = 10
+        self.heal1 = "Holy Regeneration"
+        self.heal1_description = "restores a moderate amount of health..."
+        self.heal1_combined = "3) Holy Regeneration - restores a moderate amount of health..."
+        self.heal1_cost = 10
+        self.attack1_method = self.righteous_swing
+        self.attack2_method = self.exercise_demons
+        self.heal1_method = self.holy_regeneration
+        self.counterattack_method = self.counterattack
+        self.stats = ["Health", "Endurance", "Strength", "Sacred Feathers"]
+        self.attacks = [self.attack1_combined, self.attack2_combined, self.heal1_combined]
+    def righteous_swing(self, target):
+        if self.resource >= self.attack1_cost:
+            damage = int(round(self.strength * (random.uniform(1.0, 2.0))))
+            target.health -= damage
+            self.resource -= self.attack1_cost
+            if target.health <= 0:
+                print(BORDER)
+                print(f"{self.name} uses {self.attack1} dealing {damage} damage.".center(70))
+                print(BORDER)
+                print(f"{self.name} is victorious, {target.name} has perished in battle.".center(70))
+                print(BORDER)
+                return
+            else:
+                print(BORDER)
+                print(f"{self.name} uses {self.attack1} dealing {damage} damage. {target.name}'s health is now {target.health}.".center(70))
+                print(BORDER)
+                return
+        else:
+            print(BORDER)
+            print(f"{self.name} doesn't have enough {self.resource_type}. Use a {self.resource_gain}? (y/n)".center(70))
+            selection = input()
+            print(BORDER)
+            while selection != "y" and selection != "n":
+                print("Unrecognized selection. Please enter y (yes) or n (no)")
+                selection = input()
+            if selection == "y":
+                if self.resource_gain > 0:
+                    self.resource += 50
+                    self.resource_gain -= 1
+                    print(f"{self.name} consumed a {self.resource_gain}. {self.resource_type}: {self.resource}. {self.resource_gain} {self.resource_type} remaining".center(70))
+                    print(BORDER)
+                else:
+                    print(BORDER)
+                    print(f"No {self.resource_type}'s left. Good luck!")
+            else:
+                print(BORDER)
+                print("Not enough mana. Skipping turn".center(70))
+    def exercise_demons(self, target):
+        if self.resource >= self.attack2_cost:
+            damage = int(round(self.strength * (random.uniform(2.0, 3.0))))
+            target.health -= damage
+            self.resource -= self.attack2_cost
+            if target.health <= 0:
+                print(BORDER)
+                print(f"{self.name} uses {self.attack2} dealing {damage} damage.".center(70))
+                print(BORDER)
+                print(f"{self.name} is victorious, {target.name} has perished in battle.".center(70))
+                print(BORDER)
+                return
+            else:
+                print(BORDER)
+                print(f"{self.name} uses {self.attack2} dealing {damage} damage. {target.name}'s health is now {target.health}.".center(70))
+                print(BORDER)
+                return
+        else:
+            print(BORDER)
+            print(f"{self.name} doesn't have enough {self.resource_type}. Use a {self.resource_gain_description}? (y/n)".center(70))
+            selection = input()
+            while selection != "y" and selection != "n":
+                print("Unrecognized selection. Please enter y (yes) or n (no)")
+                selection = input()
+            if selection == "y":
+                if self.resource_gain > 0:
+                    self.resource_gain -= 1
+                    self.resource += 50
+                    print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}. {self.resource_gain} {self.resource_gain_description}'s remaining.".center(70))
+                    print(BORDER)
+                else:
+                    print(BORDER)
+                    print(f"No {self.resource_gain_description}'s left. Good luck!".center(70))
+            else:
+                print(BORDER)
+                print(f"Not enough {self.resource_type}. Skipping turn".center(70))
+    def holy_regeneration(self):
+        if self.resource >= 20:
+            healing_amount = int(round(self.strength * (random.uniform(1.0, 1.3))))
+            self.health += healing_amount
+            self.resource -= self.heal1_cost
+            print(BORDER)
+            print(f"{self.name} uses {self.heal1} for {healing_amount}. Health: {self.health}".center(70))
+            print(BORDER)
+        else:
+            print(BORDER)
+            print(f"{self.name} doesn't have enough {self.resource_type}. Use a {self.resource_gain}? (y/n)".center(70))
+            selection = input()
+            while selection != "y" and selection != "n":
+                print("Unrecognized selection. Please enter y (yes) or n (no)")
+                selection = input()
+            if selection == "y":
+                if self.resource_gain > 0:
+                    self.resource_gain -= 1
+                    self.resource += 50
+                    print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}. {self.resource_gain} {self.resource_gain_description}'s remaining.".center(70))
+                    print(BORDER)
+                else:
+                    print(BORDER)
+                    print(f"No {self.resource_type} left. Good luck!")
+            else:
+                print(BORDER)
+                print(f"Not enough {self.resource_type}. Skipping turn".center(70))
+    def counterattack(self, target):
+            counterattacks = [self.attack1_method, self.attack2_method, self.heal1_method]
+            chosen_counter = random.choice(counterattacks)
+            if chosen_counter == self.heal1_method:
+                if self.resource < 20:
+                    if self.resource_gain > 0:
+                        self.resource += 50
+                        print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}".center(70))
+                        print(BORDER)  
+                        return
+                    else:
+                        print(BORDER)
+                        print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))
+                else:
+                    chosen_counter()
+            elif chosen_counter == self.attack1_method:
+                if self.resource < 15:
+                    if self.resource_gain > 0:
+                        self.resource += 50
+                        print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}".center(70))
+                        print(BORDER)
+                        return
+                    else:
+                        print(BORDER)
+                        print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))  
+                else:
+                    chosen_counter(target)
+            elif chosen_counter == self.attack2_method:
+                if self.resource < 25:
+                    if self.resource_gain > 0:
+                        self.resource += 50
+                        print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}".center(70))
+                        print(BORDER)
+                    else:
+                        print(BORDER)
+                        print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))  
+                else:
+                    chosen_counter(target)
+class Sellsword(Warrior):
+    def __init__(self, name, health, endurance, strength, xp, level, sacred_feathers):
+        super().__init__(name, health, endurance, strength, xp, level, sacred_feathers)
+        self.description = (f"{self.name}: a former knight turned mercenary. Abandoned his unit in the Battle of the Bends.")
+        self.attack1 = "Quick Slash"
+        self.attack1_description = "deals moderate physical damage..."
+        self.attack1_combined = "1) Quick Slash - deals moderate holy and physical damage."
+        self.attack1_cost = 5
+        self.attack2 = "Twin Slice"
+        self.attack2_description = "deals heavy physical damage..."
+        self.attack2_combined = "2) Twin Slice - deals heavy physical damage."
+        self.attack2_cost = 10
+        self.heal1 = "Bandage Wound"
+        self.heal1_description = "restores a moderate amount of health..."
+        self.heal1_combined = "3) Bandage Wound - restores a moderate amount of health..."
+        self.heal1_cost = 10
+        self.attack1_method = self.quick_slash
+        self.attack2_method = self.twin_slice
+        self.heal1_method = self.bandage_wound
+        self.counterattack_method = self.counterattack
+        self.stats = ["Health", "Endurance", "Strength", "Sacred Feathers"]
+        self.attacks = [self.attack1_combined, self.attack2_combined, self.heal1_combined]
+    def quick_slash(self, target):
+        if self.resource >= self.attack1_cost:
+            damage = int(round(self.strength * (random.uniform(1.0, 2.0))))
+            target.health -= damage
+            self.resource -= self.attack1_cost
+            if target.health <= 0:
+                print(BORDER)
+                print(f"{self.name} uses {self.attack1} dealing {damage} damage.".center(70))
+                print(BORDER)
+                print(f"{self.name} is victorious, {target.name} has perished in battle.".center(70))
+                print(BORDER)
+                return
+            else:
+                print(BORDER)
+                print(f"{self.name} uses {self.attack1} dealing {damage} damage. {target.name}'s health is now {target.health}.".center(70))
+                print(BORDER)
+                return
+        else:
+            print(BORDER)
+            print(f"{self.name} doesn't have enough {self.resource_type}. Use a {self.resource_gain}? (y/n)".center(70))
+            selection = input()
+            print(BORDER)
+            while selection != "y" and selection != "n":
+                print("Unrecognized selection. Please enter y (yes) or n (no)")
+                selection = input()
+            if selection == "y":
+                if self.resource_gain > 0:
+                    self.resource += 50
+                    self.resource_gain -= 1
+                    print(f"{self.name} consumed a {self.resource_gain}. {self.resource_type}: {self.resource}. {self.resource_gain} {self.resource_type} remaining".center(70))
+                    print(BORDER)
+                else:
+                    print(BORDER)
+                    print(f"No {self.resource_type}'s left. Good luck!")
+            else:
+                print(BORDER)
+                print("Not enough mana. Skipping turn".center(70))
+    def twin_slice(self, target):
+        if self.resource >= self.attack2_cost:
+            damage = int(round(self.strength * (random.uniform(2.0, 3.0))))
+            target.health -= damage
+            self.resource -= self.attack2_cost
+            if target.health <= 0:
+                print(BORDER)
+                print(f"{self.name} uses {self.attack2} dealing {damage} damage.".center(70))
+                print(BORDER)
+                print(f"{self.name} is victorious, {target.name} has perished in battle.".center(70))
+                print(BORDER)
+                return
+            else:
+                print(BORDER)
+                print(f"{self.name} uses {self.attack2} dealing {damage} damage. {target.name}'s health is now {target.health}.".center(70))
+                print(BORDER)
+                return
+        else:
+            print(BORDER)
+            print(f"{self.name} doesn't have enough {self.resource_type}. Use a {self.resource_gain_description}? (y/n)".center(70))
+            selection = input()
+            while selection != "y" and selection != "n":
+                print("Unrecognized selection. Please enter y (yes) or n (no)")
+                selection = input()
+            if selection == "y":
+                if self.resource_gain > 0:
+                    self.resource_gain -= 1
+                    self.resource += 50
+                    print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}. {self.resource_gain} {self.resource_gain_description}'s remaining.".center(70))
+                    print(BORDER)
+                else:
+                    print(BORDER)
+                    print(f"No {self.resource_gain_description}'s left. Good luck!".center(70))
+            else:
+                print(BORDER)
+                print(f"Not enough {self.resource_type}. Skipping turn".center(70))
+    def bandage_wound(self):
+        if self.resource >= 20:
+            healing_amount = int(round(self.strength * (random.uniform(1.0, 1.3))))
+            self.health += healing_amount
+            self.resource -= self.heal1_cost
+            print(BORDER)
+            print(f"{self.name} uses {self.heal1} for {healing_amount}. Health: {self.health}".center(70))
+            print(BORDER)
+        else:
+            print(BORDER)
+            print(f"{self.name} doesn't have enough {self.resource_type}. Use a {self.resource_gain}? (y/n)".center(70))
+            selection = input()
+            while selection != "y" and selection != "n":
+                print("Unrecognized selection. Please enter y (yes) or n (no)")
+                selection = input()
+            if selection == "y":
+                if self.resource_gain > 0:
+                    self.resource_gain -= 1
+                    self.resource += 50
+                    print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}. {self.resource_gain} {self.resource_gain_description}'s remaining.".center(70))
+                    print(BORDER)
+                else:
+                    print(BORDER)
+                    print(f"No {self.resource_type} left. Good luck!")
+            else:
+                print(BORDER)
+                print(f"Not enough {self.resource_type}. Skipping turn".center(70))
+    def counterattack(self, target):
+            counterattacks = [self.attack1_method, self.attack2_method, self.heal1_method]
+            chosen_counter = random.choice(counterattacks)
+            if chosen_counter == self.heal1_method:
+                if self.resource < 20:
+                    if self.resource_gain > 0:
+                        self.resource += 50
+                        print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}".center(70))
+                        print(BORDER)  
+                        return
+                    else:
+                        print(BORDER)
+                        print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))
+                else:
+                    chosen_counter()
+            elif chosen_counter == self.attack1_method:
+                if self.resource < 15:
+                    if self.resource_gain > 0:
+                        self.resource += 50
+                        print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}".center(70))
+                        print(BORDER)
+                        return
+                    else:
+                        print(BORDER)
+                        print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))  
+                else:
+                    chosen_counter(target)
+            elif chosen_counter == self.attack2_method:
+                if self.resource < 25:
+                    if self.resource_gain > 0:
+                        self.resource += 50
+                        print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}".center(70))
+                        print(BORDER)
+                    else:
+                        print(BORDER)
+                        print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))  
+                else:
+                    chosen_counter(target)        
