@@ -11,7 +11,7 @@ class Monster:
         self.intelligence = intelligence + (self.level * 10)
         self.xp = xp
 class Goblin(Monster):
-    def __init__(self, name, health, strength, intelligence, xp)
+    def __init__(self, name, health, strength, intelligence, level, xp)
         super().__init__(name, health, intelligence, level, xp)
         self.attack1 = self.backstab
         self.attack2 = self.double_shot
@@ -60,7 +60,7 @@ class Goblin(Monster):
                 print(f"{self.name} missed.")
                 print(BORDER)
 class Harpy(Monster):
-    def __init__(self, name, health, strength, intelligence, xp)
+    def __init__(self, name, health, strength, intelligence, level, xp)
         super().__init__(name, health, intelligence, level, xp)
         self.attack1 = self.swooping_claw
         self.attack1 = self.siren_song
@@ -104,7 +104,7 @@ class Harpy(Monster):
                 print(f"{self.name} missed.")
                 print(BORDER)
 class Orc(Monster):
-        def __init__(self, name, health, strength, intelligence, xp)
+        def __init__(self, name, health, strength, intelligence, level, xp)
         super().__init__(name, health, intelligence, level, xp)
             self.attack1 = self.cleave
             self.attack1 = self.devastating_strike
