@@ -6,7 +6,7 @@ Goblin_Bully = Goblin("Goblin Bully", 30, 12, 10, 1, 10)
 Goblin_Fat_Cat = Goblin("Goblin Fat-Cat", 100, 7, 5, 1, 15)
 
 # Harpies (self, name, health, strength, intelligence, level, xp)
-Harpy_Softbeak = Harpy("Softbeak Harpy", 30, 9, 11, 1, 5)
+Harpy_Huntress = Harpy("Harpy Huntress", 30, 9, 11, 1, 5)
 Harpy_Terror = Harpy("Harpy Terror", 45, 11, 13, 1, 10)
 Harpy_Matriarch = Harpy("Harpy Matriarch", 80, 13, 15, 1, 15)
 
