@@ -1,7 +1,5 @@
 from constants import BORDER
-from classes import Wizard, Warrior
-from characters import Characters, Gandalf
-from combat import combat
+from characters import Characters
 
 def character_selection(prompt):
     print(prompt)
