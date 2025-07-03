@@ -367,6 +367,6 @@ def monster_rush():
 
 
 if __name__ == "__main__":
-    campaign()
+    monster_rush()
 
 

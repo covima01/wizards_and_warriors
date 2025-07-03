@@ -1,8 +1,72 @@
 import random
 from constants import BORDER
+# Bosses
+class Boss:
+    def __init__(self, name, health, armor, strength, intelligence, level, xp):
+        self.name = name
+        self.level = level
+        self.health = health + (self.level * 10)
+        self.strength = strength + (self.level * 10)
+        self.armor = armor
+        self.intelligence = intelligence + (self.level * 10)
+        self.xp = xp
+class Giant_Ogre(Boss):
+    def __init__(self, name, health, armor, strength, intelligence, level, xp):
+        super().__init__(name, health, armor, strength, intelligence, level, xp)
+        self.attack1 = "Club Smash"
+        self.attack1_method = self.club_smash
+        self.attack2 = "Ground Pound"
+        self.attack2_method = self.ground_pound
+        self.heal1 = "Calloused Skin"
+        self.heal1_method = self.calloused_skin
+    def club_smash(self, target):
+        damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
+        target.health -= damage
+        if target.health <=0:
+            print(BORDER)
+            print(f"{self.name}'s {self.attack1} deals {damage}. {target.name} has perished.".center(70))
+            print(BORDER)
+        else:
+            print(BORDER)
+            print(f"{self.name}'s {self.attack1} deals {damage} damage. {target.name}'s health is now {target.health}".center(70))
+            print(BORDER)
+    def ground_pound(self, target):
+        damage = int(round(self.strength * (random.uniform(0.15, 0.25))))
+        target.health -= damage
+        if target.health <= 0:
+            print(BORDER)
+            print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.")
+        elif target.health >= 0:
+            target.health -= damage
+            if target.health <= 0:
+                print(BORDER)
+                print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.")
+            else:
+                print(BORDER)
+                print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.")
+                print(BORDER)
+    def calloused_skin(self):
+            healing_amount = int(self.health * 0.15)
+            self.health += healing_amount
+            print(BORDER)
+            print(f"{self.name} uses {self.heal1} for {healing_amount}. Health: {self.health}".center(70))
+            print(BORDER)
+    def counterattack(self, target):
+            counterattacks = [self.attack1_method, self.attack2_method, self.heal1_method]
+            chosen_counter = random.choice(counterattacks)
+            attack = random.randint(0,8)
+            if attack <= 7:
+                if self.health > 0:
+                    if chosen_counter == self.heal1_method:
+                        chosen_counter()
+                    else:
+                        chosen_counter(target)
+            else:
+                print(BORDER)
+                print(f"{self.name} missed.")
+                print(BORDER)
 
-
-
+# Minor monsters
 class Monster:
     def __init__(self, name, health, strength, intelligence, level, xp):
         self.name = name
@@ -11,6 +75,7 @@ class Monster:
         self.strength = strength + (self.level * 10)
         self.intelligence = intelligence + (self.level * 10)
         self.xp = xp
+    
 class Goblin(Monster):
     def __init__(self, name, health, strength, intelligence, level, xp):
         super().__init__(name, health, strength,intelligence, level, xp)

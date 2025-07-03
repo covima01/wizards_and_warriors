@@ -1,4 +1,8 @@
-from enemy_classes import Goblin, Harpy, Orc, Ogre
+from enemy_classes import Goblin, Harpy, Orc, Ogre, Giant_Ogre
+
+# Bosses
+Monstrous_Cyclops = Giant_Ogre("Monstrous Cyclops", 300, 100, 25, 25, 3, 50) #     def __init__(self, name, health, armor, strength, intelligence, level, xp):
+
 
 # Goblins (self, name, health, strength, intelligence, level, xp)
 Goblin_Trickster = Goblin("Goblin Trickster", 20, 10, 10, 1, 5 )
