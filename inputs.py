@@ -18,8 +18,8 @@ def character_selection(prompt):
 
 def game_mode(prompt):
     print(BORDER)
-    types = ["\n", "1) Hero Battle - choose two heroes in a fight to the death.", "2) Monster Rush - battle waves of enemies, level up, and claim victory for the realm."]
-    mode_numbers = ["1", "2"] # Prompt - Which game mode would you like to play?
+    types = ["\n", "1) Hero Battle - choose two heroes in a fight to the death.", "2) Monster Rush - battle waves of enemies, level up, and claim victory for the realm.", "3) Adventure - traverse the world of Enlia battling monsters and bosses to complete your quest"]
+    mode_numbers = ["1", "2", "3"] # Prompt - Which game mode would you like to play?
     print(prompt)
     for type in types:
         print(type)

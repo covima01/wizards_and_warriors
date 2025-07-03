@@ -18,6 +18,10 @@ def main():
     elif game_type == "2":
         print("You've selected Monster Rush")
         monster_rush()
+    elif game_type == "3":
+        from adventure import adventure
+        print("You've selection Adventure.")
+        adventure()
 
 
 
