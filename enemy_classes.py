@@ -19,7 +19,7 @@ class Giant_Ogre(Boss):
         self.attack2_method = self.ground_pound
         self.heal1 = "Calloused Skin"
         self.heal1_method = self.calloused_skin
-        self.intro = (f"The ground starts to shake. As you approach the Fairgold Mines, you see a {self.name} running toward you.\nGet ready to do battle.")
+        self.intro = (f"The ground starts to shake. As you approach the Fairgold Mines, you see a {self.name} running toward you. Get ready to do battle.".center(70))
     def club_smash(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage
@@ -36,15 +36,15 @@ class Giant_Ogre(Boss):
         target.health -= damage
         if target.health <= 0:
             print(BORDER)
-            print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.")
+            print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.".center(70))
         elif target.health >= 0:
             target.health -= damage
             if target.health <= 0:
                 print(BORDER)
-                print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.")
+                print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.".center(70))
             else:
                 print(BORDER)
-                print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.")
+                print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.".center(70))
                 print(BORDER)
     def calloused_skin(self):
             healing_amount = int(self.health * 0.15)
@@ -75,7 +75,7 @@ class Dragon(Boss):
         self.attack2_method = self.nosedive
         self.heal1 = "Regrowth"
         self.heal1_method = self.regrowth
-        self.intro = (f"You've awakened the {self.name}. A creature most thought had perished. It must have been sleeping for the last 1,000 years.\nHe looks angry...")
+        self.intro = (f"You've awakened the {self.name}. A creature most thought had perished. It must have been sleeping for the last 1,000 years. He looks angry...".center(70))
     def crystalline_breath(self, target):
         damage = int(round(self.intelligence * (random.uniform(0.25, 0.5))))
         target.health -= damage
@@ -92,15 +92,15 @@ class Dragon(Boss):
         target.health -= damage
         if target.health <= 0:
             print(BORDER)
-            print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.")
+            print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.".center(70))
         elif target.health >= 0:
             target.health -= damage
             if target.health <= 0:
                 print(BORDER)
-                print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.")
+                print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.".center(70))
             else:
                 print(BORDER)
-                print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.")
+                print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.".center(70))
                 print(BORDER)
     def regrowth(self):
             healing_amount = int(self.health * 0.15)
@@ -121,6 +121,62 @@ class Dragon(Boss):
             else:
                 print(BORDER)
                 print(f"{self.name} missed.")
+                print(BORDER)
+class Chimera(Boss):
+    def __init__(self, name, health, armor, strength, intelligence, level, xp):
+        super().__init__(name, health, armor, strength, intelligence, level, xp)
+        self.attack1 = "Serpent's Sting"
+        self.attack1_method = self.serpents_sting
+        self.attack2 = "Fire Breath"
+        self.attack2_method = self.fire_breath
+        self.heal1 = "Prideful Roar"
+        self.heal1_method = self.prideful_roar
+        self.intro = (f"You've caught the attention of the {self.name}. Do not take this battle lightly adventurer. Many heroes of renown have fallen in battle to this monstrosity.".center(70))
+    def serpents_sting(self, target):
+        damage = int(round(self.intelligence * (random.uniform(0.25, 0.5))))
+        target.health -= damage
+        if target.health <=0:
+            print(BORDER)
+            print(f"{self.name}'s {self.attack1} deals {damage}. {target.name} has perished.".center(70))
+            print(BORDER)
+        else:
+            print(BORDER)
+            print(f"{self.name}'s {self.attack1} deals {damage} damage. {target.name}'s health is now {target.health}".center(70))
+            print(BORDER)
+    def fire_breath(self, target):
+        damage = int(round(self.strength * (random.uniform(0.15, 0.25))))
+        target.health -= damage
+        if target.health <= 0:
+            print(BORDER)
+            print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.".center(70))
+        elif target.health >= 0:
+            target.health -= damage
+            if target.health <= 0:
+                print(BORDER)
+                print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.".center(70))
+            else:
+                print(BORDER)
+                print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.".center(70))
+                print(BORDER)
+    def prideful_roar(self):
+            healing_amount = int(self.health * 0.15)
+            self.health += healing_amount
+            print(BORDER)
+            print(f"{self.name} uses {self.heal1} for {healing_amount}. Health: {self.health}".center(70))
+            print(BORDER)
+    def counterattack(self, target):
+            counterattacks = [self.attack1_method, self.attack2_method, self.heal1_method]
+            chosen_counter = random.choice(counterattacks)
+            attack = random.randint(0,8)
+            if attack <= 7:
+                if self.health > 0:
+                    if chosen_counter == self.heal1_method:
+                        chosen_counter()
+                    else:
+                        chosen_counter(target)
+            else:
+                print(BORDER)
+                print(f"{self.name} missed.".center(70))
                 print(BORDER)
 
 # Minor monsters
@@ -281,14 +337,14 @@ class Orc(Monster):
         target.health -= damage
         if target.health <= 0:
             print(BORDER)
-            print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.")
+            print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.".center(70))
         else:
             print(BORDER)
-            print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.")
+            print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.".center(70))
             print(BORDER)
     def bloodlust(self):
             self.strength = int(self.strength * 1.5)
-            print(f"{self.name}'s strength has increased to {self.strength}.")
+            print(f"{self.name}'s strength has increased to {self.strength}.".center(70))
     def counterattack(self, target):
             counterattacks = [self.attack1_method, self.attack2_method, self.heal1_method]
             chosen_counter = random.choice(counterattacks)
@@ -301,7 +357,7 @@ class Orc(Monster):
                         chosen_counter(target)
             else:
                 print(BORDER)
-                print(f"{self.name} missed.")
+                print(f"{self.name} missed.".center(70))
                 print(BORDER)
     @staticmethod
     def create_orc_warrior():
@@ -312,44 +368,52 @@ class Orc(Monster):
     @staticmethod
     def create_orc_warmonger():
         return Orc("Orc Warmonger", 120, 17, 8, 1, 35)
-class Ogre:
-    def __init__(self, name, health, strength, xp):
-        self.name = name
-        self.health = health
-        self.strength = strength
-        self.xp = xp
-    def overhead_smash(self, target):
+class Ogre(Monster):
+    def __init__(self, name, health, strength, intelligence, level, xp):
+        super().__init__(name, health, strength, intelligence, level, xp)
+        self.attack1 = "Club Swing"
+        self.attack1_method = self.club_swing
+        self.attack2 = "Grip of Death"
+        self.attack2_method = self.grip_of_death
+        self.heal1 = "Enrage"
+        self.heal1_method = self.enrage
+    def club_swing(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage
         if target.health <=0:
             print(BORDER)
-            print(f"{self.name}'s overhead smash deals {damage}. {target.name} has perished.".center(70))
+            print(f"{self.name}'s {self.attack1} deals {damage}. {target.name} has perished.".center(70))
             print(BORDER)
         else:
             print(BORDER)
-            print(f"{self.name}'s overhead smash deals {damage} damage. {target.name}'s health is now {target.health}".center(70))
+            print(f"{self.name}'s {self.attack1} deals {damage} damage. {target.name}'s health is now {target.health}".center(70))
             print(BORDER)
     def grip_of_death(self, target):
-        damage = int(round(self.strength * (random.uniform(0.5, 1.0))))
+        damage = int(round(self.strength * (random.uniform(0.30, 0.60))))
         target.health -= damage
         if target.health <= 0:
             print(BORDER)
-            print(f"{self.name}'s grip of death deals {damage}. {target.name} has perished.".center(70))
-            print(BORDER)
+            print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name} has perished.".center(70))
         else:
             print(BORDER)
-            print(f"{self.name}'s grip of death deals {damage} damage. {target.name}'s health is now {target.health}".center(70))
+            print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.".center(70))
             print(BORDER)
+    def enrage(self):
+            self.strength = int(self.strength * 1.5)
+            print(f"{self.name} uses {self.heal1}. It's strength has increased to {self.strength}.".center(70))
     def counterattack(self, target):
-            counterattacks = [self.overhead_smash, self.grip_of_death]
+            counterattacks = [self.attack1_method, self.attack2_method, self.heal1_method]
             chosen_counter = random.choice(counterattacks)
             attack = random.randint(0,8)
             if attack <= 7:
                 if self.health > 0:
-                    chosen_counter(target)
+                    if chosen_counter == self.heal1_method:
+                        chosen_counter()
+                    else:
+                        chosen_counter(target)
             else:
                 print(BORDER)
-                print(f"{self.name} missed.")
+                print(f"{self.name} missed.".center(70))
                 print(BORDER)
     @staticmethod
     def create_ogre_grunt():
