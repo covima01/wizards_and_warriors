@@ -1198,7 +1198,7 @@ class Paladin(Warrior):
     def __init__(self, name, health, endurance, strength, xp, level, sacred_feathers):
         super().__init__(name, health, endurance, strength, xp, level, sacred_feathers)
         self.description = (f"{self.name}: first paladin of the royal guard. Honorable and reliable.")
-        self.attack1, self.attack1_description, self.attack1_combined, self.attack1_cost = "Righteous Swing", "deals moderate holy and physical damage...", "Righteous Swing - deals moderate holy and physical damage.", 5
+        self.attack1, self.attack1_description, self.attack1_combined, self.attack1_cost = "Righteous Swing", "deals moderate holy and physical damage...", "1) Righteous Swing - deals moderate holy and physical damage.", 5
         self.attack2, self.attack2_description, self.attack2_combined, self.attack2_cost = "Exercise Demons", "deals heavy holy damage...", "2) Exercise Demons - deals heavy holy damage.", 10
         self.heal1, self.heal1_description, self.heal1_combined, self.heal1_cost = "Holy Regeneration", "restores a moderate amount of health...", "3) Holy Regeneration - restores a moderate amoutn of health", 10
         self.attack1_method, self.attack2_method, self.heal1_method, self.counterattack_method = self.righteous_swing, self.exercise_demons, self.holy_regeneration, self.counterattack

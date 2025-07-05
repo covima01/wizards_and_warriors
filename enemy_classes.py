@@ -417,13 +417,13 @@ class Ogre(Monster):
                 print(BORDER)
     @staticmethod
     def create_ogre_grunt():
-        return Ogre("Ogre Grunt", 25, 12, 5)
+        return Ogre("Ogre Grunt", 25, 12, 5, 1, 5)
     @staticmethod
     def create_ogre_general():
-        return Ogre("Ogre General", 50, 18, 10)
+        return Ogre("Ogre General", 50, 18, 6, 1, 8)
     @staticmethod
     def create_ogre_warlord():
-        return Ogre("Ogre Warlord", 75, 20, 15)
+        return Ogre("Ogre Warlord", 75, 20, 7, 1, 13)
 
 
 
