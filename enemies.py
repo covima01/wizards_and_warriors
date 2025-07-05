@@ -1,8 +1,9 @@
-from enemy_classes import Goblin, Harpy, Orc, Ogre, Giant_Ogre, Dragon
+from enemy_classes import Goblin, Harpy, Orc, Ogre, Giant_Ogre, Dragon, Chimera
 
 # Bosses
 Monstrous_Cyclops = Giant_Ogre("Monstrous Cyclops", 300, 100, 25, 25, 3, 50)
-Verdant_Dragon = Dragon("Verdant Dragon", 350, 125, 27, 28, 6, 125) #     def __init__(self, name, health, armor, strength, intelligence, level, xp):
+Verdant_Dragon = Dragon("Verdant Dragon", 350, 125, 27, 28, 6, 125)
+Ancient_Chimera = Chimera("Ancient Chimera", 420, 145, 30, 31, 9, 180) #     def __init__(self, name, health, armor, strength, intelligence, level, xp):
 
 
 # Goblins (self, name, health, strength, intelligence, level, xp)
@@ -25,6 +26,6 @@ Ogre_Grunt = Ogre("Ogre Grunt", 25, 12, 5)
 Ogre_General = Ogre("Ogre General", 50, 18, 10)
 Ogre_Warlord = Ogre("Ogre Warlord", 75, 20, 15)
 
-Ogres = [Ogre_Grunt, Ogre_General, Ogre_Warlord]
 Enemy_Creation = [Goblin.create_goblin_trickster, Goblin.create_goblin_bully, Goblin.create_goblin_fat_cat, Harpy.create_harpy_huntress, 
-                Harpy.create_harpy_terror, Harpy.create_harpy_matriarch, Orc.create_orc_warrior, Orc.create_orc_captain, Orc.create_orc_warmonger]
+                Harpy.create_harpy_terror, Harpy.create_harpy_matriarch, Orc.create_orc_warrior, Orc.create_orc_captain, Orc.create_orc_warmonger,
+                Ogre.create_ogre_grunt, Ogre.create_ogre_general, Ogre.create_ogre_warlord]
