@@ -1,7 +1,7 @@
 import random
 from constants import BORDER
 from monster_rush import one_enemy, two_enemies, three_enemies
-from enemies import Enemy_Creation, Monstrous_Cyclops, Verdant_Dragon
+from enemies import Enemy_Creation, Monstrous_Cyclops, Verdant_Dragon, Ancient_Chimera
 from bossfight import boss_fight
 from characters import Debius
 
@@ -65,6 +65,63 @@ def level_5(character):
         enemy2 = random.choice(Monster_Generator)()
         two_enemies(character, enemy1, enemy2)
         i+=1
+def level_6(character):
+    print(BORDER)
+    print("Now entering the Swamp of Skulls...")
+    print(BORDER)
+    for i in range(0,3):
+        Monster_Generator = Enemy_Creation
+        enemy1 = random.choice(Monster_Generator)()
+        one_enemy(character, enemy1)
+        i+=1
+    Monster_Generator = Enemy_Creation
+    enemy1 = random.choice(Monster_Generator)()
+    enemy2 = random.choice(Monster_Generator)()
+    enemy3 = random.choice(Monster_Generator)()
+    three_enemies(character, enemy1, enemy2, enemy3)
+    for i in range(0,2):
+        Monster_Generator = Enemy_Creation
+        enemy1 = random.choice(Monster_Generator)()
+        enemy2 = random.choice(Monster_Generator)()
+        two_enemies(character, enemy1, enemy2)
+        i+=1
+def level_7(character):
+    for i in range(0,3):
+        Monster_Generator = Enemy_Creation
+        enemy1 = random.choice(Monster_Generator)()
+        one_enemy(character, enemy1)
+        i+=1
+    Monster_Generator = Enemy_Creation
+    enemy1 = random.choice(Monster_Generator)()
+    enemy2 = random.choice(Monster_Generator)()
+    enemy3 = random.choice(Monster_Generator)()
+    three_enemies(character, enemy1, enemy2, enemy3)
+    for i in range(0,3):
+        Monster_Generator = Enemy_Creation
+        enemy1 = random.choice(Monster_Generator)()
+        enemy2 = random.choice(Monster_Generator)()
+        two_enemies(character, enemy1, enemy2)
+        i+=1
+def level_8(character):
+    for i in range(0,2):
+        Monster_Generator = Enemy_Creation
+        enemy1 = random.choice(Monster_Generator)()
+        enemy2 = random.choice(Monster_Generator)()
+        two_enemies(character, enemy1)
+        i+=1
+    for i in range(0, 2):
+        Monster_Generator = Enemy_Creation
+        enemy1 = random.choice(Monster_Generator)()
+        enemy2 = random.choice(Monster_Generator)()
+        enemy3 = random.choice(Monster_Generator)()
+        three_enemies(character, enemy1, enemy2, enemy3)
+        i+=1
+    for i in range(0,2):
+        Monster_Generator = Enemy_Creation
+        enemy1 = random.choice(Monster_Generator)()
+        enemy2 = random.choice(Monster_Generator)()
+        two_enemies(character, enemy1, enemy2)
+        i+=1
 
 
 
@@ -80,6 +137,10 @@ def adventure():
         level_4(character)
         level_5(character)
         boss_fight(character, Verdant_Dragon)
+        level_6(character)
+        level_7(character)
+        level_8(character)
+        boss_fight(character, Ancient_Chimera)
 
 if __name__ == "__main__":
     adventure()
