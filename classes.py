@@ -308,22 +308,10 @@ class Flame_Walker(Wizard):
     def __init__(self, name, health, mana, intelligence, xp, level, potions):
         super().__init__(name, health, mana, intelligence, xp, level, potions)
         self.description = (f"{self.name}: a mysterious flame walker from the southern desert of Astanir. Nobody knows how old he is.")
-        self.attack1 = "Fireball"
-        self.attack1_description = "deals moderate fire damage..."
-        self.attack1_combined = "1) Fireball - deals moderate fire damage."
-        self.attack1_cost = 5
-        self.attack2 = "Meteor Rain"
-        self.attack2_description = "deals heavy fire damage..."
-        self.attack2_combined = "2) Meteor Rain - deals heavy fire damage..."
-        self.attack2_cost = 10
-        self.heal1 = "Consume Flame"
-        self.heal1_description = "restores a moderate amount of health..."
-        self.heal1_combined = "3) Consume Flame - restores a moderate amount of health..."
-        self.heal1_cost = 10
-        self.attack1_method = self.fireball
-        self.attack2_method = self.meteor_rain
-        self.heal1_method = self.consume_flame
-        self.counterattack_method = self.counterattack
+        self.attack1, self.attack1_description, self.attack1_combined, self.attack1_cost = "Fireball", "deals moderate fire damage...", "1) Fireball - deals moderate fire damage.", 5
+        self.attack2, self.attack2_description, self.attack2_combined, self.attack2_cost = "Meteor Rain", "deals heave fire damage...", "2) Meteor Rain - deals heavy fire damage.", 10
+        self.heal1, self.heal1_description, self.heal1_combined, self.heal1_cost = "Consume Flame", "restores a moderate amount of health...", "3) Consume Flame - restores a moderate amount of health.", 10
+        self.attack1_method, self.attack2_method, self.heal1_method, self.counterattack_method = self.fireball, self.meteor_rain, self.consume_flame, self.counterattack
         self.stats = ["Health", "Mana", "Intelligence", "Potions"]
         self.attacks = [self.attack1_combined, self.attack2_combined, self.heal1_combined]
     def fireball(self, target):
@@ -468,22 +456,10 @@ class Frozen_Sorcerer(Wizard):
     def __init__(self, name, health, mana, intelligence, xp, level, potions):
         super().__init__(name, health, mana, intelligence, xp, level, potions)
         self.description = (f"{self.name}: frost mage, and quick witted advisor to the king of Parth. Wise and dangerous.")
-        self.attack1 = "Ice Needle"
-        self.attack1_description = "deals moderate ice damage..."
-        self.attack1_combined = "1) Ice Needle - deals moderate ice damage."
-        self.attack1_cost = 5
-        self.attack2 = "Iceberg Down"
-        self.attack2_description = "deals heavy ice damage..."
-        self.attack2_combined = "2) Iceberg Down - deals heavy ice damage."
-        self.attack2_cost = 10
-        self.heal1 = "Frozen Hibernation"
-        self.heal1_description = "restores a moderate amount of health..."
-        self.heal1_combined = "3) Frozen Hibernation - restores a moderate amount of health."
-        self.heal1_cost = 10
-        self.attack1_method = self.ice_needle
-        self.attack2_method = self.iceberg_down
-        self.heal1_method = self.frozen_hibernation
-        self.counterattack_method = self.counterattack
+        self.attack1, self.attack1_description, self.attack1_combined, self.attack1_cost = "Ice Needle", "deals moderate ice damage...", "1) Ice Needle - deals moderate ice damage.", 5
+        self.attack2, self.attack2_description, self.attack2_combined, self.attack2_cost = "Iceberg Down", "deals heavy ice damage...", "2) Iceberg Down - deals heavy ice damage", 10
+        self.heal1, self.heal1_description, self.heal1_combined, self.heal1_cost = "Frozen Hibernation", "restores a moderate amount of health...", "3) Frozen Hibernation - restores a moderate amount of health.", 10
+        self.attack1_method, self.attack2_method, self.heal1_method, self.counterattack_method = self.ice_needle, self.iceberg_down, self.frozen_hibernation, self.counterattack
         self.stats = ["Health", "Mana", "Intelligence", "Potions"]
         self.attacks = [self.attack1_combined, self.attack2_combined, self.heal1_combined]
     def ice_needle(self, target):
@@ -627,23 +603,11 @@ class Frozen_Sorcerer(Wizard):
 class Storm_Mage(Wizard):
     def __init__(self, name, health, mana, intelligence, xp, level, potions):
         super().__init__(name, health, mana, intelligence, xp, level, potions)
-        self.description = (f"{self.name}: a wreckless storm mage from the Enigma Isles. Once a hero, now an outcast.")
-        self.attack1 = "Lightning"
-        self.attack1_description = "deals moderate lightning damage..."
-        self.attack1_combined = "1) Lightning - deals moderate lightning damage."
-        self.attack1_cost = 5
-        self.attack2 = "Grand Tempest"
-        self.attack2_description = "deals heavy lightning damage..."
-        self.attack2_combined = "2) Grand Tempest - deals heavy lightning damage."
-        self.attack2_cost = 10
-        self.heal1 = "Life Shock"
-        self.heal1_description = "restores a moderate amount of health..."
-        self.heal1_combined = "3) Life Shock - restores a moderate amoutn of health."
-        self.heal1_cost = 10
-        self.attack1_method = self.lightning
-        self.attack2_method = self.grand_tempest
-        self.heal1_method = self.life_shock
-        self.counterattack_method = self.counterattack
+        self.description = (f"{self.name}: a reckless storm mage from the Enigma Isles. Once a hero, now an outcast.")
+        self.attack1, self.attack1_description, self.attack1_combined, self.attack1_cost = "Lightning", "deals moderate lightning damage...", "1) Lightning - deals moderate lightning damage.", 5
+        self.attack2, self.attack2_description, self.attack2_combined, self.attack2_cost = "Grand Tempest", "deals heavy lightning damage...", "2) Grand Temptest - deals heavy lightning damage.", 10
+        self.heal1, self.heal1_description, self.heal1_combined, self.heal1_cost = "Life Shock", "restores a moderate amount of health...", "3) Life Shock - restores a moderate amount of health.", 10
+        self.attack1_method, self.attack2_method, self.heal1_method, self.counterattack_method = self.lightning, self.grand_tempest, self.life_shock, self.coutnerattack
         self.stats = ["Health", "Mana", "Intelligence", "Potions"]
         self.attacks = [self.attack1_combined, self.attack2_combined, self.heal1_combined]
     def lightning(self, target):
@@ -1074,22 +1038,10 @@ class Berserker(Warrior):
     def __init__(self, name, health, endurance, strength, xp, level, sacred_feathers):
         super().__init__(name, health, endurance, strength, xp, level, sacred_feathers)
         self.description = (f"{self.name}: berserker warchief of the Chok'ele tribe. Unbeaten in battle.")
-        self.attack1 = "Impale"
-        self.attack1_description = "deals moderate physical damage..."
-        self.attack1_combined = "1) Impale - deals moderate physical damage."
-        self.attack1_cost = 5
-        self.attack2 = "Whirlwind"
-        self.attack2_description = "deals heavy physical damage..."
-        self.attack2_combined = "2) Whirlwind - deals heavy physical damage."
-        self.attack2_cost = 10
-        self.heal1 = "Tireless Rage"
-        self.heal1_description = "restores a moderate amount of health..."
-        self.heal1_combined = "3) Tireless Rage - restores a moderate amount of health..."
-        self.heal1_cost = 10
-        self.attack1_method = self.impale
-        self.attack2_method = self.whirlwind
-        self.heal1_method = self.tireless_rage
-        self.counterattack_method = self.counterattack
+        self.attack1, self.attack1_description, self.attack1_combined, self.attack1_cost = "Impale", "deals moderate physical damage...", "1) Imaple - deals moderate physical damage.", 5
+        self.attack2, self.attack2_description, self.attack2_combined, self.attack2_cost = "Whirlwind", "deals heavy physical damage...", "2) Whirlwind - deals heavy physical damage.", 10
+        self.heal1, self.heal1_description, self.heal1_combined, self.heal1_cost = "Tireless Rage", "restores a moderate amoutn of health...", "3) Tireless Rage - restores a moderate amount of heal.", 10
+        self.attack1_method, self.attack2_method, self.heal1_method, self.coutnerattack = self.impale, self.whirlwind, self.tireless_rage, self.counterattack
         self.stats = ["Health", "Endurance", "Strength", "Sacred Feathers"]
         self.attacks = [self.attack1_combined, self.attack2_combined, self.heal1_combined]
     def impale(self, target):
@@ -1234,22 +1186,10 @@ class Paladin(Warrior):
     def __init__(self, name, health, endurance, strength, xp, level, sacred_feathers):
         super().__init__(name, health, endurance, strength, xp, level, sacred_feathers)
         self.description = (f"{self.name}: first paladin of the royal guard. Honorable and reliable.")
-        self.attack1 = "Righteous Swing"
-        self.attack1_description = "deals moderate holy and physical damage..."
-        self.attack1_combined = "1) Righteous Swing - deals moderate holy and physical damage."
-        self.attack1_cost = 5
-        self.attack2 = "Exercise Demons"
-        self.attack2_description = "deals heavy holy damage..."
-        self.attack2_combined = "2) Exercise Demons - deals heavy holy damage."
-        self.attack2_cost = 10
-        self.heal1 = "Holy Regeneration"
-        self.heal1_description = "restores a moderate amount of health..."
-        self.heal1_combined = "3) Holy Regeneration - restores a moderate amount of health..."
-        self.heal1_cost = 10
-        self.attack1_method = self.righteous_swing
-        self.attack2_method = self.exercise_demons
-        self.heal1_method = self.holy_regeneration
-        self.counterattack_method = self.counterattack
+        self.attack1, self.attack1_description, self.attack1_combined, self.attack1_cost = "Righteous Swing", "deals moderate holy and physical damage...", "Righteous Swing - deals moderate holy and physical damage.", 5
+        self.attack2, self.attack2_description, self.attack2_combined, self.attack2_cost = "Exercise Demons", "deals heavy holy damage...", "2) Exercise Demons - deals heavy holy damage.", 10
+        self.heal1, self.heal1_description, self.heal1_combined, self.heal1_cost = "Holy Regeneration", "restores a moderate amount of health...", "3) Holy Regeneration - restores a moderate amoutn of health", 10
+        self.attack1_method, self.attack2_method, self.heal1_method, self.counterattack_method = self.righteous_swing, self.exercise_demons, self.holy_regeneration, self.counterattack
         self.stats = ["Health", "Endurance", "Strength", "Sacred Feathers"]
         self.attacks = [self.attack1_combined, self.attack2_combined, self.heal1_combined]
     def righteous_swing(self, target):
@@ -1394,22 +1334,10 @@ class Sellsword(Warrior):
     def __init__(self, name, health, endurance, strength, xp, level, sacred_feathers):
         super().__init__(name, health, endurance, strength, xp, level, sacred_feathers)
         self.description = (f"{self.name}: a former knight turned sellsword. Abandoned his unit in the Battle of the Bends.")
-        self.attack1 = "Quick Slash"
-        self.attack1_description = "deals moderate physical damage..."
-        self.attack1_combined = "1) Quick Slash - deals moderate holy and physical damage."
-        self.attack1_cost = 5
-        self.attack2 = "Twin Slice"
-        self.attack2_description = "deals heavy physical damage..."
-        self.attack2_combined = "2) Twin Slice - deals heavy physical damage."
-        self.attack2_cost = 10
-        self.heal1 = "Bandage Wound"
-        self.heal1_description = "restores a moderate amount of health..."
-        self.heal1_combined = "3) Bandage Wound - restores a moderate amount of health..."
-        self.heal1_cost = 10
-        self.attack1_method = self.quick_slash
-        self.attack2_method = self.twin_slice
-        self.heal1_method = self.bandage_wound
-        self.counterattack_method = self.counterattack
+        self.attack1, self.attack1_description, self.attack1_combined, self.attack1_cost = "Quick Slash", "deals moderate phyiscal damage...", "1) Quick Slash - deals moderate physical damage.", 5
+        self.attack2, self.attack2_description, self.attack2_combined, self.attack2_cost = "Twin Slice", "deals heavy phyiscal damage...", "Twin Slice - deals heavy physical damage...", "2) Twin Slice - deals heavy physical damage.", 10
+        self.heal1, self.heal1_description, self.heal1_combined, self.heal1_cost = "Bandage Wound", "restores a moderate amount of health...", "3) Banage Wound - restores a moderate amount of health.", 10
+        self.attack1_method, self.attack2_method, self.heal1_method, self.counterattack_method = self.quick_slash, self.twin_slice, self.bandage_wound, self.counterattack
         self.stats = ["Health", "Endurance", "Strength", "Sacred Feathers"]
         self.attacks = [self.attack1_combined, self.attack2_combined, self.heal1_combined]
     def quick_slash(self, target):
@@ -1450,41 +1378,42 @@ class Sellsword(Warrior):
                 print(BORDER)
                 print("Not enough mana. Skipping turn".center(70))
     def twin_slice(self, target):
-        if self.resource >= self.attack2_cost:
-            damage = int(round(self.strength * (random.uniform(2.0, 3.0))))
-            target.health -= damage
-            self.resource -= self.attack2_cost
-            if target.health <= 0:
-                print(BORDER)
-                print(f"{self.name} uses {self.attack2} dealing {damage} damage.".center(70))
-                print(BORDER)
-                print(f"{self.name} is victorious, {target.name} has perished in battle.".center(70))
-                print(BORDER)
-                return
-            else:
-                print(BORDER)
-                print(f"{self.name} uses {self.attack2} dealing {damage} damage. {target.name}'s health is now {target.health}.".center(70))
-                print(BORDER)
-                return
-        else:
-            print(BORDER)
-            print(f"{self.name} doesn't have enough {self.resource_type}. Use a {self.resource_gain_description}? (y/n)".center(70))
-            selection = input()
-            while selection != "y" and selection != "n":
-                print("Unrecognized selection. Please enter y (yes) or n (no)")
-                selection = input()
-            if selection == "y":
-                if self.resource_gain > 0:
-                    self.resource_gain -= 1
-                    self.resource += 50
-                    print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}. {self.resource_gain} {self.resource_gain_description}'s remaining.".center(70))
+        for i in range(0,2):
+            if self.resource >= self.attack2_cost:
+                damage = int(round(self.strength * (random.uniform(1.0, 2.0))))
+                target.health -= damage
+                self.resource -= self.attack2_cost
+                if target.health <= 0:
                     print(BORDER)
+                    print(f"{self.name} uses {self.attack2} dealing {damage} damage.".center(70))
+                    print(BORDER)
+                    print(f"{self.name} is victorious, {target.name} has perished in battle.".center(70))
+                    print(BORDER)
+                    return
                 else:
                     print(BORDER)
-                    print(f"No {self.resource_gain_description}'s left. Good luck!".center(70))
+                    print(f"{self.name} uses {self.attack2} dealing {damage} damage. {target.name}'s health is now {target.health}.".center(70))
+                    print(BORDER)
+                    return
             else:
                 print(BORDER)
-                print(f"Not enough {self.resource_type}. Skipping turn".center(70))
+                print(f"{self.name} doesn't have enough {self.resource_type}. Use a {self.resource_gain_description}? (y/n)".center(70))
+                selection = input()
+                while selection != "y" and selection != "n":
+                    print("Unrecognized selection. Please enter y (yes) or n (no)")
+                    selection = input()
+                if selection == "y":
+                    if self.resource_gain > 0:
+                        self.resource_gain -= 1
+                        self.resource += 50
+                        print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}. {self.resource_gain} {self.resource_gain_description}'s remaining.".center(70))
+                        print(BORDER)
+                    else:
+                        print(BORDER)
+                        print(f"No {self.resource_gain_description}'s left. Good luck!".center(70))
+                else:
+                    print(BORDER)
+                    print(f"Not enough {self.resource_type}. Skipping turn".center(70))
     def bandage_wound(self):
         if self.resource >= 20:
             healing_amount = int(round(self.strength * (random.uniform(1.0, 1.3))))
