@@ -319,35 +319,35 @@ class Flame_Walker(Wizard):
             damage = int(round(self.intelligence * (random.uniform(1.0, 2.0))))
             target.health -= damage
             self.resource -= self.attack1_cost
-            if target.health <= 0:
+            if target.health <= 0:               
                 print(BORDER)
                 print(f"{self.name} uses {self.attack1} dealing {damage} damage.".center(70))
                 print(BORDER)
                 print(f"{self.name} is victorious, {target.name} has perished in battle.".center(70))
-                print(BORDER)
+                print(BORDER)               
                 return
-            else:
+            else:                
                 print(BORDER)
                 print(f"{self.name} uses {self.attack1} dealing {damage} damage. {target.name}'s health is now {target.health}.".center(70))
-                print(BORDER)
+                print(BORDER)               
                 return
-        else:
+        else:            
             print(BORDER)
             print(f"{self.name} doesn't have enough {self.resource_type}. Use a {self.resource_gain}? (y/n)".center(70))
             selection = input()
             print(BORDER)
             while selection != "y" and selection != "n":
-                print("Unrecognized selection. Please enter y (yes) or n (no)")
+                print("Unrecognized selection. Please enter y (yes) or n (no)".center(70))
                 selection = input()
             if selection == "y":
                 if self.resource_gain > 0:
                     self.resource += 50
                     self.resource_gain -= 1
                     print(f"{self.name} consumed a {self.resource_gain}. {self.resource_type}: {self.resource}. {self.resource_gain} {self.resource_type} remaining".center(70))
-                    print(BORDER)
+                    print(BORDER)    
                 else:
                     print(BORDER)
-                    print(f"No {self.resource_type}'s left. Good luck!")
+                    print(f"No {self.resource_type}'s left. Good luck!")  
             else:
                 print(BORDER)
                 print("Not enough mana. Skipping turn".center(70))
@@ -383,7 +383,7 @@ class Flame_Walker(Wizard):
                     print(BORDER)
                 else:
                     print(BORDER)
-                    print(f"No {self.resource_gain_description}'s left. Good luck!".center(70))
+                    print(f"No {self.resource_gain_description}'s left. Good luck!".center(70))   
             else:
                 print(BORDER)
                 print(f"Not enough {self.resource_type}. Skipping turn".center(70))
@@ -394,14 +394,14 @@ class Flame_Walker(Wizard):
             self.resource -= self.heal1_cost
             print(BORDER)
             print(f"{self.name} uses {self.heal1} for {healing_amount}. Health: {self.health}".center(70))
-            print(BORDER)
+            print(BORDER) 
         else:
             print(BORDER)
             print(f"{self.name} doesn't have enough {self.resource_type}. Use a {self.resource_gain}? (y/n)".center(70))
             selection = input()
             while selection != "y" and selection != "n":
                 print("Unrecognized selection. Please enter y (yes) or n (no)")
-                selection = input()
+                selection = input()   
             if selection == "y":
                 if self.resource_gain > 0:
                     self.resource_gain -= 1
@@ -410,10 +410,10 @@ class Flame_Walker(Wizard):
                     print(BORDER)
                 else:
                     print(BORDER)
-                    print(f"No {self.resource_type} left. Good luck!")
+                    print(f"No {self.resource_type} left. Good luck!")  
             else:
                 print(BORDER)
-                print(f"Not enough {self.resource_type}. Skipping turn".center(70))
+                print(f"Not enough {self.resource_type}. Skipping turn".center(70))               
     def counterattack(self, target):
             counterattacks = [self.attack1_method, self.attack2_method, self.heal1_method]
             chosen_counter = random.choice(counterattacks)
@@ -421,35 +421,47 @@ class Flame_Walker(Wizard):
                 if self.resource < 20:
                     if self.resource_gain > 0:
                         self.resource += 50
+                        
                         print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}".center(70))
-                        print(BORDER)  
+                        print(BORDER) 
+                         
                         return
                     else:
+                        
                         print(BORDER)
                         print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))
+                        
                 else:
                     chosen_counter()
             elif chosen_counter == self.attack1_method:
                 if self.resource < 15:
                     if self.resource_gain > 0:
                         self.resource += 50
+                        
                         print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}".center(70))
                         print(BORDER)
+                        
                         return
                     else:
+                        
                         print(BORDER)
-                        print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))  
+                        print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))
+                          
                 else:
                     chosen_counter(target)
             elif chosen_counter == self.attack2_method:
                 if self.resource < 25:
                     if self.resource_gain > 0:
                         self.resource += 50
+                        
                         print(f"{self.name} consumed a {self.resource_gain_description}. {self.resource_type}: {self.resource}".center(70))
                         print(BORDER)
+                        
                     else:
+                        
                         print(BORDER)
-                        print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))  
+                        print(f"{self.name} has no {self.resource_gain_description}'s left. Push the attack!".center(70))
+                          
                 else:
                     chosen_counter(target)
 class Frozen_Sorcerer(Wizard):
@@ -607,7 +619,7 @@ class Storm_Mage(Wizard):
         self.attack1, self.attack1_description, self.attack1_combined, self.attack1_cost = "Lightning", "deals moderate lightning damage...", "1) Lightning - deals moderate lightning damage.", 5
         self.attack2, self.attack2_description, self.attack2_combined, self.attack2_cost = "Grand Tempest", "deals heavy lightning damage...", "2) Grand Temptest - deals heavy lightning damage.", 10
         self.heal1, self.heal1_description, self.heal1_combined, self.heal1_cost = "Life Shock", "restores a moderate amount of health...", "3) Life Shock - restores a moderate amount of health.", 10
-        self.attack1_method, self.attack2_method, self.heal1_method, self.counterattack_method = self.lightning, self.grand_tempest, self.life_shock, self.coutnerattack
+        self.attack1_method, self.attack2_method, self.heal1_method, self.counterattack_method = self.lightning, self.grand_tempest, self.life_shock, self.counterattack
         self.stats = ["Health", "Mana", "Intelligence", "Potions"]
         self.attacks = [self.attack1_combined, self.attack2_combined, self.heal1_combined]
     def lightning(self, target):
@@ -1335,7 +1347,7 @@ class Sellsword(Warrior):
         super().__init__(name, health, endurance, strength, xp, level, sacred_feathers)
         self.description = (f"{self.name}: a former knight turned sellsword. Abandoned his unit in the Battle of the Bends.")
         self.attack1, self.attack1_description, self.attack1_combined, self.attack1_cost = "Quick Slash", "deals moderate phyiscal damage...", "1) Quick Slash - deals moderate physical damage.", 5
-        self.attack2, self.attack2_description, self.attack2_combined, self.attack2_cost = "Twin Slice", "deals heavy phyiscal damage...", "Twin Slice - deals heavy physical damage...", "2) Twin Slice - deals heavy physical damage.", 10
+        self.attack2, self.attack2_description, self.attack2_combined, self.attack2_cost = "Twin Slice", "deals heavy phyiscal damage...", "2) Twin Slice - deals heavy physical damage...", 10
         self.heal1, self.heal1_description, self.heal1_combined, self.heal1_cost = "Bandage Wound", "restores a moderate amount of health...", "3) Banage Wound - restores a moderate amount of health.", 10
         self.attack1_method, self.attack2_method, self.heal1_method, self.counterattack_method = self.quick_slash, self.twin_slice, self.bandage_wound, self.counterattack
         self.stats = ["Health", "Endurance", "Strength", "Sacred Feathers"]
@@ -1380,7 +1392,7 @@ class Sellsword(Warrior):
     def twin_slice(self, target):
         for i in range(0,2):
             if self.resource >= self.attack2_cost:
-                damage = int(round(self.strength * (random.uniform(1.0, 2.0))))
+                damage = int(round(self.strength * (random.uniform(0.75, 1.25))))
                 target.health -= damage
                 self.resource -= self.attack2_cost
                 if target.health <= 0:
@@ -1394,7 +1406,7 @@ class Sellsword(Warrior):
                     print(BORDER)
                     print(f"{self.name} uses {self.attack2} dealing {damage} damage. {target.name}'s health is now {target.health}.".center(70))
                     print(BORDER)
-                    return
+                    i += 1
             else:
                 print(BORDER)
                 print(f"{self.name} doesn't have enough {self.resource_type}. Use a {self.resource_gain_description}? (y/n)".center(70))
@@ -1411,9 +1423,11 @@ class Sellsword(Warrior):
                     else:
                         print(BORDER)
                         print(f"No {self.resource_gain_description}'s left. Good luck!".center(70))
+                        return
                 else:
                     print(BORDER)
                     print(f"Not enough {self.resource_type}. Skipping turn".center(70))
+                    return
     def bandage_wound(self):
         if self.resource >= 20:
             healing_amount = int(round(self.strength * (random.uniform(1.0, 1.3))))
