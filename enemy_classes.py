@@ -189,7 +189,7 @@ class Monster:
         self.intelligence = intelligence + (self.level * 10)
         self.xp = xp
     
-class Goblin(Monster):
+class Shadowed(Monster):
     def __init__(self, name, health, strength, intelligence, level, xp):
         super().__init__(name, health, strength,intelligence, level, xp)
         self.attack1 = "Backstab"
@@ -245,14 +245,14 @@ class Goblin(Monster):
                 print(f"{self.name} missed.")
                 print(BORDER)
     @staticmethod
-    def create_goblin_trickster():
-        return Goblin("Goblin Trickster", 20, 10, 10, 1, 5 )
+    def create_lost_shadow():
+        return Shadowed("Lost Shadow", 20, 10, 10, 1, 5 )
     @staticmethod
-    def create_goblin_bully():
-        return Goblin("Goblin Bully", 30, 12, 10, 1, 10)
+    def create_shadowed_seeker():
+        return Shadowed("Shadowed Seeker", 30, 12, 10, 1, 10)
     @staticmethod
-    def create_goblin_fat_cat():
-        return Goblin("Goblin Fat-Cat", 100, 7, 5, 1, 15)
+    def create_dark_mist():
+        return Shadowed("Dark Mist", 100, 7, 5, 1, 15)
 class Harpy(Monster):
     def __init__(self, name, health, strength, intelligence, level, xp):
         super().__init__(name, health, strength, intelligence, level, xp)
@@ -312,7 +312,7 @@ class Harpy(Monster):
     @staticmethod
     def create_harpy_matriarch():
         return Harpy("Harpy Matriarch", 80, 13, 15, 1, 15)
-class Orc(Monster):
+class Hyena(Monster):
     def __init__(self, name, health, strength, intelligence, level, xp):
         super().__init__(name, health, strength, intelligence, level, xp)
         self.attack1 = "Cleave"
@@ -360,15 +360,15 @@ class Orc(Monster):
                 print(f"{self.name} missed.".center(70))
                 print(BORDER)
     @staticmethod
-    def create_orc_warrior():
-        return Orc("Orc Warrior", 50, 12, 6, 1, 10)
+    def create_laughing_hyena():
+        return Hyena("Laughing Hyena", 50, 12, 6, 1, 10)
     @staticmethod
-    def create_orc_captain():
-        return Orc("Orc Captain", 75, 15, 7, 1, 20)
+    def create_red_eyed_beast():
+        return Hyena("Red Eyed Beast", 75, 15, 7, 1, 20)
     @staticmethod
-    def create_orc_warmonger():
-        return Orc("Orc Warmonger", 120, 17, 8, 1, 35)
-class Ogre(Monster):
+    def create_failing_alpha():
+        return Hyena("Failing alpha", 120, 17, 8, 1, 35)
+class Crazed(Monster):
     def __init__(self, name, health, strength, intelligence, level, xp):
         super().__init__(name, health, strength, intelligence, level, xp)
         self.attack1 = "Club Swing"
@@ -416,14 +416,14 @@ class Ogre(Monster):
                 print(f"{self.name} missed.".center(70))
                 print(BORDER)
     @staticmethod
-    def create_ogre_grunt():
-        return Ogre("Ogre Grunt", 25, 12, 5, 1, 5)
+    def create_crazed_fanatic():
+        return Crazed("Crazed Fanatic", 25, 12, 5, 1, 5)
     @staticmethod
-    def create_ogre_general():
-        return Ogre("Ogre General", 50, 18, 6, 1, 8)
+    def create_crazed_sympathizer():
+        return Crazed("Crazed Sympathizer", 50, 18, 6, 1, 8)
     @staticmethod
-    def create_ogre_warlord():
-        return Ogre("Ogre Warlord", 75, 20, 7, 1, 13)
+    def create_crazed_leader():
+        return Crazed("Crazed Leader", 75, 20, 7, 1, 13)
 
 
 
