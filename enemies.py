@@ -1,9 +1,9 @@
 from enemy_classes import Goblin, Harpy, Orc, Ogre, Giant_Ogre, Dragon, Chimera
 
 # Bosses
-Monstrous_Cyclops = Giant_Ogre("Monstrous Cyclops", 300, 100, 25, 25, 3, 50)
-Verdant_Dragon = Dragon("Verdant Dragon", 350, 125, 27, 28, 6, 125)
-Ancient_Chimera = Chimera("Ancient Chimera", 420, 145, 30, 31, 9, 180) #     def __init__(self, name, health, armor, strength, intelligence, level, xp):
+Fetid_Brute = Giant_Ogre("Fetid Brute", 300, 100, 25, 25, 3, 50)
+Scalewing_Alpha = Dragon("Scalewing Alpha", 350, 125, 27, 28, 6, 125)
+The_Myth = Chimera("The Myth", 420, 145, 30, 31, 9, 180) #     def __init__(self, name, health, armor, strength, intelligence, level, xp):
 
 
 # Goblins (self, name, health, strength, intelligence, level, xp)

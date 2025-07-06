@@ -1,9 +1,10 @@
+print("DEBUG: pilgrimage.py loaded")
 import random
 from constants import BORDER
 from monster_rush import one_enemy, two_enemies, three_enemies
 from enemies import Enemy_Creation, Monstrous_Cyclops, Verdant_Dragon, Ancient_Chimera
 from bossfight import boss_fight
-from characters import Debius
+from story import disgraced_knight_intro, expelled_scholar_intro
 
 
 def level_1(character):
@@ -125,10 +126,19 @@ def level_8(character):
 
 
 
-def adventure():
+
+def pilgrimage():
+    print("Pilgrimage called")
     from inputs import character_selection
+    from story import disgraced_knight_intro, expelled_scholar_intro
     character = character_selection("Choose your character-\n")
-    print(BORDER)
+    print(f"DEBUG: You selected {character.name!r}")
+    if character.name == "Disgraced Knight":
+        disgraced_knight_intro()
+    elif character.name == "Expelled Scholar":
+        expelled_scholar_intro()
+    else:
+        print("DEBUG: Unknown character selected!")
     while character.health > 0:
         level_1(character)
         level_2(character)
@@ -143,4 +153,4 @@ def adventure():
         boss_fight(character, Ancient_Chimera)
 
 if __name__ == "__main__":
-    adventure()
+    pilgrimage()

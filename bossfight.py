@@ -1,3 +1,4 @@
+print("DEBUG: Boss fights loaded")
 import random
 import time
 from classes import BORDER

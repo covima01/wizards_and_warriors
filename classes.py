@@ -308,9 +308,9 @@ class Wizard:
 class Gray_Scholar(Wizard):
     def __init__(self, name, health, mana, intelligence, xp, level, potions):
         super().__init__(name, health, mana, intelligence, xp, level, potions)
-        self.description = (f"{self.name}: a mysterious caster. Removed from Astern Academy for reasons unknown.")
+        self.description = (f"{self.name}: a mysterious outcast. Unremarkable.")
         self.attack1, self.attack1_description, self.attack1_combined, self.attack1_cost = "Shock", "electrocutes your enemy...", "1) Shock - electrocutes your enemy.", 5
-        self.attack2, self.attack2_description, self.attack2_combined, self.attack2_cost = "Combust", "engulfs your target in flame...", "2) Combust - engulds your target in flame.", 10
+        self.attack2, self.attack2_description, self.attack2_combined, self.attack2_cost = "Combust", "engulfs your target in flame...", "2) Combust - engulfs your target in flame.", 10
         self.heal1, self.heal1_description, self.heal1_combined, self.heal1_cost = "Regen", "restores your life...", "3) Regen - restores your life.", 10
         self.attack1_method, self.attack2_method, self.heal1_method, self.counterattack_method = self.shock, self.combust, self.regen, self.counterattack
         self.stats = ["Health", "Mana", "Intelligence", "Potions"]

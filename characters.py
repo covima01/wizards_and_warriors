@@ -18,10 +18,10 @@ Reingard = Paladin("Reingard", 400, 150, 17, 0, 1, 3)
 Kalsonin = Sellsword("Kal'sonin", 320, 100, 22, 0, 1, 3)
 
 # Grays
-Disgraced_Knight = Gray_Knight("Disgraced Knight", 300, 90, 22, 0, 1, 3)
-Expelled_Scholar = Gray_Scholar("Expelled Scholar", 200, 170, 22, 0, 1, 3)
+Knight_Disgraced = Gray_Knight("Disgraced Knight", 300, 90, 22, 0, 1, 3)
+Scholar_Expelled = Gray_Scholar("Expelled Scholar", 200, 170, 22, 0, 1, 3)
 
 
-Characters = [Disgraced_Knight, Expelled_Scholar]
+Characters = [Knight_Disgraced, Scholar_Expelled]
 Wizards = [Debius, Kalnir, Shoon]
 Warriors = [Chokthun, Reingard, Kalsonin]
