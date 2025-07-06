@@ -315,13 +315,13 @@ class Harpy(Monster):
 class Hyena(Monster):
     def __init__(self, name, health, strength, intelligence, level, xp):
         super().__init__(name, health, strength, intelligence, level, xp)
-        self.attack1 = "Cleave"
-        self.attack1_method = self.cleave
-        self.attack2 = "Devastating Strike"
-        self.attack2_method = self.devastating_strike
-        self.heal1 = "Bloodlust"
-        self.heal1_method = self.bloodlust
-    def cleave(self, target):
+        self.attack1 = "Claw Dig"
+        self.attack1_method = self.claw_dig
+        self.attack2 = "Bite and Rip"
+        self.attack2_method = self.bite_and_rip
+        self.heal1 = "Howling Laugh"
+        self.heal1_method = self.howling_laugh
+    def claw_dig(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage
         if target.health <=0:
@@ -332,7 +332,7 @@ class Hyena(Monster):
             print(BORDER)
             print(f"{self.name}'s {self.attack1} deals {damage} damage. {target.name}'s health is now {target.health}".center(70))
             print(BORDER)
-    def devastating_strike(self, target):
+    def bite_and_rip(self, target):
         damage = int(round(self.strength * (random.uniform(0.30, 0.60))))
         target.health -= damage
         if target.health <= 0:
@@ -342,7 +342,7 @@ class Hyena(Monster):
             print(BORDER)
             print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.".center(70))
             print(BORDER)
-    def bloodlust(self):
+    def howling_laugh(self):
             self.strength = int(self.strength * 1.5)
             print(f"{self.name}'s strength has increased to {self.strength}.".center(70))
     def counterattack(self, target):
@@ -371,13 +371,13 @@ class Hyena(Monster):
 class Crazed(Monster):
     def __init__(self, name, health, strength, intelligence, level, xp):
         super().__init__(name, health, strength, intelligence, level, xp)
-        self.attack1 = "Club Swing"
-        self.attack1_method = self.club_swing
-        self.attack2 = "Grip of Death"
-        self.attack2_method = self.grip_of_death
-        self.heal1 = "Enrage"
-        self.heal1_method = self.enrage
-    def club_swing(self, target):
+        self.attack1 = "Limb Barrage"
+        self.attack1_method = self.limb_barrage
+        self.attack2 = "Sneak Attack"
+        self.attack2_method = self.sneak_attack
+        self.heal1 = "Unswayed Mind"
+        self.heal1_method = self.unswayed_mind
+    def limb_barrage(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage
         if target.health <=0:
@@ -388,7 +388,7 @@ class Crazed(Monster):
             print(BORDER)
             print(f"{self.name}'s {self.attack1} deals {damage} damage. {target.name}'s health is now {target.health}".center(70))
             print(BORDER)
-    def grip_of_death(self, target):
+    def sneak_attack(self, target):
         damage = int(round(self.strength * (random.uniform(0.30, 0.60))))
         target.health -= damage
         if target.health <= 0:
@@ -398,7 +398,7 @@ class Crazed(Monster):
             print(BORDER)
             print(f"{self.name}'s {self.attack2} deals {damage} damage. {target.name}'s health is now {target.health}.".center(70))
             print(BORDER)
-    def enrage(self):
+    def unswayed_mind(self):
             self.strength = int(self.strength * 1.5)
             print(f"{self.name} uses {self.heal1}. It's strength has increased to {self.strength}.".center(70))
     def counterattack(self, target):
