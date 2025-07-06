@@ -7,35 +7,31 @@ from bossfight import boss_fight
 
 def level_1(character):
     print(BORDER)
-    print("Now entering the Ravaged Wastes...".center(70))
-    print(BORDER)
+    print("Now entering a desolate place...".center(70))
     Monster_Generator = Enemy_Creation
     enemy1 = random.choice(Monster_Generator)()
     one_enemy(character, enemy1)
-    print("Ravaged Wastes have been cleared.".center(70))
+    print("Desolate place has been cleared.".center(70))
 def level_2(character):
     print(BORDER)
-    print("Now entering Goblin Hideout...".center(70))
-    print(BORDER)
+    print("Now entering an abandoned sanctuary...".center(70))
     Monster_Generator = Enemy_Creation
     enemy1 = random.choice(Monster_Generator)()
     enemy2 = random.choice(Monster_Generator)()
     two_enemies(character, enemy1, enemy2)
-    print("Goblin Hideout has been cleared.".center(70))
+    print("Abandoned sanctuary has been cleared.".center(70))
 def level_3(character):
     print(BORDER)
-    print("Now entering the Parth Desert...".center(70))
-    print(BORDER)
+    print("Now entering the southern desert...".center(70))
     Monster_Generator = Enemy_Creation
     enemy1 = random.choice(Monster_Generator)()
     enemy2 = random.choice(Monster_Generator)()
     enemy3 = random.choice(Monster_Generator)()
     three_enemies(character, enemy1, enemy2, enemy3)
-    print("Parth Desert has been cleared.".center(70))
+    print("Southern desert has been cleared.".center(70))
 def level_4(character):
     print(BORDER)
-    print("Now entering the Fairgold Mines...".center(70))
-    print(BORDER)
+    print("Now entering the longways aquaduct...".center(70))
     for i in range(0,2):
         Monster_Generator = Enemy_Creation
         enemy1 = random.choice(Monster_Generator)()
@@ -43,11 +39,10 @@ def level_4(character):
         enemy3 = random.choice(Monster_Generator)()
         three_enemies(character, enemy1, enemy2, enemy3)
         i+=1
-    print("Fairgold mines have been cleared.")
+    print("Longways aquaduct has been cleared.".center(70))
 def level_5(character):
     print(BORDER)
-    print("Now entering Lostnorth Forest...")
-    print(BORDER)
+    print("Now entering Lostnorth Forest...".center(70))
     for i in range(0,2):
         Monster_Generator = Enemy_Creation
         enemy1 = random.choice(Monster_Generator)()
@@ -64,10 +59,10 @@ def level_5(character):
         enemy2 = random.choice(Monster_Generator)()
         two_enemies(character, enemy1, enemy2)
         i+=1
+    print("Lostnorth Forest has been cleared.".center(70))
 def level_6(character):
     print(BORDER)
-    print("Now entering the Swamp of Skulls...")
-    print(BORDER)
+    print("Now entering the Alenia farmland...".center(70))
     for i in range(0,3):
         Monster_Generator = Enemy_Creation
         enemy1 = random.choice(Monster_Generator)()
@@ -84,7 +79,10 @@ def level_6(character):
         enemy2 = random.choice(Monster_Generator)()
         two_enemies(character, enemy1, enemy2)
         i+=1
+    print("Alenia farmland has been cleared.".center(70))
 def level_7(character):
+    print(BORDER)
+    print("Now entering eeries a mountain pass...".center(70))
     for i in range(0,3):
         Monster_Generator = Enemy_Creation
         enemy1 = random.choice(Monster_Generator)()
@@ -101,7 +99,10 @@ def level_7(character):
         enemy2 = random.choice(Monster_Generator)()
         two_enemies(character, enemy1, enemy2)
         i+=1
+    print("Eeries mountain pass cleared.".center(70))
 def level_8(character):
+    print(BORDER)
+    print("Ascending this mountain...".center(70))
     for i in range(0,2):
         Monster_Generator = Enemy_Creation
         enemy1 = random.choice(Monster_Generator)()
@@ -121,6 +122,7 @@ def level_8(character):
         enemy2 = random.choice(Monster_Generator)()
         two_enemies(character, enemy1, enemy2)
         i+=1
+    print("Mountain traversed.".center(70))
 
 
 
