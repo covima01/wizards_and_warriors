@@ -3,7 +3,6 @@ import time
 from classes import BORDER
 
 def combat(player, enemy):
-    #if isinstance(player, Wizard) and isinstance(enemy, Warrior):
     while enemy.health > 0 and player.health > 0:
         time.sleep(0.5)
         print(f"{player.name}-- Health: {player.health} , {player.resource_type}: {player.resource} // {enemy.name}-- Health: {enemy.health} , {enemy.resource_type}: {enemy.resource}".center(70))

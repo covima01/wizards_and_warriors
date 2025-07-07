@@ -63,7 +63,7 @@ class Giant_Ogre(Boss):
                         chosen_counter(target)
             else:
                 print(BORDER)
-                print(f"{self.name} missed.")
+                print(f"{self.name} missed.".center(70))
                 print(BORDER)
 class Dragon(Boss):
     def __init__(self, name, health, armor, strength, intelligence, level, xp):
@@ -119,7 +119,7 @@ class Dragon(Boss):
                         chosen_counter(target)
             else:
                 print(BORDER)
-                print(f"{self.name} missed.")
+                print(f"{self.name} missed.".center(70))
                 print(BORDER)
 class Chimera(Boss):
     def __init__(self, name, health, armor, strength, intelligence, level, xp):
@@ -241,7 +241,7 @@ class Shadowed(Monster):
                         chosen_counter(target)
             else:
                 print(BORDER)
-                print(f"{self.name} missed.")
+                print(f"{self.name} missed.".center(70))
                 print(BORDER)
     @staticmethod
     def create_lost_shadow():
@@ -300,7 +300,7 @@ class Harpy(Monster):
                         chosen_counter(target)
             else:
                 print(BORDER)
-                print(f"{self.name} missed.")
+                print(f"{self.name} missed.".center(70))
                 print(BORDER)
     @staticmethod
     def create_harpy_huntress():

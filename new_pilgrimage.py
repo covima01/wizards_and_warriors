@@ -2,9 +2,10 @@ import time
 import random
 from constants import BORDER
 from monster_rush import one_enemy, two_enemies, three_enemies
-from enemies import Enemy_Creation, Fetid_Brute, Scalewing_Alpha, The_Myth
+from enemies import Enemy_Creation, Fetid_Brute, Scalewing_Alpha, The_Myth, Unknown
 from bossfight import boss_fight
-from story import fetid_brute_intro, fetid_brute_outro, scalewing_alpha_intro, scalewing_alpha_outro, the_myth_intro
+from story import fetid_brute_intro, fetid_brute_outro, scalewing_alpha_intro, scalewing_alpha_outro, the_myth_intro, the_myth_outro, unknown_intro, unknown_outro
+from characters import Knight_Disgraced, Scholar_Expelled
 
 
 def level_1(character):
@@ -33,7 +34,6 @@ def level_3(character):
     three_enemies(character, enemy1, enemy2, enemy3)
     print("Southern desert has been cleared.".center(70))
     time.sleep(3)
-    fetid_brute_intro()
 def level_4(character):
     print(BORDER)
     print("Now entering the longways aqueduct...".center(70))
@@ -65,7 +65,6 @@ def level_5(character):
         two_enemies(character, enemy1, enemy2)
         i+=1
     print("Lostnorth Forest has been cleared.".center(70))
-    scalewing_alpha_intro()
 def level_6(character):
     print(BORDER)
     print("Now entering the Alenia farmland...".center(70))
@@ -128,11 +127,62 @@ def level_8(character):
         enemy2 = random.choice(Monster_Generator)()
         two_enemies(character, enemy1, enemy2)
         i+=1
+    print("The top is near.".center(70))
+    time.sleep(6)
+def level_9(character):
+    print(BORDER)
+    print("You're not alone on these cliffs.".center(70))
+    time.sleep(3)
+    for i in range(0,2):
+        Monster_Generator = Enemy_Creation
+        enemy1 = random.choice(Monster_Generator)()
+        enemy2 = random.choice(Monster_Generator)()
+        two_enemies(character, enemy1, enemy2)
+        i+=1
+    for i in range(0, 2):
+        Monster_Generator = Enemy_Creation
+        enemy1 = random.choice(Monster_Generator)()
+        enemy2 = random.choice(Monster_Generator)()
+        enemy3 = random.choice(Monster_Generator)()
+        three_enemies(character, enemy1, enemy2, enemy3)
+        i+=1
+    for i in range(0,2):
+        Monster_Generator = Enemy_Creation
+        enemy1 = random.choice(Monster_Generator)()
+        enemy2 = random.choice(Monster_Generator)()
+        two_enemies(character, enemy1, enemy2)
+        i+=1
+    time.sleep(5)
+def level_10(character):
+    print(BORDER)
+    if character.name == "Disgraced Knight":
+        print("You've made it knight.".center(70))
+    else:
+        print("You've made it scholar.")
+    for i in range(0,2):
+        Monster_Generator = Enemy_Creation
+        enemy1 = random.choice(Monster_Generator)()
+        enemy2 = random.choice(Monster_Generator)()
+        two_enemies(character, enemy1, enemy2)
+        i+=1
+    for i in range(0, 2):
+        Monster_Generator = Enemy_Creation
+        enemy1 = random.choice(Monster_Generator)()
+        enemy2 = random.choice(Monster_Generator)()
+        enemy3 = random.choice(Monster_Generator)()
+        three_enemies(character, enemy1, enemy2, enemy3)
+        i+=1
+    for i in range(0,2):
+        Monster_Generator = Enemy_Creation
+        enemy1 = random.choice(Monster_Generator)()
+        enemy2 = random.choice(Monster_Generator)()
+        two_enemies(character, enemy1, enemy2)
+        i+=1
     print("Mountain traversed.".center(70))
-    the_myth_intro()
 
 
 def new_pilgrimage():
+    from combat import combat
     from inputs import character_selection
     from story import disgraced_knight_intro, expelled_scholar_intro
     character = character_selection("Choose your character-\n")
@@ -155,7 +205,20 @@ def new_pilgrimage():
         level_6(character)
         level_7(character)
         level_8(character)
+        the_myth_intro()
         boss_fight(character, The_Myth)
+        the_myth_outro()
+        level_9(character)
+        level_10(character)
+        unknown_intro()
+        boss_fight(character, Unknown)
+        unkown_outro
+        if character.name == "Disgraced Knight":
+            combat(character, Knight_Disgraced)
+        else:
+            combat(character, Scholar_Expelled) 
 
 if __name__ == "__main__":
-    new_pilgrimage()
+        unknown_intro()
+        boss_fight(Knight_Disgraced, Unknown)
+        unknown_outro()

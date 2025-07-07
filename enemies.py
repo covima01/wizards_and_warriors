@@ -4,6 +4,7 @@ from enemy_classes import Shadowed, Harpy, Hyena, Crazed, Giant_Ogre, Dragon, Ch
 Fetid_Brute = Giant_Ogre("Fetid Brute", 300, 100, 25, 25, 3, 50) # Rejection
 Scalewing_Alpha = Dragon("Scalewing Alpha", 350, 125, 27, 28, 6, 125) # Existentialism
 The_Myth = Chimera("The Myth", 420, 145, 30, 31, 9, 180) # Anhedonia
+Unknown = Crazed("???", 600, 35, 35, 10, 225) # Numbness
 
 
 # Goblins (self, name, health, strength, intelligence, level, xp)
