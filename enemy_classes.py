@@ -19,7 +19,6 @@ class Giant_Ogre(Boss):
         self.attack2_method = self.ground_pound
         self.heal1 = "Calloused Skin"
         self.heal1_method = self.calloused_skin
-        self.intro = (f"The longways aquaduct holds many surprises. Toward you comes the stench. Ready yourself...".center(70))
     def club_smash(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage

@@ -4,7 +4,7 @@ from constants import BORDER
 from monster_rush import one_enemy, two_enemies, three_enemies
 from enemies import Enemy_Creation, Fetid_Brute, Scalewing_Alpha, The_Myth
 from bossfight import boss_fight
-from story import fetid_brute_intro, scalewing_alpha_intro, the_myth_intro
+from story import fetid_brute_intro, fetid_brute_outro, scalewing_alpha_intro, scalewing_alpha_outro, the_myth_intro
 
 
 def level_1(character):
@@ -36,7 +36,7 @@ def level_3(character):
     fetid_brute_intro()
 def level_4(character):
     print(BORDER)
-    print("Now entering the longways aquaduct...".center(70))
+    print("Now entering the longways aqueduct...".center(70))
     for i in range(0,2):
         Monster_Generator = Enemy_Creation
         enemy1 = random.choice(Monster_Generator)()
@@ -44,7 +44,7 @@ def level_4(character):
         enemy3 = random.choice(Monster_Generator)()
         three_enemies(character, enemy1, enemy2, enemy3)
         i+=1
-    print("Longways aquaduct has been cleared.".center(70))
+    print("Longways aqueduct has been cleared.".center(70))
 def level_5(character):
     print(BORDER)
     print("Now entering Lostnorth Forest...".center(70))
@@ -144,10 +144,14 @@ def new_pilgrimage():
         level_1(character)
         level_2(character)
         level_3(character)
+        fetid_brute_intro()
         boss_fight(character, Fetid_Brute)
+        fetid_brute_outro()
         level_4(character)
         level_5(character)
+        scalewing_alpha_intro()
         boss_fight(character, Scalewing_Alpha)
+        scalewing_alpha_outro()
         level_6(character)
         level_7(character)
         level_8(character)

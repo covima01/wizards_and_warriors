@@ -3,10 +3,7 @@ import time
 from classes import BORDER
 
 def boss_fight(player, enemy):
-    time.sleep(2)
-    print(enemy.intro)
-    print(BORDER)
-    time.sleep(6)
+    time.sleep(3)
     while enemy.health > 0 and player.health > 0:
         time.sleep(0.5)
         print(f"{player.name}-- Health: {player.health} , {player.resource_type}: {player.resource} // {enemy.name}-- Health: {enemy.health}".center(70))
