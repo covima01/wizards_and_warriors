@@ -1,13 +1,16 @@
+import time
 import random
 from constants import BORDER
 from monster_rush import one_enemy, two_enemies, three_enemies
 from enemies import Enemy_Creation, Fetid_Brute, Scalewing_Alpha, The_Myth
 from bossfight import boss_fight
+from story import fetid_brute_intro, scalewing_alpha_intro, the_myth_intro
 
 
 def level_1(character):
     print(BORDER)
     print("Now entering a desolate place...".center(70))
+    print(BORDER)
     Monster_Generator = Enemy_Creation
     enemy1 = random.choice(Monster_Generator)()
     one_enemy(character, enemy1)
@@ -29,6 +32,8 @@ def level_3(character):
     enemy3 = random.choice(Monster_Generator)()
     three_enemies(character, enemy1, enemy2, enemy3)
     print("Southern desert has been cleared.".center(70))
+    time.sleep(3)
+    fetid_brute_intro()
 def level_4(character):
     print(BORDER)
     print("Now entering the longways aquaduct...".center(70))
@@ -60,6 +65,7 @@ def level_5(character):
         two_enemies(character, enemy1, enemy2)
         i+=1
     print("Lostnorth Forest has been cleared.".center(70))
+    scalewing_alpha_intro()
 def level_6(character):
     print(BORDER)
     print("Now entering the Alenia farmland...".center(70))
@@ -123,8 +129,7 @@ def level_8(character):
         two_enemies(character, enemy1, enemy2)
         i+=1
     print("Mountain traversed.".center(70))
-
-
+    the_myth_intro()
 
 
 def new_pilgrimage():

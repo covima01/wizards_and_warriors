@@ -3,7 +3,6 @@ import time
 from classes import BORDER
 
 def boss_fight(player, enemy):
-    print("Boss incoming...\n")
     time.sleep(2)
     print(enemy.intro)
     print(BORDER)

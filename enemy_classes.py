@@ -19,7 +19,7 @@ class Giant_Ogre(Boss):
         self.attack2_method = self.ground_pound
         self.heal1 = "Calloused Skin"
         self.heal1_method = self.calloused_skin
-        self.intro = (f"The ground starts to shake. As you approach the Fairgold Mines, you see a {self.name} running toward you. Get ready to do battle.".center(70))
+        self.intro = (f"The longways aquaduct holds many surprises. Toward you comes the stench. Ready yourself...".center(70))
     def club_smash(self, target):
         damage = int(round(self.strength * (random.uniform(0.25, 0.5))))
         target.health -= damage
@@ -75,7 +75,7 @@ class Dragon(Boss):
         self.attack2_method = self.nosedive
         self.heal1 = "Regrowth"
         self.heal1_method = self.regrowth
-        self.intro = (f"You've awakened the {self.name}. A creature most thought had perished. It must have been sleeping for the last 1,000 years. He looks angry...".center(70))
+        self.intro = (f"Looking for sustenance you surmise. As we all are...".center(70))
     def crystalline_breath(self, target):
         damage = int(round(self.intelligence * (random.uniform(0.25, 0.5))))
         target.health -= damage
@@ -131,7 +131,7 @@ class Chimera(Boss):
         self.attack2_method = self.fire_breath
         self.heal1 = "Prideful Roar"
         self.heal1_method = self.prideful_roar
-        self.intro = (f"You've caught the attention of the {self.name}. Do not take this battle lightly adventurer. Many heroes of renown have fallen in battle to this monstrosity.".center(70))
+        self.intro = (f"Some stories are real. They gather their inspiration from the world and package it neatly. But stories don't feel like the real thing.".center(70))
     def serpents_sting(self, target):
         damage = int(round(self.intelligence * (random.uniform(0.25, 0.5))))
         target.health -= damage
