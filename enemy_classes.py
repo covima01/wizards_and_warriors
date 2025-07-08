@@ -478,6 +478,9 @@ class Ravenous(Monster):
     @staticmethod
     def create_ravenous_mastiff():
         return Ravenous("Ravenous Mastiff", 75, 20, 7, 1, 13)
+    @staticmethod
+    def create_kingsguard_hound():
+        return Ravenous("Kingsguard Hound", 100, 22, 8, 1, 15)
 class Abomination(Monster):
     def __init__(self, name, health, strength, intelligence, level, xp):
         super().__init__(name, health, strength, intelligence, level, xp)
@@ -772,3 +775,13 @@ class Kingsguard(Monster):
     @staticmethod
     def create_kingsguard_captain():
         return Kingsguard("Kingsguard Captain", 75, 20, 7, 1, 13)
+    @staticmethod
+    def create_royal_guard():
+        return Kingsguard("Royal Guard", 100, 22, 8, 1, 15)
+    @staticmethod
+    def create_royal_sword():
+        return Kingsguard("Royal Sword", 125, 23, 9, 1, 16)
+    @staticmethod
+    def create_shieldsworn():
+        return Kingsguard("Shieldsworn", 150, 19, 9, 1, 17)
+    
