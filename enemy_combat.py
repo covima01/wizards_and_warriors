@@ -1,7 +1,9 @@
 import random
 import time
 from constants import BORDER
-from enemies import Enemy_Creation
+from enemies import *
+from characters import Knight_Disgraced, Scholar_Expelled
+from enemies import Royal_Guard
 
 
 
@@ -443,6 +445,7 @@ def monster_rush():
             three_enemies(character, enemy1, enemy2, enemy3)
     print(f"\n{character.name} has fallen")
 
+one_enemy(Knight_Disgraced, Royal_Guard)
 
 
 
