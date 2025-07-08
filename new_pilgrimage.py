@@ -9,24 +9,30 @@ from characters import Knight_Disgraced, Scholar_Expelled
 
 
 def level_1(character):
-    Monster_Generator = Desolate_Place_Enemies
-    enemy1 = random.choice(Monster_Generator)()
-    one_enemy(character, enemy1)
-    print("...".center(100))
+    for i in range(0, 3)
+        Monster_Generator = Desolate_Place_Enemies
+        enemy1 = random.choice(Monster_Generator)()
+        one_enemy(character, enemy1)
+        print("...".center(100))
+        i+=1
 def level_2(character):
-    Monster_Generator = Abandoned_Sanctuary_Enemies
-    enemy1 = random.choice(Monster_Generator)()
-    enemy2 = random.choice(Monster_Generator)()
-    two_enemies(character, enemy1, enemy2)
-    print("...".center(100))
+    for i in range(0, 2)
+        Monster_Generator = Abandoned_Sanctuary_Enemies
+        enemy1 = random.choice(Monster_Generator)()
+        enemy2 = random.choice(Monster_Generator)()
+        two_enemies(character, enemy1, enemy2)
+        print("...".center(100))
+        i+=1
 def level_3(character):
-    Monster_Generator = Southern_Desert_Enemies
-    enemy1 = random.choice(Monster_Generator)()
-    enemy2 = random.choice(Monster_Generator)()
-    enemy3 = random.choice(Monster_Generator)()
-    three_enemies(character, enemy1, enemy2, enemy3)
-    print("...".center(100))
-    time.sleep(3)
+    for i in range(0, 2)
+        Monster_Generator = Southern_Desert_Enemies
+        enemy1 = random.choice(Monster_Generator)()
+        enemy2 = random.choice(Monster_Generator)()
+        enemy3 = random.choice(Monster_Generator)()
+        three_enemies(character, enemy1, enemy2, enemy3)
+        print("...".center(100))
+        time.sleep(3)
+        i+=1
 def level_4(character):
     for i in range(0,2):
         Monster_Generator = Longways_Aqueduct_Enemies
@@ -139,8 +145,10 @@ def level_10(character):
     print(BORDER)
     if character.name == "Disgraced Knight":
         print("You've made it knight.".center(100))
+        time.sleep(5)
     else:
-        print("You've made it scholar.")
+        print("You've made it scholar.".center(100))
+        time.sleep(5)
     for i in range(0,2):
         Monster_Generator = Mountain_Peak_Enemies
         enemy1 = random.choice(Monster_Generator)()
