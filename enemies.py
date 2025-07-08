@@ -4,7 +4,7 @@ from enemy_classes import *
 Fetid_Brute = Giant_Ogre("Fetid Brute", 300, 100, 25, 25, 3, 50) # Rejection
 Scalewing_Alpha = Dragon("Scalewing Alpha", 350, 125, 27, 28, 6, 125) # Existentialism
 The_Myth = Chimera("The Myth", 420, 145, 30, 31, 9, 180) # Anhedonia
-Unknown = Darkness("???", 600, 33, 33, 10, 225) # Numbness
+Unknown = Darkness("???", 600, 150, 33, 33, 10, 225) # Numbness
 
 # Shadowed (self, name, health, strength, intelligence, level, xp)
 Lost_Shadow = Shadowed("Lost Shadow", 20, 10, 10, 1, 5 ) # Desolate Place (1)

@@ -2,25 +2,25 @@ import time
 import random
 from constants import BORDER
 from monster_rush import one_enemy, two_enemies, three_enemies
-from enemies import Enemy_Creation, Fetid_Brute, Scalewing_Alpha, The_Myth, Unknown
+from enemies import *
 from bossfight import boss_fight
 from story import *
 from characters import Knight_Disgraced, Scholar_Expelled
 
 
 def level_1(character):
-    Monster_Generator = Enemy_Creation
+    Monster_Generator = Desolate_Place_Enemies
     enemy1 = random.choice(Monster_Generator)()
     one_enemy(character, enemy1)
     print("...".center(100))
 def level_2(character):
-    Monster_Generator = Enemy_Creation
+    Monster_Generator = Abandoned_Sanctuary_Enemies
     enemy1 = random.choice(Monster_Generator)()
     enemy2 = random.choice(Monster_Generator)()
     two_enemies(character, enemy1, enemy2)
     print("...".center(100))
 def level_3(character):
-    Monster_Generator = Enemy_Creation
+    Monster_Generator = Southern_Desert_Enemies
     enemy1 = random.choice(Monster_Generator)()
     enemy2 = random.choice(Monster_Generator)()
     enemy3 = random.choice(Monster_Generator)()
@@ -29,7 +29,7 @@ def level_3(character):
     time.sleep(3)
 def level_4(character):
     for i in range(0,2):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Longways_Aqueduct_Enemies
         enemy1 = random.choice(Monster_Generator)()
         enemy2 = random.choice(Monster_Generator)()
         enemy3 = random.choice(Monster_Generator)()
@@ -38,17 +38,17 @@ def level_4(character):
     print("...".center(100))
 def level_5(character):
     for i in range(0,2):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Lostnorth_Forest_Enemies
         enemy1 = random.choice(Monster_Generator)()
         one_enemy(character, enemy1)
         i+=1
-    Monster_Generator = Enemy_Creation
+    Monster_Generator = Lostnorth_Forest_Enemies
     enemy1 = random.choice(Monster_Generator)()
     enemy2 = random.choice(Monster_Generator)()
     enemy3 = random.choice(Monster_Generator)()
     three_enemies(character, enemy1, enemy2, enemy3)
     for i in range(0,2):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Lostnorth_Forest_Enemies
         enemy1 = random.choice(Monster_Generator)()
         enemy2 = random.choice(Monster_Generator)()
         two_enemies(character, enemy1, enemy2)
@@ -56,17 +56,17 @@ def level_5(character):
     print("...".center(100))
 def level_6(character):
     for i in range(0,3):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Alenia_Farmland_Enemies
         enemy1 = random.choice(Monster_Generator)()
         one_enemy(character, enemy1)
         i+=1
-    Monster_Generator = Enemy_Creation
+    Monster_Generator = Alenia_Farmland_Enemies
     enemy1 = random.choice(Monster_Generator)()
     enemy2 = random.choice(Monster_Generator)()
     enemy3 = random.choice(Monster_Generator)()
     three_enemies(character, enemy1, enemy2, enemy3)
     for i in range(0,2):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Alenia_Farmland_Enemies
         enemy1 = random.choice(Monster_Generator)()
         enemy2 = random.choice(Monster_Generator)()
         two_enemies(character, enemy1, enemy2)
@@ -74,17 +74,17 @@ def level_6(character):
     print("...".center(100))
 def level_7(character):
     for i in range(0,3):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Mountain_Pass_Enemies
         enemy1 = random.choice(Monster_Generator)()
         one_enemy(character, enemy1)
         i+=1
-    Monster_Generator = Enemy_Creation
+    Monster_Generator = Mountain_Pass_Enemies
     enemy1 = random.choice(Monster_Generator)()
     enemy2 = random.choice(Monster_Generator)()
     enemy3 = random.choice(Monster_Generator)()
     three_enemies(character, enemy1, enemy2, enemy3)
     for i in range(0,3):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Mountain_Pass_Enemies
         enemy1 = random.choice(Monster_Generator)()
         enemy2 = random.choice(Monster_Generator)()
         two_enemies(character, enemy1, enemy2)
@@ -92,20 +92,20 @@ def level_7(character):
     print("...".center(100))
 def level_8(character):
     for i in range(0,2):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Mountain_Ascent_Enemies
         enemy1 = random.choice(Monster_Generator)()
         enemy2 = random.choice(Monster_Generator)()
         two_enemies(character, enemy1, enemy2)
         i+=1
     for i in range(0, 2):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Mountain_Ascent_Enemies
         enemy1 = random.choice(Monster_Generator)()
         enemy2 = random.choice(Monster_Generator)()
         enemy3 = random.choice(Monster_Generator)()
         three_enemies(character, enemy1, enemy2, enemy3)
         i+=1
     for i in range(0,2):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Mountain_Ascent_Enemies
         enemy1 = random.choice(Monster_Generator)()
         enemy2 = random.choice(Monster_Generator)()
         two_enemies(character, enemy1, enemy2)
@@ -115,20 +115,20 @@ def level_8(character):
 def level_9(character):
     time.sleep(3)
     for i in range(0,2):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Mountain_Cliffs_Enemies
         enemy1 = random.choice(Monster_Generator)()
         enemy2 = random.choice(Monster_Generator)()
         two_enemies(character, enemy1, enemy2)
         i+=1
     for i in range(0, 2):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Mountain_Cliffs_Enemies
         enemy1 = random.choice(Monster_Generator)()
         enemy2 = random.choice(Monster_Generator)()
         enemy3 = random.choice(Monster_Generator)()
         three_enemies(character, enemy1, enemy2, enemy3)
         i+=1
     for i in range(0,2):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Mountain_Cliffs_Enemies
         enemy1 = random.choice(Monster_Generator)()
         enemy2 = random.choice(Monster_Generator)()
         two_enemies(character, enemy1, enemy2)
@@ -142,20 +142,20 @@ def level_10(character):
     else:
         print("You've made it scholar.")
     for i in range(0,2):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Mountain_Peak_Enemies
         enemy1 = random.choice(Monster_Generator)()
         enemy2 = random.choice(Monster_Generator)()
         two_enemies(character, enemy1, enemy2)
         i+=1
     for i in range(0, 2):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Mountain_Peak_Enemies
         enemy1 = random.choice(Monster_Generator)()
         enemy2 = random.choice(Monster_Generator)()
         enemy3 = random.choice(Monster_Generator)()
         three_enemies(character, enemy1, enemy2, enemy3)
         i+=1
     for i in range(0,2):
-        Monster_Generator = Enemy_Creation
+        Monster_Generator = Mountain_Peak_Enemies
         enemy1 = random.choice(Monster_Generator)()
         enemy2 = random.choice(Monster_Generator)()
         two_enemies(character, enemy1, enemy2)

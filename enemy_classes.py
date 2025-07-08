@@ -485,7 +485,7 @@ class Abomination(Monster):
     def __init__(self, name, health, strength, intelligence, level, xp):
         super().__init__(name, health, strength, intelligence, level, xp)
         self.attack1 = "Toxic Hook"
-        self.attack1_method = self.toxic.hook
+        self.attack1_method = self.toxic_hook
         self.attack2 = "Contamination"
         self.attack2_method = self.contamination
         self.heal1 = "Regrow Limbs"
