@@ -55,7 +55,7 @@ Royal_Guard = Kingsguard("Royal Guard", 100, 22, 8, 1, 15) # Mountain Peak (10)
 Royal_Sword = Kingsguard("Royal Sword", 125, 23, 9, 1, 16) # Mountain Peak (10)
 Shieldsworn = Kingsguard("Shieldsworn", 150, 19, 9, 1, 17) # Mountain Peak (10)
 
-
+# Level Enemy Groups
 Desolate_Place_Enemies = [Shadowed.create_lost_shadow, Harpy.create_harpy_huntress, Hyena.create_laughing_hyena]
 Abandoned_Sanctuary_Enemies = [Shadowed.create_shadowed_seeker, Shadowed.create_dark_mist, Hyena.create_red_eyed_beast]
 Southern_Desert_Enemies = [Harpy.create_harpy_terror, Harpy.create_harpy_matriarch, Hyena.create_failing_alpha]
@@ -66,7 +66,3 @@ Mountain_Pass_Enemies = [Claimant.create_claimant_guard, Claimant.create_claiman
 Mountain_Ascent_Enemies = [Forgotten.create_forgotten_highwayman, Forgotten.create_forgotten_warrior, Kingsguard.create_kingsguard_infantry]
 Mountain_Cliffs_Enemies = [Ravenous.create_kingsguard_hound, Kingsguard.create_kingsguard_sentinel, Kingsguard.create_kingsguard_captain]
 Mountain_Peak_Enemies = [Kingsguard.create_royal_guard, Kingsguard.create_royal_sword, Kingsguard.create_shieldsworn]
-
-Enemy_Creation = [Shadowed.create_lost_shadow, Shadowed.create_shadowed_seeker, Shadowed.create_dark_mist, Harpy.create_harpy_huntress, 
-                Harpy.create_harpy_terror, Harpy.create_harpy_matriarch, Hyena.create_laughing_hyena, Hyena.create_red_eyed_beast, Hyena.create_failing_alpha,
-                Crazed.create_crazed_fanatic, Crazed.create_crazed_sympathizer, Crazed.create_crazed_leader]

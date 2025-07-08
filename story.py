@@ -1,6 +1,7 @@
 import time
 from constants import BORDER
 
+# Level Text
 def desolate_place_intro():
     print(BORDER)
     print("A DESOLATE PLACE".center(100))
@@ -79,6 +80,7 @@ def mountain_cliffs_intro():
     print(BORDER)
     time.sleep(3)
 
+# Character Text
 def disgraced_knight_intro():
     print("So begins your journey Disgraced Knight.".center(100))
     time.sleep(3)
@@ -106,6 +108,7 @@ def expelled_scholar_intro():
     print("Good luck".center(100))
     time.sleep(3)
 
+# Boss Text
 def fetid_brute_intro():
     print(BORDER)
     print("The stench here is unbearable.".center(100))
@@ -128,8 +131,7 @@ def fetid_brute_outro():
     time.sleep(3)
     print("Another will take its place.".center(100))
     print(BORDER)
-    time.sleep(5)
-    
+    time.sleep(5)    
 def scalewing_alpha_intro():
     print(BORDER)
     print("There is something in the sky.".center(100))
@@ -153,7 +155,6 @@ def scalewing_alpha_outro():
     print("This changes nothing in the gray.".center(100))
     print(BORDER)
     time.sleep(5)
-
 def the_myth_intro():
     print(BORDER)
     print("Voice: How many days have you been here?".rjust(100))
@@ -174,7 +175,6 @@ def the_myth_outro():
     print("Voice: do you even know?".rjust(100))
     print(BORDER)
     time.sleep(5)
-
 def unknown_intro():
     print(BORDER)
     print("???: it's impressive to make it this far.".rjust(100))

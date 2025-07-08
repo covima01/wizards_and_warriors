@@ -7,7 +7,7 @@ from bossfight import boss_fight
 from story import *
 from characters import Knight_Disgraced, Scholar_Expelled
 
-
+# Levels
 def level_1(character):
     for i in range(0, 3):
         Monster_Generator = Desolate_Place_Enemies
@@ -171,7 +171,7 @@ def level_10(character):
     print("good luck".center(100))
     time.sleep(5)
 
-
+# Story mode
 def new_pilgrimage():
     from combat import combat
     from inputs import character_selection
@@ -217,6 +217,3 @@ def new_pilgrimage():
             combat(character, Knight_Disgraced)
         else:
             combat(character, Scholar_Expelled) 
-
-if __name__ == "__main__":
-        new_pilgrimage()

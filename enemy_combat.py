@@ -2,10 +2,6 @@ import random
 import time
 from constants import BORDER
 from enemies import *
-from characters import Knight_Disgraced, Scholar_Expelled
-from enemies import Royal_Guard
-
-
 
 def one_enemy(player, enemy1):
     while player.health > 0 and enemy1.health > 0:
@@ -423,29 +419,3 @@ def three_enemies(player, enemy1, enemy2, enemy3):
     player.level_up()
     player.health = player.max_health
     player.resource = player.max_resource
-def monster_rush():
-    from inputs import character_selection
-    character = character_selection("Choose your character-\n")
-    print(BORDER)
-    while character.health > 0:
-        Monster_Generator = Enemy_Creation
-        enemy_wave = [one_enemy, two_enemies, three_enemies]
-        enemy_wave_selection = random.choice(enemy_wave)
-        if enemy_wave_selection == one_enemy:
-            enemy1 = random.choice(Monster_Generator)()
-            one_enemy(character, enemy1)
-        elif enemy_wave_selection == two_enemies:
-            enemy1 = random.choice(Monster_Generator)()
-            enemy2 = random.choice(Monster_Generator)()
-            two_enemies(character, enemy1, enemy2)
-        elif enemy_wave_selection == three_enemies:
-            enemy1 = random.choice(Monster_Generator)()
-            enemy2 = random.choice(Monster_Generator)()
-            enemy3 = random.choice(Monster_Generator)()
-            three_enemies(character, enemy1, enemy2, enemy3)
-    print(f"\n{character.name} has fallen")
-
-one_enemy(Knight_Disgraced, Royal_Guard)
-
-
-
