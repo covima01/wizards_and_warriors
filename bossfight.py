@@ -39,6 +39,6 @@ def boss_fight(player, enemy):
         elif selection == "3":
             player.heal1_method()
             if enemy.health > 0:
-                enemy.counterattack_method(player)
+                enemy.counterattack(player)
     else:
         return
